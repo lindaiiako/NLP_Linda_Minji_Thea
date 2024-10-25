@@ -1,1 +1,1 @@
-# NLP_Linda_Minji_Thea
+# AI 517 2024 - Project Repo
