@@ -7,7 +7,7 @@ class CustomMwozDataset(Dataset):
     def __init__(self, tokenizer, data_filename):       
         self.tokenizer = tokenizer
 
-        with open (data_filename, 'r') as f:
+        with open(data_filename, 'r') as f:
             raw_dataset = json.load(f)
 
         self.data = self.process_data(raw_dataset)
@@ -36,11 +36,11 @@ class CustomMwozDataset(Dataset):
                 formatted_kb = utils.flatten_kb(kb, data_attributes)
 
                 # Build input
-                input = prompt + '[dialog] ' + context + ' [kb] ' + formatted_kb
+                input = prompt + ' [dialog] ' + context + ' [kb] ' + formatted_kb
             else:
                 prompt = "Based on the [dialog], generate entity types to be included in the response:"
                 # Build input
-                input = prompt + '[dialog] ' + context
+                input = prompt + ' [dialog] ' + context
 
             # Build output
             et = row['hints']['entity_types']
