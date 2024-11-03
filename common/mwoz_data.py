@@ -12,11 +12,14 @@ class CustomMwozDataset(Dataset):
 
         self.data = self.process_data(raw_dataset)
 
+
     def __len__(self):
         return len(self.data)
 
+
     def __getitem__(self, idx):
         return self.data[idx]
+
 
     def process_data(self, raw_dataset):
         processed_dataset = []
@@ -49,9 +52,7 @@ class CustomMwozDataset(Dataset):
             else:
                 output = '[no entity]'
 
-
-            
-            # Build dataset sample dict
+            # Build dataset data entry dict
             tokenized_input = self.tokenizer(input, return_tensors="np")
             data_sample = {
                 'input_seq': input,
@@ -64,4 +65,3 @@ class CustomMwozDataset(Dataset):
             processed_dataset.append(data_sample)
 
         return processed_dataset
-            
