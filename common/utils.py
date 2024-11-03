@@ -15,10 +15,18 @@ def one_hot_encode(labels, delimeter='|'):
 
     return one_hot_label
 
-'''
-def build_dataset():
-    ...
-'''
+
+# Flattens kb entries from the json file into a list
+def flatten_kb(kb, data_attributes):
+    knowledge_seqence = []
+    for entry in kb:
+        tmp = dict()
+        for f in data_attributes:
+            tmp[f] = entry.get(f, 'none')
+        knowledge_seqence.append(json.dumps(tmp))
+
+    return "[" + ",".join(knowledge_seqence) + "]"
+
 
 # Computes accuracy and micro F1 score for entity type prediction
 def compute_prediction_scores(preds, labels):
