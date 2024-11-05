@@ -4,14 +4,16 @@ from common import utils
 
 
 class CustomMwozDataset(Dataset):
-    def __init__(self, tokenizer, data_filename):       
+    def __init__(self, tokenizer, data_filename, mode):       
         self.tokenizer = tokenizer
+        self.mode = mode
 
         with open(data_filename, 'r') as f:
             raw_dataset = json.load(f)
 
+        print(f"Processing: {data_filename} ...")
         self.data = self.process_data(raw_dataset)
-
+        print("Done.")
 
     def __len__(self):
         return len(self.data)
@@ -58,9 +60,12 @@ class CustomMwozDataset(Dataset):
                 'input_seq': input,
                 'input_ids': tokenized_input.input_ids[0],
                 'attention_mask': tokenized_input.attention_mask[0],
-                'output_seq': output,
-                'labels': self.tokenizer(output, return_tensors="np").input_ids[0]
+                'output_seq': output
             }
+
+            # Include ground truth labels in train mode 
+            if self.mode == 'train':
+                data_sample['labels'] = self.tokenizer(output, return_tensors="np").input_ids[0]
 
             processed_dataset.append(data_sample)
 

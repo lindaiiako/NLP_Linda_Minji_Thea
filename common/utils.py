@@ -3,6 +3,7 @@ import torch.nn.functional as F
 import json
 from sklearn.metrics import f1_score, accuracy_score
 from common import constants
+from collections import Counter
 
 
 # Encodes list of labels from text format list to one-hot format
@@ -29,35 +30,65 @@ def flatten_kb(kb, data_attributes):
     return "[" + ",".join(knowledge_seqence) + "]"
 
 
-# Computes accuracy and micro F1 score for entity type prediction
-def compute_prediction_scores(preds, labels):
-    # Convert text to multilabel class form
-    
-    if isinstance(preds, str):
-        preds_multilabel = one_hot_encode(preds)
-        labels_multilabel = one_hot_encode(labels)
-    else:                  # for batched data
-        preds_multilabel = [one_hot_encode(pred) for pred in preds]
-        labels_multilabel = [one_hot_encode(label) for label in labels]
+# Returns entity types list as a set with index #
+# Sample input: ['food', 'name', 'pricerange', 'type', 'name']
+# Sample output: {'food_0', 'name_0', 'name_1', 'pricerange_0', 'type_0'}
+def get_indexed_entity_types(entity_types):
+    cnts = Counter(entity_types).most_common()
+    ret = set()
+    for et, cnt in cnts:
+        for jj in range(cnt):
+            ret.add(f"{et}_{jj}")
 
-    print(preds_multilabel)
-    print(labels_multilabel)
+    return ret
 
-    accuracy = accuracy_score(y_true=labels_multilabel, y_pred=preds_multilabel)
-    f1 = f1_score(y_true=labels_multilabel, y_pred=preds_multilabel, average="micro")*100
-    
-    # Return metrics as dict
-    return {'f1': f1, 'accuracy': accuracy}
 
-# TODO: different score computation function for purely text format with repetitions
+# Computes F1 score and accuracy for entity type prediction
+# Note: entity type is a list (e.g. "area | choice")
+def compute_prediction_scores(preds, eval_dataset, delimiter='|'):
+    tp, fn, fp = 0, 0, 0
+    corr = 0
+
+    for idx in range(len(preds)):
+        gold = eval_dataset[idx]['output_seq']
+        pred = preds[idx]
+
+        if '[no entity]' in pred:
+            pred = '[no entity]'
+
+        entities_gold = get_indexed_entity_types([x.strip() for x in gold.split(delimiter)])
+        entities_predicted = get_indexed_entity_types([x.strip() for x in pred.split(delimiter)])
+
+        ttp = len(entities_gold.intersection(entities_predicted))
+        tfp = len(entities_predicted - entities_gold)
+        tfn = len(entities_gold - entities_predicted)
+
+        if tfp == 0 and tfn == 0:
+            corr += 1
+
+        tp += ttp
+        fp += tfp
+        fn += tfn
+
+    prec = tp / (tp + fp) if tp + fp > 0 else 0
+    rec = tp / (tp + fn) if tp + fn > 0 else 0
+    f1 = (2 * prec * rec) / (prec + rec) if prec + rec > 0 else 0
+    accuracy = corr / len(eval_dataset)
+
+    return prec, rec, f1, accuracy
 
 
 # Computes average confidence score for text-based format outputs using logits scores
-def get_prediction_with_confidence_score(generation_outputs, tokenizer):
+# Note: assumes input is 1 sample (not batch)
+def decode_with_confidence_score(generation_outputs, tokenizer):
     generated_sequence = generation_outputs.sequences[0]
-    predicted_text = tokenizer.decode(generated_sequence, skip_special_tokens=True, clean_up_tokenization_spaces=True)
+    
+    # Get predicted text
+    decoded_seq = tokenizer.decode(generated_sequence, clean_up_tokenization_spaces=False)
+    predicted_text = decoded_seq.split("<pad>", 1)[-1].strip().split("</s>")[0].strip()
 
-    logits = generation_outputs.scores                    # logits for each token
+    # Get logits for each token
+    logits = generation_outputs.scores                    
     
     # Compute confidence scores for each token
     probs = []
