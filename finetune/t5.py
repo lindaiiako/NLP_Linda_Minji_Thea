@@ -1,6 +1,7 @@
 import os
 import torch
 import numpy as np
+from transformers import set_seed
 from transformers import T5Tokenizer, T5ForConditionalGeneration, Seq2SeqTrainingArguments
 from common.mwoz_data import CustomMwozDataset
 from common import constants
@@ -10,7 +11,7 @@ from finetune.seq2seq import Seq2SeqTrainer
 # Set for reproducibility
 np.random.seed(constants.SEED)
 torch.manual_seed(constants.SEED)
-
+set_seed(constants.SEED)
 
 class T5Trainer():
     # Loads T5 tokenizer and model
@@ -82,7 +83,6 @@ class T5Trainer():
 
         # Init hyperparameters similar to SyncTOD to replicate results
         training_args = Seq2SeqTrainingArguments(
-            predict_with_generate=True,
             gradient_accumulation_steps=4,
             per_device_train_batch_size=8,
             per_device_eval_batch_size=4,
@@ -92,16 +92,15 @@ class T5Trainer():
             gradient_checkpointing=True,
             learning_rate=1e-4,
             warmup_ratio=0.1,
-            generation_max_length=20,
             output_dir=constants.TRAIN_OUTPUT_DIR,
             overwrite_output_dir=True,  
             remove_unused_columns=False,
-            log_level='info',
-            logging_steps=1,
+            log_level='warning',
+            logging_steps=10,
             save_strategy='steps', 
             save_steps=200,
             seed=constants.SEED,
-            eval_strategy='steps',
+            evaluation_strategy='steps',
             eval_steps=200,
             save_total_limit=2,
             load_best_model_at_end=True, 

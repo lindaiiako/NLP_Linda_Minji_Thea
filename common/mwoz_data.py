@@ -9,10 +9,10 @@ class CustomMwozDataset(Dataset):
         self.mode = mode
 
         with open(data_filename, 'r') as f:
-            raw_dataset = json.load(f)
+            self.raw_dataset = json.load(f)
 
         print(f"Processing: {data_filename} ...")
-        self.data = self.process_data(raw_dataset)
+        self.data = self.process_data(self.raw_dataset)
         print("Done.")
 
     def __len__(self):

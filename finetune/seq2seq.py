@@ -1,5 +1,6 @@
 import torch
 import json
+import numpy as np
 from transformers import Trainer
 from torch.utils.data import DataLoader
 from common.utils import compute_prediction_scores
@@ -10,7 +11,7 @@ class Seq2SeqTrainer(Trainer):
     # Decodes output with the tokenizer 
     def decode_responses(self, outputs):
         preds = []
-        responses = self.tokenizer.batch_decode(outputs, clean_up_tokenization_spaces=False)
+        responses = self.tokenizer.batch_decode(outputs.sequences.to('cpu'), clean_up_tokenization_spaces=False)
         for response in responses:
             preds.append(response.split("<pad>", 1)[-1].strip().split("</s>")[0].strip())
 
@@ -33,18 +34,25 @@ class Seq2SeqTrainer(Trainer):
         model.eval()
 
         responses = []
+        probs = [] 
         for inputs in dataloader:
             batch = dict([(k, v.to(self.model.device)) for k, v in inputs.items()])
-            # Run predict            
+            # Run predict with logits           
             with torch.no_grad():
                 outputs = model.generate(**batch,
-                                         use_cache=True,
                                          max_new_tokens=max_new_tokens,
                                          do_sample=False,
                                          num_beams=1,
+                                         return_dict_in_generate=True,
+                                         output_scores=True
                                          )
-            outputs = outputs.to('cpu')
             responses.extend(self.decode_responses(outputs))
+
+            transition_scores = model.compute_transition_scores(outputs.sequences, outputs.scores, normalize_logits=True)
+
+            # Obtain scores for selected tokens in greedy search
+            probs.extend(np.exp(transition_scores.to('cpu').numpy()))
+
 
         # Back to train mode
         model.train()
@@ -52,7 +60,7 @@ class Seq2SeqTrainer(Trainer):
         # Ensure correct size
         final_responses = responses[:len(dataset)]
 
-        return final_responses
+        return final_responses, probs
 
 
     # Evaluates entity type prediction using F1 scores (used in validation and test set)
@@ -67,7 +75,7 @@ class Seq2SeqTrainer(Trainer):
             eval_dataset = self.eval_dataset    # test set
 
         # Get predictions
-        responses = self.get_preds(eval_dataset)
+        responses, probs = self.get_preds(eval_dataset)
 
         # Compute scores
         prec, rec, f1, accuracy = compute_prediction_scores(responses, eval_dataset)
@@ -88,11 +96,12 @@ class Seq2SeqTrainer(Trainer):
             output = []
             for idx, resp in enumerate(responses):
                 output.append(dict())
-                output[-1]['uuid'] = eval_dataset.raw_data[idx]['uuid']
-                output[-1]['turn_id'] = eval_dataset.raw_data[idx]['turn_id']
+                output[-1]['uuid'] = eval_dataset.raw_dataset[idx]['uuid']
+                output[-1]['turn_id'] = eval_dataset.raw_dataset[idx]['turn_id']
                 tetypes = resp.split('|')
                 tetypes = [x.strip() for x in tetypes if '[no entity]' != x]
                 output[-1]['prediction'] = tetypes
+                output[-1]['confidence'] = str(np.mean(probs[idx]))     # Get average score as proxy for confidence score
 
             with open(result_path, 'w') as f:
                 json.dump(output, f, indent=2)

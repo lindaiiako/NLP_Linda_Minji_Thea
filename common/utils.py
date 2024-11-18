@@ -76,39 +76,3 @@ def compute_prediction_scores(preds, eval_dataset, delimiter='|'):
     accuracy = corr / len(eval_dataset)
 
     return prec, rec, f1, accuracy
-
-
-# Computes average confidence score for text-based format outputs using logits scores
-# Note: assumes input is 1 sample (not batch)
-def decode_with_confidence_score(generation_outputs, tokenizer):
-    generated_sequence = generation_outputs.sequences[0]
-    
-    # Get predicted text
-    decoded_seq = tokenizer.decode(generated_sequence, clean_up_tokenization_spaces=False)
-    predicted_text = decoded_seq.split("<pad>", 1)[-1].strip().split("</s>")[0].strip()
-
-    # Get logits for each token
-    logits = generation_outputs.scores                    
-    
-    # Compute confidence scores for each token
-    probs = []
-    for idx in range(len(logits)):
-        token_logits = logits[idx]                        # logits of this token
-        token_id = generated_sequence[idx+1].item()       # corresponding token ID in T5
-
-        # TODO: add condition to check only for expected labels?
-        if token_id != tokenizer.pad_token_id and token_id != tokenizer.eos_token_id:
-            probabilities = F.softmax(token_logits, dim=-1) 
-            prob = probabilities[0, token_id]    
-            probs.append(prob)
-
-    # Calculate average confidence score for the entire sequence
-    if len(probs) > 0:
-        avg_confidence_score = sum(probs) / len(probs)
-    else:
-        avg_confidence_score = "unknown"                # maybe better than 0?
-
-    # Output results
-    print(f"Model Prediction: {predicted_text} (Confidence: {avg_confidence_score})")
-    
-    return predicted_text, avg_confidence_score
