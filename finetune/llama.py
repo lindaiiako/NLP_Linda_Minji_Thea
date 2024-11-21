@@ -66,7 +66,7 @@ class LlamaTrainer():
 
         responses = []
         for batch in dataloader:
-            formatted_inputs = [format_test_for_llama(v).to(self.model.device) for k, v in batch.items()]
+            formatted_inputs = [format_test_for_llama(v) for k, v in batch.items()]
             inputs = self.tokenizer(formatted_inputs, return_tensors="pt").to(self.model.device)
             with torch.no_grad():
                 outputs = self.model.generate(**inputs, 
