@@ -1,9 +1,11 @@
 # App-specific folders
 train_output/t5/
+llama-etpred-ft/
 *.err
 *.out
 sample.py
 test.ipynb
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
