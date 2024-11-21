@@ -76,3 +76,6 @@ def compute_prediction_scores(preds, eval_dataset, delimiter='|'):
     accuracy = corr / len(eval_dataset)
 
     return prec, rec, f1, accuracy
+
+def llama_format_train(prompt,response):
+    return f"<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n{response}<|im_end|>\n"

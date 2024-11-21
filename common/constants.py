@@ -8,7 +8,12 @@ SEED = 43
 
 DATA_DIR = 'data/'
 
-MODEL_NAME = "google/flan-t5-large"
+T5_MODEL_ID = "google/flan-t5-large"
+T5_TRAIN_OUTPUT_DIR = 'train_output/t5/'
+T5_TEST_RESULT_FILE = 'test_results/t5.json'
 
-TRAIN_OUTPUT_DIR = 'train_output/t5/'
-TEST_RESULT_FILE = 'test_results/t5.json'
+
+LLAMA_MODEL_ID = "meta-llama/Meta-Llama-3.1-8B"
+LLAMA_FT_MODEL_NAME = "llama-etpred-ft"
+LLAMA_TRAIN_OUTPUT_DIR = 'train_output/llama/'
+LLAMA_TEST_RESULT_FILE = 'test_results/llama.json'

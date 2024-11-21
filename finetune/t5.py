@@ -17,8 +17,8 @@ class T5Trainer():
     # Loads T5 tokenizer and model
     def __init__(self):
         # Load tokenizer and model
-        self.tokenizer = T5Tokenizer.from_pretrained(constants.MODEL_NAME, model_max_length=None)
-        self.model = T5ForConditionalGeneration.from_pretrained(constants.MODEL_NAME)
+        self.tokenizer = T5Tokenizer.from_pretrained(constants.T5_MODEL_ID, model_max_length=None)
+        self.model = T5ForConditionalGeneration.from_pretrained(constants.T5_MODEL_ID)
 
         # Push to GPU
         os.environ["CUDA_VISIBLE_DEVICES"] = "1"    # Temporary setting
@@ -78,8 +78,8 @@ class T5Trainer():
     # Main training procedure
     def train(self):
         # Init dataset
-        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', mode='train')
-        validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', mode='eval')
+        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='t5', mode='train')
+        validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='t5', mode='eval')
 
         # Init hyperparameters similar to SyncTOD to replicate results
         training_args = Seq2SeqTrainingArguments(
@@ -92,7 +92,7 @@ class T5Trainer():
             gradient_checkpointing=True,
             learning_rate=1e-4,
             warmup_ratio=0.1,
-            output_dir=constants.TRAIN_OUTPUT_DIR,
+            output_dir=constants.T5_TRAIN_OUTPUT_DIR,
             overwrite_output_dir=True,  
             remove_unused_columns=False,
             log_level='warning',
@@ -114,15 +114,16 @@ class T5Trainer():
         trainer = Seq2SeqTrainer(
             model=self.model, 
             tokenizer=self.tokenizer,
-            data_collator=self.seq2seq_collate_fn,
             args=training_args,
-            train_dataset=train_set, eval_dataset=validation_set,
+            train_dataset=train_set, 
+            eval_dataset=validation_set,
+            data_collator=self.seq2seq_collate_fn,
         )
 
         # Trigger training and evaluate on validation set
         trainer.train()
 
         # Get test performance
-        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', mode='eval')
-        test_results = trainer.evaluate(test_set, save_results=True, result_path=constants.TEST_RESULT_FILE)
+        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='t5', mode='eval')
+        test_results = trainer.evaluate(test_set, save_results=True, result_path=constants.T5_TEST_RESULT_FILE)
         print(test_results)

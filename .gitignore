@@ -2,6 +2,8 @@
 train_output/t5/
 *.err
 *.out
+sample.py
+test.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
