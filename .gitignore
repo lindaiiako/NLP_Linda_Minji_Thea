@@ -1,5 +1,7 @@
 # App-specific folders
 train_output/t5/
+*.err
+*.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

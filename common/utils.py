@@ -56,8 +56,8 @@ def compute_prediction_scores(preds, eval_dataset, delimiter='|'):
         if '[no entity]' in pred:
             pred = '[no entity]'
 
-        entities_gold = get_indexed_entity_types([x.strip() for x in gold.split(delimiter)])
-        entities_predicted = get_indexed_entity_types([x.strip() for x in pred.split(delimiter)])
+        entities_gold = set([x.strip() for x in gold.split(delimiter)])
+        entities_predicted = set([x.strip() for x in pred.split(delimiter)])
 
         ttp = len(entities_gold.intersection(entities_predicted))
         tfp = len(entities_predicted - entities_gold)
