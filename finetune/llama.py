@@ -2,10 +2,15 @@ import os
 import torch
 import numpy as np
 import pandas as pd
+import json
 from transformers import set_seed, GenerationConfig
 from common.mwoz_data import CustomMwozDataset
 from common import constants
 from datasets import Dataset
+from common.utils import format_train_for_llama, format_test_for_llama
+from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader
+from common.utils import compute_prediction_scores
 
 #from datasets import load_dataset, Dataset
 from peft import LoraConfig, AutoPeftModelForCausalLM
@@ -27,8 +32,9 @@ class LlamaTrainer():
     def __init__(self):
         # Load tokenizer and model
         self.tokenizer = AutoTokenizer.from_pretrained(constants.LLAMA_MODEL_ID, model_max_length=None)
-        self.tokenizer.add_special_tokens({"pad_token": "<pad>"})
-        #self.tokenizer.pad_token = self.tokenizer.eos_token
+        #self.tokenizer.add_special_tokens({"pad_token": "<pad>"})
+        self.tokenizer.pad_token = self.tokenizer.eos_token
+
         bnb_config = BitsAndBytesConfig(
             load_in_4bit=True, 
             bnb_4bit_quant_type="nf4", 
@@ -40,26 +46,63 @@ class LlamaTrainer():
 
         self.model.config.use_cache=False
 
-        self.model.config.pad_token_id = self.tokenizer.pad_token_id
-        self.model.resize_token_embeddings(len(self.tokenizer), pad_to_multiple_of=8)
+        #self.model.config.pad_token_id = self.tokenizer.pad_token_id
+        #self.model.resize_token_embeddings(len(self.tokenizer), pad_to_multiple_of=8)
 
+        response_template = " ### Response:"
+        self.collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=self.tokenizer)
 
-    def formatted_prompt(self, question):
-        return f"### Question: {question}\n ### Answer: "
     
-    def generate_response(self, user_input):
-        prompt = self.formatted_prompt(user_input)
-        inputs = self.tokenizer([prompt], return_tensors="pt")
-        generation_config = GenerationConfig(penalty_alpha=0.6,do_sample = True,
-            top_k=5,temperature=0.5,repetition_penalty=1.2,
-            max_new_tokens=60,pad_token_id=self.tokenizer.eos_token_id
+    def evaluate(self, test_set, save_results, result_path, metric_key_prefix):
+        max_new_tokens = 128
+        self.model.eval()
+        
+        # Apply prompt
+        dataloader = DataLoader(test_set,
+                                batch_size=8,
+                                #collate_fn=self.collator,
+                                sampler=torch.utils.data.SequentialSampler(test_set),
         )
 
-        inputs = self.tokenizer(prompt, return_tensors="pt").to('cuda')
-        outputs = self.model.generate(**inputs, generation_config=generation_config)
-        theresponse = (self.tokenizer.decode(outputs[0], skip_special_tokens=True))
-        print(self.tokenizer.decode(outputs[0], skip_special_tokens=True))
+        responses = []
+        for batch in dataloader:
+            formatted_inputs = [format_test_for_llama(v).to(self.model.device) for k, v in batch.items()]
+            inputs = self.tokenizer(formatted_inputs, return_tensors="pt").to(self.model.device)
+            with torch.no_grad():
+                outputs = self.model.generate(**inputs, 
+                                            max_new_tokens=max_new_tokens,
+                                            do_sample=False,
+                                            num_beams=1
+                                            )
+            
+            responses.extend(self.tokenizer.batch_decode(outputs, skip_special_tokens=True))
 
+        # Compute scores
+        prec, rec, f1, accuracy = compute_prediction_scores(responses, test_set)
+        
+        metrics = dict()
+        metrics[f"{metric_key_prefix}_f1"] = f1
+        metrics[f"{metric_key_prefix}_prec"] = prec
+        metrics[f"{metric_key_prefix}_rec"] = rec
+        metrics[f"{metric_key_prefix}_acc"] = accuracy
+
+        print(f'Evaluation results: {json.dumps(metrics, indent=2)}')
+
+        if save_results:
+            output = []
+            for idx, resp in enumerate(responses):
+                output.append(dict())
+                output[-1]['uuid'] = test_set.raw_dataset[idx]['uuid']
+                output[-1]['turn_id'] = test_set.raw_dataset[idx]['turn_id']
+                tetypes = resp.split('|')
+                tetypes = [x.strip() for x in tetypes if '[no entity]' != x]
+                output[-1]['prediction'] = tetypes
+
+            with open(result_path, 'w') as f:
+                json.dump(output, f, indent=2)
+
+        return metrics
+    
 
     # Main training procedure
     def train(self):
@@ -77,26 +120,18 @@ class LlamaTrainer():
             optim="paged_adamw_32bit",
             learning_rate=2e-4,
             lr_scheduler_type="cosine",
-            save_strategy="epoch",
             logging_steps=10,
             num_train_epochs=3,
-            max_steps=250,
+            max_steps=10, #250,
             fp16=True,
             push_to_hub=False,
             seed=constants.SEED,
             report_to='tensorboard',
             run_name='llama_exp',
+            load_best_model_at_end=True, 
+            eval_strategy='steps',
+            save_strategy='steps', 
         )
-
-        def formatting_prompts_func(example):
-            output_texts = []
-            for i in range(len(example['instruction'])):
-                text = f"### Question: {example['instruction'][i]}\n ### Answer: {example['output'][i]}"
-                output_texts.append(text)
-            return output_texts
-
-        response_template = " ### Answer:"
-        collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=self.tokenizer)
 
         trainer = SFTTrainer(
             model=self.model,
@@ -106,14 +141,14 @@ class LlamaTrainer():
             train_dataset=Dataset.from_list(train_set), 
             eval_dataset=Dataset.from_list(validation_set),
             max_seq_length=5000,
-            formatting_func=formatting_prompts_func,
-            data_collator=collator,
+            formatting_func=format_train_for_llama,
+            data_collator=self.collator,
             packing=False,
         )
 
         trainer.train()
 
         # Get test performance
-        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='t5', mode='eval')
-        #test_results = trainer.evaluate(test_set, save_results=True, result_path=constants.LLAMA_TEST_RESULT_FILE)
-        #print(test_results)
+        test_set = Dataset.from_list(CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='llama', mode='infer').data)
+        test_results = self.evaluate(test_set, save_results=True, result_path=constants.LLAMA_TEST_RESULT_FILE, metric_key_prefix='test')
+        print(test_results)

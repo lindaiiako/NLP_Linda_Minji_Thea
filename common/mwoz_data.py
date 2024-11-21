@@ -70,16 +70,17 @@ class CustomMwozDataset(Dataset):
                 if self.mode == 'train':
                     data_sample['labels'] = self.tokenizer(output, return_tensors="np").input_ids[0]
             elif model_type == 'llama':
-                #data_sample = { 'text': utils.llama_format_train(input, output)} 
-                #data_sample = {"text": f"### Human: {input} ### Assistant: {output}"}
-                data_sample = {'instruction': input, 'output': output}
-
-                x = len(str(input)) + len(str(output))
-                if x > max_len:
-                    max_len = x
+                if self.mode in ['train', 'eval']:
+                    data_sample = {'instruction': input, 'output': output}
+                else:
+                    data_sample = {'instruction': input}
+                
+                #x = len(str(input)) + len(str(output))
+                #if x > max_len:
+                #    max_len = x
             else:
                 print("Incorrect model passed.")
             processed_dataset.append(data_sample)
 
-        print(f"max: {max_len}")
+        #print(f"max: {max_len}")
         return processed_dataset

@@ -21,17 +21,14 @@ class Seq2SeqTrainer(Trainer):
     def get_preds(self, dataset):
         max_new_tokens = 128
         model = self._wrap_model(self.model, training=False)
+        # Temporarily set to eval mode
         model.eval()
 
         dataloader = DataLoader(dataset,
                                 batch_size=self.args.eval_batch_size,
                                 collate_fn=self.data_collator,
-                                num_workers=self.args.dataloader_num_workers,
-                                sampler=torch.utils.data.SequentialSampler(dataset),        # Iterates data in order
+                                sampler=torch.utils.data.SequentialSampler(dataset),
         )
-
-        # Temporarily set to eval mode
-        model.eval()
 
         responses = []
         probs = [] 
@@ -107,5 +104,6 @@ class Seq2SeqTrainer(Trainer):
                 json.dump(output, f, indent=2)
 
         return metrics
+    
     
 

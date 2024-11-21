@@ -21,7 +21,7 @@ class T5Trainer():
         self.model = T5ForConditionalGeneration.from_pretrained(constants.T5_MODEL_ID)
 
         # Push to GPU
-        os.environ["CUDA_VISIBLE_DEVICES"] = "1"    # Temporary setting
+        os.environ["CUDA_VISIBLE_DEVICES"] = "7"    # Temporary setting
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(device)
 
@@ -100,7 +100,7 @@ class T5Trainer():
             save_strategy='steps', 
             save_steps=200,
             seed=constants.SEED,
-            evaluation_strategy='steps',
+            eval_strategy='steps',
             eval_steps=200,
             save_total_limit=2,
             load_best_model_at_end=True, 
@@ -124,6 +124,6 @@ class T5Trainer():
         trainer.train()
 
         # Get test performance
-        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='t5', mode='eval')
-        test_results = trainer.evaluate(test_set, save_results=True, result_path=constants.T5_TEST_RESULT_FILE)
+        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='t5', mode='test')
+        test_results = trainer.evaluate(test_set, save_results=True, result_path=constants.T5_TEST_RESULT_FILE, metric_key_prefix='test')
         print(test_results)
