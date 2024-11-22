@@ -77,13 +77,10 @@ def compute_prediction_scores(preds, eval_dataset, delimiter='|'):
 
     return prec, rec, f1, accuracy
 
-def format_train_for_llama(example):
-    output_texts = []
-    for i in range(len(example['instruction'])):
-        text = f"Below is an instruction that describes a task. \n Write a response that appropriately completes the request.\n\n ### Instruction: {example['instruction'][i]}\n ### Response: {example['output'][i]}"
-        output_texts.append(text)
-    return output_texts
 
-
-def format_test_for_llama(instruction):
-    return f"Below is an instruction that describes a task. \n Write a response that appropriately completes the request.\n\n ### Instruction: {instruction}\n ### Response:"
+def format_for_llama_ft(prompt, input, output, mode):
+    if mode == 'infer':
+        return f"<|im_start|>system\n{prompt}<|im_end|>\n<|im_start|>user\n{input}<|im_end|>\n<|im_start|>assistant\n"
+    else:
+        return f"<|im_start|>system\n{prompt}<|im_end|>\n<|im_start|>user\n{input}<|im_end|>\n<|im_start|>assistant\n{output}<|im_end|>\n"
+    

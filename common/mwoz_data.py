@@ -18,7 +18,6 @@ class CustomMwozDataset(Dataset):
     def __len__(self):
         return len(self.data)
 
-
     def __getitem__(self, idx):
         return self.data[idx]
 
@@ -42,11 +41,12 @@ class CustomMwozDataset(Dataset):
                 formatted_kb = utils.flatten_kb(kb, data_attributes)
 
                 # Build input
-                input = prompt + ' [dialog] ' + context + ' [kb] ' + formatted_kb
+                input = ' [dialog] ' + context + ' [kb] ' + formatted_kb
             else:
                 prompt = "Based on the [dialog], generate entity types to be included in the response:"
+                
                 # Build input
-                input = prompt + ' [dialog] ' + context
+                input = ' [dialog] ' + context
 
             # Build output
             et = row['hints']['entity_types']
@@ -58,6 +58,7 @@ class CustomMwozDataset(Dataset):
             # Build data sample based on model input format
             if model_type == 't5': 
                 # Build dataset data entry dict
+                input = prompt + input
                 tokenized_input = self.tokenizer(input, return_tensors="np")
                 data_sample = {
                     'input_seq': input,
@@ -70,17 +71,11 @@ class CustomMwozDataset(Dataset):
                 if self.mode == 'train':
                     data_sample['labels'] = self.tokenizer(output, return_tensors="np").input_ids[0]
             elif model_type == 'llama':
-                if self.mode in ['train', 'eval']:
-                    data_sample = {'instruction': input, 'output': output}
-                else:
-                    data_sample = {'instruction': input}
-                
-                #x = len(str(input)) + len(str(output))
-                #if x > max_len:
-                #    max_len = x
+                    # Format for llama
+                    formatted_seq = utils.format_for_llama_ft(prompt, input, output, self.mode)
+                    data_sample = {'text': formatted_seq, 'output_seq': output, 'uuid': row['uuid'], 'turn_id': row['turn_id']}             
             else:
-                print("Incorrect model passed.")
+                raise NotImplementedError
             processed_dataset.append(data_sample)
 
-        #print(f"max: {max_len}")
         return processed_dataset
