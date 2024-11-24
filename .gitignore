@@ -1,5 +1,6 @@
 # App-specific folders
 train_output/t5/
+train_output/llama/
 llama-etpred-ft/
 *.err
 *.out
