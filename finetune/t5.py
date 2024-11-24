@@ -62,7 +62,10 @@ class Seq2SeqTrainer(Trainer):
         # Back to train mode
         model.train()
 
-        return responses, probs
+        # Ensure correct size
+        final_responses = responses[:len(dataset)]
+
+        return final_responses, probs
 
 
     # Evaluates entity type prediction using F1 scores (used in validation and test set)
