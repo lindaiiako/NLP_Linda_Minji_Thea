@@ -1,15 +1,14 @@
 import numpy as np
 import json
 import torch
+import re
 import bitsandbytes as bnb
-from torch.utils.data import DataLoader
-from datasets import Dataset
 from transformers import set_seed, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from common import constants
 from common.mwoz_data import CustomMwozDataset
 from common.utils import compute_prediction_scores
 from peft import LoraConfig
-from trl import SFTTrainer, setup_chat_format, SFTConfig, DataCollatorForCompletionOnlyLM
+from trl import SFTTrainer, setup_chat_format, SFTConfig
 
 
 # Set for reproducibility
@@ -71,6 +70,8 @@ class LlamaTrainer():
                                             max_new_tokens=constants.MAX_NEW_TOKENS,
                                             do_sample=False,
                                             num_beams=1,
+                                            #stop_strings="END```",
+                                            #tokenizer=self.tokenizer,
                                             )
             
             # Get only the generated text (skip the input prompt)
@@ -79,6 +80,14 @@ class LlamaTrainer():
             print("OUT")
             print(decoded_response)
             responses.append(decoded_response)
+
+            pattern = r"```\n(.*?)\n```"
+            match = re.search(pattern, decoded_response)
+        
+            if match is not None:
+                et_list = match.group(1)
+                print("SUBSTR")
+                print(et_list)
 
             output.append(dict())
             output[-1]['uuid'] = sample['uuid']
@@ -154,13 +163,13 @@ class LlamaTrainer():
             tokenizer=self.tokenizer,
             peft_config=peft_config,
             args=training_args,
-            train_dataset=Dataset.from_list(train_set), 
-            eval_dataset=Dataset.from_list(validation_set),
+            train_dataset=train_set, 
+            eval_dataset=validation_set,
         )
 
         trainer.train()
 
         # Get test performance
-        test_set = Dataset.from_list(CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='llama_it', mode='infer').data)
+        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='llama_it', mode='infer').data
         test_results = self.evaluate(test_set, save_results=True, result_path=constants.LLAMA_TEST_RESULT_FILE, metric_key_prefix='test')
         print(test_results)

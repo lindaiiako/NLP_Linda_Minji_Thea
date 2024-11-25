@@ -15,7 +15,8 @@ T5_TRAIN_OUTPUT_DIR = 'train_output/t5/'
 T5_TEST_RESULT_FILE = 'predictions/t5.json'
 
 
-LLAMA_MODEL_ID = "meta-llama/Llama-3.2-3B" # "meta-llama/Llama-3.2-1B" #"meta-llama/Meta-Llama-3.1-8B" #"meta-llama/Llama-3.2-1B-Instruct" 
+LLAMA_MODEL_ID = "meta-llama/Llama-3.2-3B" # "meta-llama/Llama-3.2-1B" #"meta-llama/Meta-Llama-3.1-8B"  
+LLAMA_IT_MODEL_ID = "meta-llama/Llama-3.2-3B-Instruct"
 LLAMA_FT_MODEL_NAME = "llama-etpred-ft"
 LLAMA_TRAIN_OUTPUT_DIR = 'train_output/llama/'
 LLAMA_TEST_RESULT_FILE = 'predictions/llama.json'

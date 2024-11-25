@@ -3,7 +3,7 @@
     "uuid": "test_0",
     "turn_id": 0,
     "prediction": [],
-    "confidence": "0.896657"
+    "confidence": "0.92393166"
   },
   {
     "uuid": "test_0",
@@ -11,15 +11,16 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.18245693"
+    "confidence": "0.17143203"
   },
   {
     "uuid": "test_0",
     "turn_id": 2,
     "prediction": [
+      "name",
       "stars"
     ],
-    "confidence": "0.23119439"
+    "confidence": "0.5392633"
   },
   {
     "uuid": "test_0",
@@ -27,19 +28,19 @@
     "prediction": [
       "entrance_fee"
     ],
-    "confidence": "0.92910033"
+    "confidence": "0.8981099"
   },
   {
     "uuid": "test_0",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.54519695"
+    "confidence": "0.54486954"
   },
   {
     "uuid": "test_0",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.544698"
+    "confidence": "0.54397684"
   },
   {
     "uuid": "test_1",
@@ -49,7 +50,7 @@
       "stars",
       "type"
     ],
-    "confidence": "0.4779911"
+    "confidence": "0.48690158"
   },
   {
     "uuid": "test_1",
@@ -61,57 +62,58 @@
       "stars",
       "type"
     ],
-    "confidence": "0.799942"
+    "confidence": "0.79367965"
   },
   {
     "uuid": "test_1",
     "turn_id": 2,
     "prediction": [
       "area",
-      "choice",
       "name",
-      "name",
+      "pricerange",
+      "stars",
       "type"
     ],
-    "confidence": "0.6655741"
+    "confidence": "0.7523722"
   },
   {
     "uuid": "test_1",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5996505"
+    "confidence": "0.5438835"
   },
   {
     "uuid": "test_1",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.56223434"
+    "confidence": "0.5203134"
   },
   {
     "uuid": "test_1",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.57562226"
+    "confidence": "0.53400254"
   },
   {
     "uuid": "test_1",
     "turn_id": 6,
     "prediction": [
+      "area",
       "name"
     ],
-    "confidence": "0.18383534"
+    "confidence": "0.45292008"
   },
   {
     "uuid": "test_1",
     "turn_id": 7,
     "prediction": [],
-    "confidence": "0.9005572"
+    "confidence": "0.92138195"
   },
   {
     "uuid": "test_1",
     "turn_id": 8,
     "prediction": [],
-    "confidence": "0.9156869"
+    "confidence": "0.9389906"
   },
   {
     "uuid": "test_1",
@@ -119,21 +121,19 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.3030475"
+    "confidence": "0.28626078"
   },
   {
     "uuid": "test_1",
     "turn_id": 10,
     "prediction": [],
-    "confidence": "0.998889"
+    "confidence": "0.9985144"
   },
   {
     "uuid": "test_2",
     "turn_id": 0,
-    "prediction": [
-      "choice"
-    ],
-    "confidence": "0.16610269"
+    "prediction": [],
+    "confidence": "0.9210867"
   },
   {
     "uuid": "test_2",
@@ -141,7 +141,7 @@
     "prediction": [
       "choice"
     ],
-    "confidence": "0.2515585"
+    "confidence": "0.24627781"
   },
   {
     "uuid": "test_2",
@@ -150,7 +150,7 @@
       "area",
       "name"
     ],
-    "confidence": "0.5040495"
+    "confidence": "0.5623869"
   },
   {
     "uuid": "test_2",
@@ -158,39 +158,38 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.19796932"
+    "confidence": "0.27751786"
   },
   {
     "uuid": "test_2",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.59884185"
+    "confidence": "0.85534775"
   },
   {
     "uuid": "test_3",
     "turn_id": 0,
     "prediction": [
-      "choice"
+      "choice",
+      "type"
     ],
-    "confidence": "0.12868729"
+    "confidence": "0.36984327"
   },
   {
     "uuid": "test_3",
     "turn_id": 1,
     "prediction": [
-      "choice",
-      "food",
-      "food",
+      "area",
       "name",
-      "name"
+      "pricerange"
     ],
-    "confidence": "0.7609374"
+    "confidence": "0.79497516"
   },
   {
     "uuid": "test_3",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.9468569"
+    "confidence": "0.8127308"
   },
   {
     "uuid": "test_3",
@@ -198,22 +197,23 @@
     "prediction": [
       "food"
     ],
-    "confidence": "0.25661469"
+    "confidence": "0.2441114"
   },
   {
     "uuid": "test_3",
     "turn_id": 4,
     "prediction": [
+      "name",
       "phone",
       "postcode"
     ],
-    "confidence": "0.7624271"
+    "confidence": "0.9463984"
   },
   {
     "uuid": "test_3",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.99622375"
+    "confidence": "0.8493516"
   },
   {
     "uuid": "test_4",
@@ -221,49 +221,50 @@
     "prediction": [
       "address",
       "name",
-      "phone",
-      "postcode"
+      "phone"
     ],
-    "confidence": "0.81416655"
+    "confidence": "0.4363664"
   },
   {
     "uuid": "test_4",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.59920275"
+    "confidence": "0.49904975"
   },
   {
     "uuid": "test_5",
     "turn_id": 0,
     "prediction": [
+      "area",
       "choice",
       "pricerange",
       "pricerange",
       "type"
     ],
-    "confidence": "0.85572356"
+    "confidence": "0.8520964"
   },
   {
     "uuid": "test_5",
     "turn_id": 1,
     "prediction": [
-      "area",
+      "name",
+      "name",
       "pricerange",
       "type"
     ],
-    "confidence": "0.58055955"
+    "confidence": "0.54688805"
   },
   {
     "uuid": "test_5",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.9931225"
+    "confidence": "0.98961806"
   },
   {
     "uuid": "test_5",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9969018"
+    "confidence": "0.9946513"
   },
   {
     "uuid": "test_5",
@@ -271,13 +272,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.30729866"
+    "confidence": "0.28750023"
   },
   {
     "uuid": "test_5",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.998254"
+    "confidence": "0.9988926"
   },
   {
     "uuid": "test_6",
@@ -286,7 +287,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.2959835"
+    "confidence": "0.2748502"
   },
   {
     "uuid": "test_6",
@@ -297,13 +298,13 @@
       "phone",
       "postcode"
     ],
-    "confidence": "0.7585829"
+    "confidence": "0.7096146"
   },
   {
     "uuid": "test_6",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.54314685"
+    "confidence": "0.54169977"
   },
   {
     "uuid": "test_7",
@@ -315,7 +316,7 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.86951214"
+    "confidence": "0.8307632"
   },
   {
     "uuid": "test_7",
@@ -323,13 +324,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.2181095"
+    "confidence": "0.21543168"
   },
   {
     "uuid": "test_7",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.66601866"
+    "confidence": "0.66594195"
   },
   {
     "uuid": "test_8",
@@ -340,17 +341,15 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.88400334"
+    "confidence": "0.87031645"
   },
   {
     "uuid": "test_8",
     "turn_id": 1,
     "prediction": [
-      "area",
-      "choice",
-      "type"
+      "choice"
     ],
-    "confidence": "0.5442774"
+    "confidence": "0.13179703"
   },
   {
     "uuid": "test_8",
@@ -358,32 +357,30 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.31914163"
+    "confidence": "0.3022173"
   },
   {
     "uuid": "test_8",
     "turn_id": 3,
     "prediction": [
-      "choice",
-      "type"
+      "choice"
     ],
-    "confidence": "0.5076894"
+    "confidence": "0.25482216"
   },
   {
     "uuid": "test_8",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.99659187"
+    "confidence": "0.9932665"
   },
   {
     "uuid": "test_9",
     "turn_id": 0,
     "prediction": [
       "choice",
-      "type",
       "type"
     ],
-    "confidence": "0.79622585"
+    "confidence": "0.43711305"
   },
   {
     "uuid": "test_9",
@@ -392,7 +389,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.25173798"
+    "confidence": "0.24743964"
   },
   {
     "uuid": "test_9",
@@ -401,13 +398,13 @@
       "name",
       "ref"
     ],
-    "confidence": "0.35526994"
+    "confidence": "0.3546605"
   },
   {
     "uuid": "test_9",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5450073"
+    "confidence": "0.54472804"
   },
   {
     "uuid": "test_10",
@@ -419,7 +416,7 @@
       "stars",
       "type"
     ],
-    "confidence": "0.79355335"
+    "confidence": "0.78128886"
   },
   {
     "uuid": "test_10",
@@ -427,13 +424,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32170883"
+    "confidence": "0.13750799"
   },
   {
     "uuid": "test_10",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.99878865"
+    "confidence": "0.42798933"
   },
   {
     "uuid": "test_11",
@@ -441,39 +438,40 @@
     "prediction": [
       "choice"
     ],
-    "confidence": "0.26707968"
+    "confidence": "0.11002653"
   },
   {
     "uuid": "test_11",
     "turn_id": 1,
     "prediction": [
-      "name"
+      "choice",
+      "name",
+      "name",
+      "pricerange",
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.15423174"
+    "confidence": "0.73975784"
   },
   {
     "uuid": "test_11",
     "turn_id": 2,
     "prediction": [
-      "name",
-      "pricerange",
-      "stars"
+      "name"
     ],
-    "confidence": "0.75036037"
+    "confidence": "0.1809416"
   },
   {
     "uuid": "test_11",
     "turn_id": 3,
-    "prediction": [
-      "type"
-    ],
-    "confidence": "0.20077817"
+    "prediction": [],
+    "confidence": "0.8910141"
   },
   {
     "uuid": "test_11",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.7860714"
+    "confidence": "0.94144106"
   },
   {
     "uuid": "test_11",
@@ -481,7 +479,7 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.14731567"
+    "confidence": "0.1938413"
   },
   {
     "uuid": "test_11",
@@ -489,76 +487,26 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.017050486"
+    "confidence": "0.10996467"
   },
   {
     "uuid": "test_11",
     "turn_id": 7,
     "prediction": [],
-    "confidence": "0.05165196"
+    "confidence": "0.33256507"
   },
   {
     "uuid": "test_12",
     "turn_id": 0,
     "prediction": [
-      "area",
       "name"
     ],
-    "confidence": "0.020589298"
+    "confidence": "0.0743005"
   },
   {
     "uuid": "test_12",
     "turn_id": 1,
     "prediction": [
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
       "name",
       "name",
       "name",
@@ -569,7 +517,7 @@
       "name",
       "type"
     ],
-    "confidence": "0.6879471"
+    "confidence": "0.63275796"
   },
   {
     "uuid": "test_12",
@@ -577,13 +525,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.3264643"
+    "confidence": "0.31714606"
   },
   {
     "uuid": "test_12",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9949178"
+    "confidence": "0.9976697"
   },
   {
     "uuid": "test_13",
@@ -591,21 +539,22 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.19596906"
+    "confidence": "0.2180047"
   },
   {
     "uuid": "test_13",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.91777253"
+    "confidence": "0.9252437"
   },
   {
     "uuid": "test_13",
     "turn_id": 2,
     "prediction": [
+      "name",
       "ref"
     ],
-    "confidence": "0.30403677"
+    "confidence": "0.59430236"
   },
   {
     "uuid": "test_13",
@@ -613,49 +562,50 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32942292"
+    "confidence": "0.3270519"
   },
   {
     "uuid": "test_13",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9981353"
+    "confidence": "0.9985103"
   },
   {
     "uuid": "test_14",
     "turn_id": 0,
     "prediction": [
-      "choice"
+      "choice",
+      "type"
     ],
-    "confidence": "0.19339092"
+    "confidence": "0.4511672"
   },
   {
     "uuid": "test_14",
     "turn_id": 1,
     "prediction": [
       "address",
+      "name",
       "phone",
       "postcode"
     ],
-    "confidence": "0.5208454"
+    "confidence": "0.84396344"
   },
   {
     "uuid": "test_14",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.49677262"
+    "confidence": "0.5955116"
   },
   {
     "uuid": "test_15",
     "turn_id": 0,
     "prediction": [
       "choice",
-      "name",
-      "name",
       "pricerange",
-      "pricerange"
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.79186153"
+    "confidence": "0.8876422"
   },
   {
     "uuid": "test_15",
@@ -664,13 +614,13 @@
       "address",
       "name"
     ],
-    "confidence": "0.2588683"
+    "confidence": "0.33950204"
   },
   {
     "uuid": "test_15",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.98579764"
+    "confidence": "0.99093556"
   },
   {
     "uuid": "test_16",
@@ -679,7 +629,7 @@
       "address",
       "name"
     ],
-    "confidence": "0.48980293"
+    "confidence": "0.5574288"
   },
   {
     "uuid": "test_16",
@@ -687,56 +637,54 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32258037"
+    "confidence": "0.31975222"
   },
   {
     "uuid": "test_16",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.9937227"
+    "confidence": "0.99376726"
   },
   {
     "uuid": "test_17",
     "turn_id": 0,
     "prediction": [
       "choice",
-      "name",
-      "name",
-      "name",
-      "name",
+      "entrance_fee",
       "name",
       "type"
     ],
-    "confidence": "0.69322985"
+    "confidence": "0.79124045"
   },
   {
     "uuid": "test_17",
     "turn_id": 1,
-    "prediction": [],
-    "confidence": "0.39141536"
+    "prediction": [
+      "entrance_fee"
+    ],
+    "confidence": "0.42373204"
   },
   {
     "uuid": "test_17",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.42805514"
+    "confidence": "0.49841905"
   },
   {
     "uuid": "test_18",
     "turn_id": 0,
     "prediction": [
-      "address",
       "area",
       "name",
-      "phone"
+      "type"
     ],
-    "confidence": "0.47767034"
+    "confidence": "0.3784233"
   },
   {
     "uuid": "test_18",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.7484325"
+    "confidence": "0.9937313"
   },
   {
     "uuid": "test_19",
@@ -744,23 +692,21 @@
     "prediction": [
       "choice"
     ],
-    "confidence": "0.2024309"
+    "confidence": "0.2592924"
   },
   {
     "uuid": "test_19",
     "turn_id": 1,
     "prediction": [
-      "choice",
-      "pricerange",
-      "pricerange"
+      "name"
     ],
-    "confidence": "0.7539049"
+    "confidence": "0.20395486"
   },
   {
     "uuid": "test_19",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.6927145"
+    "confidence": "0.923481"
   },
   {
     "uuid": "test_19",
@@ -768,13 +714,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.24313402"
+    "confidence": "0.15978716"
   },
   {
     "uuid": "test_19",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.74895257"
+    "confidence": "0.49841765"
   },
   {
     "uuid": "test_20",
@@ -784,34 +730,36 @@
       "stars",
       "type"
     ],
-    "confidence": "0.65485066"
+    "confidence": "0.40142965"
   },
   {
     "uuid": "test_20",
     "turn_id": 1,
     "prediction": [
       "entrance_fee",
+      "name",
+      "stars",
       "type"
     ],
-    "confidence": "0.7867346"
+    "confidence": "0.8533949"
   },
   {
     "uuid": "test_20",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.99806684"
+    "confidence": "0.9953515"
   },
   {
     "uuid": "test_20",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9036825"
+    "confidence": "0.93590623"
   },
   {
     "uuid": "test_20",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.91181326"
+    "confidence": "0.9424463"
   },
   {
     "uuid": "test_20",
@@ -821,22 +769,21 @@
       "name",
       "ref"
     ],
-    "confidence": "0.9039083"
+    "confidence": "0.8823449"
   },
   {
     "uuid": "test_20",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.9981019"
+    "confidence": "0.99690634"
   },
   {
     "uuid": "test_21",
     "turn_id": 0,
     "prediction": [
-      "address",
       "name"
     ],
-    "confidence": "0.44464445"
+    "confidence": "0.21554689"
   },
   {
     "uuid": "test_21",
@@ -844,7 +791,7 @@
     "prediction": [
       "pricerange"
     ],
-    "confidence": "0.4732184"
+    "confidence": "0.45397678"
   },
   {
     "uuid": "test_21",
@@ -853,39 +800,33 @@
       "address",
       "phone"
     ],
-    "confidence": "0.6223172"
+    "confidence": "0.60163"
   },
   {
     "uuid": "test_21",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.7478825"
+    "confidence": "0.99919146"
   },
   {
     "uuid": "test_21",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.74299407"
+    "confidence": "0.9937138"
   },
   {
     "uuid": "test_22",
     "turn_id": 0,
-    "prediction": [
-      "food",
-      "food",
-      "food",
-      "food"
-    ],
-    "confidence": "0.6815322"
+    "prediction": [],
+    "confidence": "0.9047961"
   },
   {
     "uuid": "test_22",
     "turn_id": 1,
     "prediction": [
-      "pricerange",
       "type"
     ],
-    "confidence": "0.52052194"
+    "confidence": "0.23365514"
   },
   {
     "uuid": "test_22",
@@ -893,19 +834,19 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.15435395"
+    "confidence": "0.21605659"
   },
   {
     "uuid": "test_22",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.95202667"
+    "confidence": "0.9668394"
   },
   {
     "uuid": "test_22",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.99555236"
+    "confidence": "0.9926212"
   },
   {
     "uuid": "test_22",
@@ -913,13 +854,13 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.22337425"
+    "confidence": "0.20496993"
   },
   {
     "uuid": "test_22",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.9170868"
+    "confidence": "0.9252746"
   },
   {
     "uuid": "test_22",
@@ -927,13 +868,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.29984108"
+    "confidence": "0.30353418"
   },
   {
     "uuid": "test_22",
     "turn_id": 8,
     "prediction": [],
-    "confidence": "0.9967168"
+    "confidence": "0.9969909"
   },
   {
     "uuid": "test_23",
@@ -941,7 +882,7 @@
     "prediction": [
       "choice"
     ],
-    "confidence": "0.27805325"
+    "confidence": "0.2470866"
   },
   {
     "uuid": "test_23",
@@ -950,47 +891,52 @@
       "choice",
       "name",
       "pricerange",
-      "pricerange"
+      "pricerange",
+      "stars",
+      "type"
     ],
-    "confidence": "0.73184544"
+    "confidence": "0.7550745"
   },
   {
     "uuid": "test_23",
     "turn_id": 2,
     "prediction": [
       "choice",
-      "name"
+      "pricerange",
+      "pricerange",
+      "stars",
+      "type"
     ],
-    "confidence": "0.21650696"
+    "confidence": "0.6837153"
   },
   {
     "uuid": "test_23",
     "turn_id": 3,
     "prediction": [
-      "pricerange"
+      "entrance_fee",
+      "pricerange",
+      "stars",
+      "type"
     ],
-    "confidence": "0.22155721"
+    "confidence": "0.7885985"
   },
   {
     "uuid": "test_23",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.59867007"
+    "confidence": "0.42787626"
   },
   {
     "uuid": "test_24",
     "turn_id": 0,
     "prediction": [
       "area",
-      "area",
-      "choice",
       "food",
-      "name",
       "name",
       "pricerange",
       "type"
     ],
-    "confidence": "0.78601027"
+    "confidence": "0.8940922"
   },
   {
     "uuid": "test_24",
@@ -998,23 +944,24 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.114099994"
+    "confidence": "0.17229152"
   },
   {
     "uuid": "test_24",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.35273403"
+    "confidence": "0.54517114"
   },
   {
     "uuid": "test_25",
     "turn_id": 0,
     "prediction": [
       "choice",
-      "type",
+      "pricerange",
+      "pricerange",
       "type"
     ],
-    "confidence": "0.27965492"
+    "confidence": "0.73730415"
   },
   {
     "uuid": "test_25",
@@ -1022,7 +969,7 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.20438643"
+    "confidence": "0.21167435"
   },
   {
     "uuid": "test_25",
@@ -1030,13 +977,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.28312516"
+    "confidence": "0.2839291"
   },
   {
     "uuid": "test_25",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.85645294"
+    "confidence": "0.85608256"
   },
   {
     "uuid": "test_26",
@@ -1046,18 +993,17 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.81454957"
+    "confidence": "0.84804434"
   },
   {
     "uuid": "test_26",
     "turn_id": 1,
     "prediction": [
-      "area",
       "choice",
-      "pricerange",
+      "type",
       "type"
     ],
-    "confidence": "0.84758884"
+    "confidence": "0.6763785"
   },
   {
     "uuid": "test_26",
@@ -1065,19 +1011,19 @@
     "prediction": [
       "entrance_fee"
     ],
-    "confidence": "0.5900576"
+    "confidence": "0.85844237"
   },
   {
     "uuid": "test_26",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.6644344"
+    "confidence": "0.9985724"
   },
   {
     "uuid": "test_26",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.66547996"
+    "confidence": "0.9979198"
   },
   {
     "uuid": "test_27",
@@ -1086,13 +1032,13 @@
       "area",
       "type"
     ],
-    "confidence": "0.34394157"
+    "confidence": "0.6070195"
   },
   {
     "uuid": "test_27",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.5333531"
+    "confidence": "0.9710567"
   },
   {
     "uuid": "test_27",
@@ -1100,17 +1046,15 @@
     "prediction": [
       "area",
       "food",
-      "name",
-      "pricerange",
-      "type"
+      "name"
     ],
-    "confidence": "0.90251523"
+    "confidence": "0.87586826"
   },
   {
     "uuid": "test_27",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5259962"
+    "confidence": "0.96999174"
   },
   {
     "uuid": "test_27",
@@ -1118,32 +1062,32 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32785848"
+    "confidence": "0.32825226"
   },
   {
     "uuid": "test_27",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.9983626"
+    "confidence": "0.9987843"
   },
   {
     "uuid": "test_28",
     "turn_id": 0,
     "prediction": [
       "area",
-      "choice"
+      "choice",
+      "type"
     ],
-    "confidence": "0.4720579"
+    "confidence": "0.70746756"
   },
   {
     "uuid": "test_28",
     "turn_id": 1,
     "prediction": [
-      "area",
       "choice",
       "type"
     ],
-    "confidence": "0.88975304"
+    "confidence": "0.5508709"
   },
   {
     "uuid": "test_28",
@@ -1151,13 +1095,13 @@
     "prediction": [
       "phone"
     ],
-    "confidence": "0.16183627"
+    "confidence": "0.13960026"
   },
   {
     "uuid": "test_28",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.49204803"
+    "confidence": "0.49438134"
   },
   {
     "uuid": "test_29",
@@ -1168,165 +1112,162 @@
       "type",
       "type"
     ],
-    "confidence": "0.90116054"
+    "confidence": "0.9294267"
   },
   {
     "uuid": "test_29",
     "turn_id": 1,
     "prediction": [
+      "choice",
       "name",
       "name",
+      "type"
+    ],
+    "confidence": "0.43674007"
+  },
+  {
+    "uuid": "test_29",
+    "turn_id": 2,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.22425194"
+  },
+  {
+    "uuid": "test_29",
+    "turn_id": 3,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.24044883"
+  },
+  {
+    "uuid": "test_29",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.9351659"
+  },
+  {
+    "uuid": "test_29",
+    "turn_id": 5,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.293872"
+  },
+  {
+    "uuid": "test_29",
+    "turn_id": 6,
+    "prediction": [],
+    "confidence": "0.39881727"
+  },
+  {
+    "uuid": "test_30",
+    "turn_id": 0,
+    "prediction": [
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.25097284"
+  },
+  {
+    "uuid": "test_30",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "pricerange",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.5643876"
+  },
+  {
+    "uuid": "test_30",
+    "turn_id": 2,
+    "prediction": [
+      "choice",
+      "entrance_fee",
+      "pricerange",
+      "type",
+      "type"
+    ],
+    "confidence": "0.8687637"
+  },
+  {
+    "uuid": "test_30",
+    "turn_id": 3,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.29739174"
+  },
+  {
+    "uuid": "test_30",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.99814504"
+  },
+  {
+    "uuid": "test_31",
+    "turn_id": 0,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.17578489"
+  },
+  {
+    "uuid": "test_31",
+    "turn_id": 1,
+    "prediction": [],
+    "confidence": "0.96286815"
+  },
+  {
+    "uuid": "test_31",
+    "turn_id": 2,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.1966146"
+  },
+  {
+    "uuid": "test_31",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.5995111"
+  },
+  {
+    "uuid": "test_32",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.5988339"
+  },
+  {
+    "uuid": "test_32",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "pricerange",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.7207127"
+  },
+  {
+    "uuid": "test_32",
+    "turn_id": 2,
+    "prediction": [
+      "choice",
+      "entrance_fee",
       "pricerange",
       "stars",
-      "stars"
-    ],
-    "confidence": "0.61373717"
-  },
-  {
-    "uuid": "test_29",
-    "turn_id": 2,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.22863714"
-  },
-  {
-    "uuid": "test_29",
-    "turn_id": 3,
-    "prediction": [
-      "area",
-      "name"
-    ],
-    "confidence": "0.5067113"
-  },
-  {
-    "uuid": "test_29",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.91375417"
-  },
-  {
-    "uuid": "test_29",
-    "turn_id": 5,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.31929305"
-  },
-  {
-    "uuid": "test_29",
-    "turn_id": 6,
-    "prediction": [],
-    "confidence": "0.49850762"
-  },
-  {
-    "uuid": "test_30",
-    "turn_id": 0,
-    "prediction": [],
-    "confidence": "0.45138535"
-  },
-  {
-    "uuid": "test_30",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "entrance_fee",
       "type",
       "type"
     ],
-    "confidence": "0.88542086"
-  },
-  {
-    "uuid": "test_30",
-    "turn_id": 2,
-    "prediction": [
-      "choice",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.43987736"
-  },
-  {
-    "uuid": "test_30",
-    "turn_id": 3,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.10332668"
-  },
-  {
-    "uuid": "test_30",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.33288345"
-  },
-  {
-    "uuid": "test_31",
-    "turn_id": 0,
-    "prediction": [
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "pricerange",
-      "pricerange"
-    ],
-    "confidence": "0.62978"
-  },
-  {
-    "uuid": "test_31",
-    "turn_id": 1,
-    "prediction": [],
-    "confidence": "0.32266954"
-  },
-  {
-    "uuid": "test_31",
-    "turn_id": 2,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.15195511"
-  },
-  {
-    "uuid": "test_31",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.4611169"
-  },
-  {
-    "uuid": "test_32",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "entrance_fee",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.8946667"
-  },
-  {
-    "uuid": "test_32",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "name",
-      "pricerange",
-      "stars"
-    ],
-    "confidence": "0.524109"
-  },
-  {
-    "uuid": "test_32",
-    "turn_id": 2,
-    "prediction": [
-      "area",
-      "area",
-      "area",
-      "choice"
-    ],
-    "confidence": "0.71070635"
+    "confidence": "0.8613786"
   },
   {
     "uuid": "test_32",
@@ -1334,15 +1275,13 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.19996454"
+    "confidence": "0.093636796"
   },
   {
     "uuid": "test_32",
     "turn_id": 4,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.19177347"
+    "prediction": [],
+    "confidence": "0.3314913"
   },
   {
     "uuid": "test_32",
@@ -1350,41 +1289,43 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.23908359"
+    "confidence": "0.10596882"
   },
   {
     "uuid": "test_32",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.54491085"
+    "confidence": "0.4610229"
   },
   {
     "uuid": "test_32",
     "turn_id": 7,
     "prediction": [],
-    "confidence": "0.5437302"
+    "confidence": "0.4604256"
   },
   {
     "uuid": "test_33",
     "turn_id": 0,
     "prediction": [
       "choice",
-      "food",
+      "pricerange",
+      "pricerange",
       "type"
     ],
-    "confidence": "0.43270448"
+    "confidence": "0.6324405"
   },
   {
     "uuid": "test_33",
     "turn_id": 1,
     "prediction": [
       "choice",
+      "food",
       "name",
       "name",
       "pricerange",
       "type"
     ],
-    "confidence": "0.72992986"
+    "confidence": "0.7972953"
   },
   {
     "uuid": "test_33",
@@ -1392,23 +1333,27 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.3238758"
+    "confidence": "0.12544131"
   },
   {
     "uuid": "test_33",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.99851483"
+    "confidence": "0.3989982"
   },
   {
     "uuid": "test_34",
     "turn_id": 0,
     "prediction": [
       "address",
+      "area",
+      "food",
       "name",
-      "phone"
+      "phone",
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.7206669"
+    "confidence": "0.77881974"
   },
   {
     "uuid": "test_34",
@@ -1416,19 +1361,19 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32773042"
+    "confidence": "0.13102102"
   },
   {
     "uuid": "test_34",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.5449668"
+    "confidence": "0.54491687"
   },
   {
     "uuid": "test_34",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.54336077"
+    "confidence": "0.5441301"
   },
   {
     "uuid": "test_35",
@@ -1440,13 +1385,13 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.93491215"
+    "confidence": "0.91230434"
   },
   {
     "uuid": "test_35",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.5451404"
+    "confidence": "0.54500055"
   },
   {
     "uuid": "test_35",
@@ -1454,19 +1399,19 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.327817"
+    "confidence": "0.3277649"
   },
   {
     "uuid": "test_35",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9987085"
+    "confidence": "0.9987249"
   },
   {
     "uuid": "test_35",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9983442"
+    "confidence": "0.99824256"
   },
   {
     "uuid": "test_36",
@@ -1476,7 +1421,7 @@
       "food",
       "type"
     ],
-    "confidence": "0.69430566"
+    "confidence": "0.6822939"
   },
   {
     "uuid": "test_36",
@@ -1484,85 +1429,25 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.011619531"
+    "confidence": "0.12578355"
   },
   {
     "uuid": "test_36",
     "turn_id": 2,
     "prediction": [
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      ""
+      "area",
+      "food",
+      "name",
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.83939624"
+    "confidence": "0.8837988"
   },
   {
     "uuid": "test_36",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.046039708"
+    "confidence": "0.53435963"
   },
   {
     "uuid": "test_36",
@@ -1570,37 +1455,38 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.015277635"
+    "confidence": "0.17710985"
   },
   {
     "uuid": "test_36",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.4272692"
+    "confidence": "0.35166493"
   },
   {
     "uuid": "test_37",
     "turn_id": 0,
     "prediction": [
-      "area",
-      "area",
       "choice",
-      "name",
-      "name",
-      "name",
+      "pricerange",
+      "pricerange",
+      "stars",
       "type"
     ],
-    "confidence": "0.7555942"
+    "confidence": "0.60670125"
   },
   {
     "uuid": "test_37",
     "turn_id": 1,
     "prediction": [
-      "choice",
+      "area",
+      "entrance_fee",
       "name",
-      "name"
+      "pricerange",
+      "stars",
+      "type"
     ],
-    "confidence": "0.31242505"
+    "confidence": "0.8711018"
   },
   {
     "uuid": "test_37",
@@ -1609,22 +1495,23 @@
       "name",
       "ref"
     ],
-    "confidence": "0.27970308"
+    "confidence": "0.22166225"
   },
   {
     "uuid": "test_37",
     "turn_id": 3,
     "prediction": [
       "address",
+      "name",
       "phone"
     ],
-    "confidence": "0.23477739"
+    "confidence": "0.54571325"
   },
   {
     "uuid": "test_37",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.37472838"
+    "confidence": "0.5982174"
   },
   {
     "uuid": "test_38",
@@ -1634,426 +1521,315 @@
       "area",
       "name",
       "phone",
+      "type"
+    ],
+    "confidence": "0.7680941"
+  },
+  {
+    "uuid": "test_38",
+    "turn_id": 1,
+    "prediction": [
+      "address",
+      "name",
+      "phone"
+    ],
+    "confidence": "0.55357325"
+  },
+  {
+    "uuid": "test_38",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.6653478"
+  },
+  {
+    "uuid": "test_39",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "food",
+      "type"
+    ],
+    "confidence": "0.5355267"
+  },
+  {
+    "uuid": "test_39",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "food",
+      "type"
+    ],
+    "confidence": "0.4691442"
+  },
+  {
+    "uuid": "test_39",
+    "turn_id": 2,
+    "prediction": [
+      "address",
+      "name",
+      "phone",
+      "postcode"
+    ],
+    "confidence": "0.946935"
+  },
+  {
+    "uuid": "test_39",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.99908346"
+  },
+  {
+    "uuid": "test_40",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "name",
+      "type"
+    ],
+    "confidence": "0.7539584"
+  },
+  {
+    "uuid": "test_40",
+    "turn_id": 1,
+    "prediction": [
+      "phone"
+    ],
+    "confidence": "0.27675283"
+  },
+  {
+    "uuid": "test_40",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.99835175"
+  },
+  {
+    "uuid": "test_41",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "type"
+    ],
+    "confidence": "0.25486776"
+  },
+  {
+    "uuid": "test_41",
+    "turn_id": 1,
+    "prediction": [
+      "area",
+      "food",
+      "name",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.8860403"
+  },
+  {
+    "uuid": "test_41",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.5427241"
+  },
+  {
+    "uuid": "test_41",
+    "turn_id": 3,
+    "prediction": [
+      "address",
+      "name"
+    ],
+    "confidence": "0.3293496"
+  },
+  {
+    "uuid": "test_41",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.99626136"
+  },
+  {
+    "uuid": "test_42",
+    "turn_id": 0,
+    "prediction": [],
+    "confidence": "0.9862325"
+  },
+  {
+    "uuid": "test_42",
+    "turn_id": 1,
+    "prediction": [],
+    "confidence": "0.9106466"
+  },
+  {
+    "uuid": "test_42",
+    "turn_id": 2,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.1718309"
+  },
+  {
+    "uuid": "test_42",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.56416905"
+  },
+  {
+    "uuid": "test_42",
+    "turn_id": 4,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.19326337"
+  },
+  {
+    "uuid": "test_42",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.5980798"
+  },
+  {
+    "uuid": "test_43",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "entrance_fee",
+      "type"
+    ],
+    "confidence": "0.8783003"
+  },
+  {
+    "uuid": "test_43",
+    "turn_id": 1,
+    "prediction": [
+      "entrance_fee",
+      "name"
+    ],
+    "confidence": "0.8522706"
+  },
+  {
+    "uuid": "test_43",
+    "turn_id": 2,
+    "prediction": [
+      "phone"
+    ],
+    "confidence": "0.22667967"
+  },
+  {
+    "uuid": "test_43",
+    "turn_id": 3,
+    "prediction": [
+      "postcode"
+    ],
+    "confidence": "0.33074075"
+  },
+  {
+    "uuid": "test_43",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.74705267"
+  },
+  {
+    "uuid": "test_44",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "pricerange",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.8096134"
+  },
+  {
+    "uuid": "test_44",
+    "turn_id": 1,
+    "prediction": [
+      "name",
+      "pricerange",
+      "stars",
+      "type"
+    ],
+    "confidence": "0.6966183"
+  },
+  {
+    "uuid": "test_44",
+    "turn_id": 2,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.18402517"
+  },
+  {
+    "uuid": "test_44",
+    "turn_id": 3,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.19578879"
+  },
+  {
+    "uuid": "test_44",
+    "turn_id": 4,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.21602577"
+  },
+  {
+    "uuid": "test_44",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.66593385"
+  },
+  {
+    "uuid": "test_45",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "name",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.7875079"
+  },
+  {
+    "uuid": "test_45",
+    "turn_id": 1,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.1390628"
+  },
+  {
+    "uuid": "test_45",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.6657336"
+  },
+  {
+    "uuid": "test_45",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.61625886"
+  },
+  {
+    "uuid": "test_45",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.60532176"
+  },
+  {
+    "uuid": "test_45",
+    "turn_id": 5,
+    "prediction": [
+      "name",
       "postcode",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.76558447"
-  },
-  {
-    "uuid": "test_38",
-    "turn_id": 1,
-    "prediction": [
-      "address",
-      "phone"
-    ],
-    "confidence": "0.23762667"
-  },
-  {
-    "uuid": "test_38",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.855677"
-  },
-  {
-    "uuid": "test_39",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "food",
-      "type"
-    ],
-    "confidence": "0.7498473"
-  },
-  {
-    "uuid": "test_39",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "food",
-      "type"
-    ],
-    "confidence": "0.5974301"
-  },
-  {
-    "uuid": "test_39",
-    "turn_id": 2,
-    "prediction": [
-      "address",
-      "phone",
-      "postcode"
-    ],
-    "confidence": "0.96808904"
-  },
-  {
-    "uuid": "test_39",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.99889416"
-  },
-  {
-    "uuid": "test_40",
-    "turn_id": 0,
-    "prediction": [
-      "address",
-      "name"
-    ],
-    "confidence": "0.40970096"
-  },
-  {
-    "uuid": "test_40",
-    "turn_id": 1,
-    "prediction": [
-      "phone"
-    ],
-    "confidence": "0.31762043"
-  },
-  {
-    "uuid": "test_40",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.99767447"
-  },
-  {
-    "uuid": "test_41",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "type"
-    ],
-    "confidence": "0.28679162"
-  },
-  {
-    "uuid": "test_41",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "food",
-      "name",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.907198"
-  },
-  {
-    "uuid": "test_41",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.54467463"
-  },
-  {
-    "uuid": "test_41",
-    "turn_id": 3,
-    "prediction": [
-      "address",
-      "name"
-    ],
-    "confidence": "0.32373428"
-  },
-  {
-    "uuid": "test_41",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.049855575"
-  },
-  {
-    "uuid": "test_42",
-    "turn_id": 0,
-    "prediction": [],
-    "confidence": "0.049412858"
-  },
-  {
-    "uuid": "test_42",
-    "turn_id": 1,
-    "prediction": [],
-    "confidence": "0.04469053"
-  },
-  {
-    "uuid": "test_42",
-    "turn_id": 2,
-    "prediction": [
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "type"
-    ],
-    "confidence": "0.7117843"
-  },
-  {
-    "uuid": "test_42",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.9541273"
-  },
-  {
-    "uuid": "test_42",
-    "turn_id": 4,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.32588902"
-  },
-  {
-    "uuid": "test_42",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.9979902"
-  },
-  {
-    "uuid": "test_43",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "type"
-    ],
-    "confidence": "0.52415043"
-  },
-  {
-    "uuid": "test_43",
-    "turn_id": 1,
-    "prediction": [
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "type"
-    ],
-    "confidence": "0.6688372"
-  },
-  {
-    "uuid": "test_43",
-    "turn_id": 2,
-    "prediction": [
-      "phone"
-    ],
-    "confidence": "0.016926453"
-  },
-  {
-    "uuid": "test_43",
-    "turn_id": 3,
-    "prediction": [
-      "postcode"
-    ],
-    "confidence": "0.025213677"
-  },
-  {
-    "uuid": "test_43",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.051591445"
-  },
-  {
-    "uuid": "test_44",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "type",
-      "type"
-    ],
-    "confidence": "0.44290447"
-  },
-  {
-    "uuid": "test_44",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "name",
-      "pricerange",
       "stars",
       "type"
     ],
-    "confidence": "0.77765906"
-  },
-  {
-    "uuid": "test_44",
-    "turn_id": 2,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.16900787"
-  },
-  {
-    "uuid": "test_44",
-    "turn_id": 3,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.17807876"
-  },
-  {
-    "uuid": "test_44",
-    "turn_id": 4,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.17726283"
-  },
-  {
-    "uuid": "test_44",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.5449081"
-  },
-  {
-    "uuid": "test_45",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "name",
-      "pricerange",
-      "stars",
-      "type"
-    ],
-    "confidence": "0.801795"
-  },
-  {
-    "uuid": "test_45",
-    "turn_id": 1,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.12386388"
-  },
-  {
-    "uuid": "test_45",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.9996738"
-  },
-  {
-    "uuid": "test_45",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.9233112"
-  },
-  {
-    "uuid": "test_45",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.94864744"
-  },
-  {
-    "uuid": "test_45",
-    "turn_id": 5,
-    "prediction": [
-      "type"
-    ],
-    "confidence": "0.23310614"
+    "confidence": "0.8243419"
   },
   {
     "uuid": "test_45",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.99695104"
+    "confidence": "0.7455894"
   },
   {
     "uuid": "test_46",
@@ -2062,22 +1838,24 @@
       "choice",
       "type"
     ],
-    "confidence": "0.52505654"
+    "confidence": "0.404458"
   },
   {
     "uuid": "test_46",
     "turn_id": 1,
     "prediction": [
       "choice",
-      "name"
+      "name",
+      "name",
+      "type"
     ],
-    "confidence": "0.39460394"
+    "confidence": "0.6972331"
   },
   {
     "uuid": "test_46",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.99941325"
+    "confidence": "0.74475"
   },
   {
     "uuid": "test_46",
@@ -2085,7 +1863,7 @@
     "prediction": [
       "type"
     ],
-    "confidence": "0.2537744"
+    "confidence": "0.24900778"
   },
   {
     "uuid": "test_46",
@@ -2093,28 +1871,33 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.3258944"
+    "confidence": "0.31623268"
   },
   {
     "uuid": "test_46",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.9994889"
+    "confidence": "0.99914646"
   },
   {
     "uuid": "test_47",
     "turn_id": 0,
-    "prediction": [],
-    "confidence": "0.88138205"
+    "prediction": [
+      "type"
+    ],
+    "confidence": "0.2127436"
   },
   {
     "uuid": "test_47",
     "turn_id": 1,
     "prediction": [
       "area",
-      "name"
+      "food",
+      "name",
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.44755486"
+    "confidence": "0.8615177"
   },
   {
     "uuid": "test_47",
@@ -2122,19 +1905,19 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.3240356"
+    "confidence": "0.1744031"
   },
   {
     "uuid": "test_47",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.99889326"
+    "confidence": "0.54500955"
   },
   {
     "uuid": "test_47",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9986103"
+    "confidence": "0.54498297"
   },
   {
     "uuid": "test_48",
@@ -2142,7 +1925,7 @@
     "prediction": [
       "choice"
     ],
-    "confidence": "0.41534245"
+    "confidence": "0.4122594"
   },
   {
     "uuid": "test_48",
@@ -2151,7 +1934,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.76155925"
+    "confidence": "0.8082606"
   },
   {
     "uuid": "test_48",
@@ -2160,7 +1943,7 @@
       "area",
       "name"
     ],
-    "confidence": "0.8281993"
+    "confidence": "0.8671141"
   },
   {
     "uuid": "test_48",
@@ -2168,23 +1951,22 @@
     "prediction": [
       "postcode"
     ],
-    "confidence": "0.7399317"
+    "confidence": "0.7039489"
   },
   {
     "uuid": "test_48",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.85028946"
+    "confidence": "0.8511694"
   },
   {
     "uuid": "test_49",
     "turn_id": 0,
     "prediction": [
       "choice",
-      "pricerange",
       "type"
     ],
-    "confidence": "0.8764313"
+    "confidence": "0.42883894"
   },
   {
     "uuid": "test_49",
@@ -2194,7 +1976,7 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.65735656"
+    "confidence": "0.65159494"
   },
   {
     "uuid": "test_49",
@@ -2202,13 +1984,13 @@
     "prediction": [
       "phone"
     ],
-    "confidence": "0.27839962"
+    "confidence": "0.26567778"
   },
   {
     "uuid": "test_49",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.59921676"
+    "confidence": "0.42740723"
   },
   {
     "uuid": "test_50",
@@ -2216,18 +1998,20 @@
     "prediction": [
       "choice"
     ],
-    "confidence": "0.1618953"
+    "confidence": "0.106554426"
   },
   {
     "uuid": "test_50",
     "turn_id": 1,
     "prediction": [
       "choice",
+      "name",
+      "name",
       "pricerange",
       "pricerange",
       "type"
     ],
-    "confidence": "0.78711385"
+    "confidence": "0.7117117"
   },
   {
     "uuid": "test_50",
@@ -2235,7 +2019,7 @@
     "prediction": [
       "type"
     ],
-    "confidence": "0.1494551"
+    "confidence": "0.108914174"
   },
   {
     "uuid": "test_50",
@@ -2243,21 +2027,24 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.11602872"
+    "confidence": "0.10826189"
   },
   {
     "uuid": "test_50",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.35248992"
+    "confidence": "0.3327019"
   },
   {
     "uuid": "test_51",
     "turn_id": 0,
     "prediction": [
-      "choice"
+      "choice",
+      "entrance_fee",
+      "type",
+      "type"
     ],
-    "confidence": "0.0877969"
+    "confidence": "0.6060397"
   },
   {
     "uuid": "test_51",
@@ -2266,11 +2053,12 @@
       "choice",
       "entrance_fee",
       "name",
-      "pricerange",
+      "stars",
+      "stars",
       "type",
       "type"
     ],
-    "confidence": "0.8422398"
+    "confidence": "0.82333785"
   },
   {
     "uuid": "test_51",
@@ -2278,7 +2066,7 @@
     "prediction": [
       "entrance_fee"
     ],
-    "confidence": "0.48592183"
+    "confidence": "0.50070524"
   },
   {
     "uuid": "test_51",
@@ -2286,13 +2074,13 @@
     "prediction": [
       "phone"
     ],
-    "confidence": "0.17990555"
+    "confidence": "0.16237001"
   },
   {
     "uuid": "test_51",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.5450044"
+    "confidence": "0.543952"
   },
   {
     "uuid": "test_52",
@@ -2304,7 +2092,7 @@
       "stars",
       "type"
     ],
-    "confidence": "0.8291769"
+    "confidence": "0.81060636"
   },
   {
     "uuid": "test_52",
@@ -2312,7 +2100,7 @@
     "prediction": [
       "type"
     ],
-    "confidence": "0.21270716"
+    "confidence": "0.13892134"
   },
   {
     "uuid": "test_52",
@@ -2320,13 +2108,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.2435311"
+    "confidence": "0.17234768"
   },
   {
     "uuid": "test_52",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.7480245"
+    "confidence": "0.54328704"
   },
   {
     "uuid": "test_53",
@@ -2335,15 +2123,16 @@
       "area",
       "food",
       "name",
+      "pricerange",
       "type"
     ],
-    "confidence": "0.85132587"
+    "confidence": "0.8840397"
   },
   {
     "uuid": "test_53",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.54292685"
+    "confidence": "0.5419188"
   },
   {
     "uuid": "test_54",
@@ -2355,7 +2144,7 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.8618187"
+    "confidence": "0.8742953"
   },
   {
     "uuid": "test_54",
@@ -2363,22 +2152,23 @@
     "prediction": [
       "address"
     ],
-    "confidence": "0.15827693"
+    "confidence": "0.1665317"
   },
   {
     "uuid": "test_54",
     "turn_id": 2,
     "prediction": [
       "area",
+      "name",
       "postcode"
     ],
-    "confidence": "0.4207176"
+    "confidence": "0.5887853"
   },
   {
     "uuid": "test_54",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.4995658"
+    "confidence": "0.37358475"
   },
   {
     "uuid": "test_55",
@@ -2387,9 +2177,12 @@
       "area",
       "area",
       "choice",
+      "pricerange",
+      "pricerange",
+      "stars",
       "type"
     ],
-    "confidence": "0.5344621"
+    "confidence": "0.84700227"
   },
   {
     "uuid": "test_55",
@@ -2398,44 +2191,51 @@
       "choice",
       "pricerange",
       "pricerange",
-      "stars",
       "type"
     ],
-    "confidence": "0.79947233"
+    "confidence": "0.4952683"
   },
   {
     "uuid": "test_55",
     "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.43783545"
+    "prediction": [
+      "area",
+      "area",
+      "choice",
+      "pricerange",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.7398521"
   },
   {
     "uuid": "test_55",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.96402496"
+    "confidence": "0.5661632"
   },
   {
     "uuid": "test_55",
     "turn_id": 4,
     "prediction": [
       "choice",
-      "name",
-      "name"
+      "pricerange",
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.7896032"
+    "confidence": "0.81429815"
   },
   {
     "uuid": "test_55",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.9919052"
+    "confidence": "0.5968359"
   },
   {
     "uuid": "test_55",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.9547654"
+    "confidence": "0.56338996"
   },
   {
     "uuid": "test_55",
@@ -2443,13 +2243,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.26438135"
+    "confidence": "0.29200235"
   },
   {
     "uuid": "test_55",
     "turn_id": 8,
     "prediction": [],
-    "confidence": "0.99858856"
+    "confidence": "0.9989495"
   },
   {
     "uuid": "test_56",
@@ -2458,7 +2258,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.5858612"
+    "confidence": "0.5317212"
   },
   {
     "uuid": "test_56",
@@ -2466,7 +2266,7 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.21625227"
+    "confidence": "0.281602"
   },
   {
     "uuid": "test_56",
@@ -2474,25 +2274,25 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32798517"
+    "confidence": "0.3169427"
   },
   {
     "uuid": "test_56",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9807782"
+    "confidence": "0.974962"
   },
   {
     "uuid": "test_56",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9964082"
+    "confidence": "0.994246"
   },
   {
     "uuid": "test_56",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.99753195"
+    "confidence": "0.99324685"
   },
   {
     "uuid": "test_57",
@@ -2503,7 +2303,7 @@
       "type",
       "type"
     ],
-    "confidence": "0.8419378"
+    "confidence": "0.79409194"
   },
   {
     "uuid": "test_57",
@@ -2512,19 +2312,19 @@
       "name",
       "postcode"
     ],
-    "confidence": "0.57606906"
+    "confidence": "0.5749782"
   },
   {
     "uuid": "test_57",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.7473205"
+    "confidence": "0.74755895"
   },
   {
     "uuid": "test_58",
     "turn_id": 0,
     "prediction": [],
-    "confidence": "0.68980455"
+    "confidence": "0.6755823"
   },
   {
     "uuid": "test_58",
@@ -2533,7 +2333,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.4819304"
+    "confidence": "0.50534505"
   },
   {
     "uuid": "test_58",
@@ -2542,7 +2342,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.5721393"
+    "confidence": "0.4864513"
   },
   {
     "uuid": "test_58",
@@ -2551,13 +2351,13 @@
       "choice",
       "type"
     ],
-    "confidence": "0.537833"
+    "confidence": "0.52120066"
   },
   {
     "uuid": "test_58",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9354207"
+    "confidence": "0.9394099"
   },
   {
     "uuid": "test_58",
@@ -2567,19 +2367,19 @@
       "stars",
       "type"
     ],
-    "confidence": "0.88605833"
+    "confidence": "0.7636778"
   },
   {
     "uuid": "test_58",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.9148801"
+    "confidence": "0.9140127"
   },
   {
     "uuid": "test_58",
     "turn_id": 7,
     "prediction": [],
-    "confidence": "0.9639094"
+    "confidence": "0.9612827"
   },
   {
     "uuid": "test_58",
@@ -2587,13 +2387,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.31386557"
+    "confidence": "0.3083947"
   },
   {
     "uuid": "test_58",
     "turn_id": 9,
     "prediction": [],
-    "confidence": "0.59937453"
+    "confidence": "0.39946288"
   },
   {
     "uuid": "test_59",
@@ -2603,7 +2403,7 @@
       "entrance_fee",
       "type"
     ],
-    "confidence": "0.91018647"
+    "confidence": "0.60137916"
   },
   {
     "uuid": "test_59",
@@ -2611,41 +2411,46 @@
     "prediction": [
       "choice",
       "entrance_fee",
+      "type",
       "type"
     ],
-    "confidence": "0.84880525"
+    "confidence": "0.6729135"
   },
   {
     "uuid": "test_59",
     "turn_id": 2,
     "prediction": [
-      "name"
+      "entrance_fee",
+      "name",
+      "pricerange",
+      "stars",
+      "type"
     ],
-    "confidence": "0.11412988"
+    "confidence": "0.8779437"
   },
   {
     "uuid": "test_59",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.94305676"
+    "confidence": "0.9882264"
   },
   {
     "uuid": "test_59",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9399157"
+    "confidence": "0.9462345"
   },
   {
     "uuid": "test_59",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.98032045"
+    "confidence": "0.9285918"
   },
   {
     "uuid": "test_59",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.9819632"
+    "confidence": "0.9586606"
   },
   {
     "uuid": "test_59",
@@ -2653,13 +2458,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.13489057"
+    "confidence": "0.14567585"
   },
   {
     "uuid": "test_59",
     "turn_id": 8,
     "prediction": [],
-    "confidence": "0.46102083"
+    "confidence": "0.5445652"
   },
   {
     "uuid": "test_60",
@@ -2669,26 +2474,25 @@
       "food",
       "type"
     ],
-    "confidence": "0.35545313"
+    "confidence": "0.39951402"
   },
   {
     "uuid": "test_60",
     "turn_id": 1,
     "prediction": [
       "area",
-      "choice",
       "food",
       "name",
       "pricerange",
       "type"
     ],
-    "confidence": "0.8502083"
+    "confidence": "0.87763214"
   },
   {
     "uuid": "test_60",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.9971872"
+    "confidence": "0.99161166"
   },
   {
     "uuid": "test_60",
@@ -2696,13 +2500,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.3231679"
+    "confidence": "0.3090483"
   },
   {
     "uuid": "test_60",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9992457"
+    "confidence": "0.9990749"
   },
   {
     "uuid": "test_61",
@@ -2712,17 +2516,15 @@
       "choice",
       "type"
     ],
-    "confidence": "0.8744738"
+    "confidence": "0.8604023"
   },
   {
     "uuid": "test_61",
     "turn_id": 1,
     "prediction": [
-      "area",
-      "name",
-      "type"
+      "name"
     ],
-    "confidence": "0.6628402"
+    "confidence": "0.1612734"
   },
   {
     "uuid": "test_61",
@@ -2732,13 +2534,13 @@
       "phone",
       "postcode"
     ],
-    "confidence": "0.97921175"
+    "confidence": "0.9532555"
   },
   {
     "uuid": "test_61",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.8556751"
+    "confidence": "0.8557603"
   },
   {
     "uuid": "test_62",
@@ -2748,7 +2550,7 @@
       "area",
       "name"
     ],
-    "confidence": "0.68994963"
+    "confidence": "0.6914893"
   },
   {
     "uuid": "test_62",
@@ -2757,13 +2559,13 @@
       "area",
       "postcode"
     ],
-    "confidence": "0.75921637"
+    "confidence": "0.8073798"
   },
   {
     "uuid": "test_62",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.99736685"
+    "confidence": "0.99616104"
   },
   {
     "uuid": "test_63",
@@ -2772,7 +2574,7 @@
       "area",
       "name"
     ],
-    "confidence": "0.51078695"
+    "confidence": "0.47091618"
   },
   {
     "uuid": "test_63",
@@ -2781,21 +2583,21 @@
       "address",
       "postcode"
     ],
-    "confidence": "0.789023"
+    "confidence": "0.7956867"
   },
   {
     "uuid": "test_63",
     "turn_id": 2,
     "prediction": [
-      "phone"
+      "entrance_fee"
     ],
-    "confidence": "0.116208404"
+    "confidence": "0.4646803"
   },
   {
     "uuid": "test_63",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5441592"
+    "confidence": "0.5447366"
   },
   {
     "uuid": "test_64",
@@ -2807,19 +2609,19 @@
       "stars",
       "type"
     ],
-    "confidence": "0.88706666"
+    "confidence": "0.8849279"
   },
   {
     "uuid": "test_64",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.54251766"
+    "confidence": "0.5331533"
   },
   {
     "uuid": "test_64",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.9905577"
+    "confidence": "0.97754186"
   },
   {
     "uuid": "test_64",
@@ -2827,13 +2629,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.30960622"
+    "confidence": "0.3254037"
   },
   {
     "uuid": "test_64",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9991944"
+    "confidence": "0.9982272"
   },
   {
     "uuid": "test_65",
@@ -2842,13 +2644,801 @@
       "area",
       "type"
     ],
-    "confidence": "0.62972933"
+    "confidence": "0.61230004"
   },
   {
     "uuid": "test_65",
     "turn_id": 1,
     "prediction": [
+      "area",
       "food",
+      "name",
+      "pricerange"
+    ],
+    "confidence": "0.7233982"
+  },
+  {
+    "uuid": "test_65",
+    "turn_id": 2,
+    "prediction": [
+      "area",
+      "food",
+      "name",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.87160665"
+  },
+  {
+    "uuid": "test_65",
+    "turn_id": 3,
+    "prediction": [
+      "postcode"
+    ],
+    "confidence": "0.24479412"
+  },
+  {
+    "uuid": "test_65",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.54431"
+  },
+  {
+    "uuid": "test_66",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "entrance_fee",
+      "stars",
+      "type",
+      "type"
+    ],
+    "confidence": "0.6805511"
+  },
+  {
+    "uuid": "test_66",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "entrance_fee",
+      "name",
+      "pricerange",
+      "stars",
+      "type",
+      "type"
+    ],
+    "confidence": "0.85432273"
+  },
+  {
+    "uuid": "test_66",
+    "turn_id": 2,
+    "prediction": [
+      "choice",
+      "entrance_fee",
+      "name",
+      "pricerange",
+      "stars",
+      "type",
+      "type"
+    ],
+    "confidence": "0.88651204"
+  },
+  {
+    "uuid": "test_66",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.2945686"
+  },
+  {
+    "uuid": "test_66",
+    "turn_id": 4,
+    "prediction": [
+      "choice",
+      "pricerange",
+      "pricerange",
+      "stars",
+      "type"
+    ],
+    "confidence": "0.7953153"
+  },
+  {
+    "uuid": "test_66",
+    "turn_id": 5,
+    "prediction": [
+      "postcode"
+    ],
+    "confidence": "0.22364728"
+  },
+  {
+    "uuid": "test_66",
+    "turn_id": 6,
+    "prediction": [],
+    "confidence": "0.49920812"
+  },
+  {
+    "uuid": "test_67",
+    "turn_id": 0,
+    "prediction": [],
+    "confidence": "0.44583726"
+  },
+  {
+    "uuid": "test_67",
+    "turn_id": 1,
+    "prediction": [
+      "area",
+      "entrance_fee",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.8773259"
+  },
+  {
+    "uuid": "test_67",
+    "turn_id": 2,
+    "prediction": [
+      "choice",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.38863608"
+  },
+  {
+    "uuid": "test_67",
+    "turn_id": 3,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.07914074"
+  },
+  {
+    "uuid": "test_67",
+    "turn_id": 4,
+    "prediction": [
+      "phone"
+    ],
+    "confidence": "0.124632984"
+  },
+  {
+    "uuid": "test_67",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.66457886"
+  },
+  {
+    "uuid": "test_67",
+    "turn_id": 6,
+    "prediction": [],
+    "confidence": "0.66389704"
+  },
+  {
+    "uuid": "test_68",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "food",
+      "name",
+      "pricerange"
+    ],
+    "confidence": "0.86789775"
+  },
+  {
+    "uuid": "test_68",
+    "turn_id": 1,
+    "prediction": [
+      "address",
+      "name",
+      "phone"
+    ],
+    "confidence": "0.6173243"
+  },
+  {
+    "uuid": "test_68",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.85384464"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 0,
+    "prediction": [
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.59484667"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 1,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.15033258"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 2,
+    "prediction": [
+      "choice",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.728967"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 3,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.2893319"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 4,
+    "prediction": [
+      "name",
+      "type"
+    ],
+    "confidence": "0.45104623"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.9394297"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 6,
+    "prediction": [],
+    "confidence": "0.9857457"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 7,
+    "prediction": [],
+    "confidence": "0.47759074"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 8,
+    "prediction": [
+      "name",
+      "ref"
+    ],
+    "confidence": "0.35765308"
+  },
+  {
+    "uuid": "test_69",
+    "turn_id": 9,
+    "prediction": [],
+    "confidence": "0.5435137"
+  },
+  {
+    "uuid": "test_70",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "food",
+      "name",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.8792759"
+  },
+  {
+    "uuid": "test_70",
+    "turn_id": 1,
+    "prediction": [],
+    "confidence": "0.9631935"
+  },
+  {
+    "uuid": "test_70",
+    "turn_id": 2,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.32290557"
+  },
+  {
+    "uuid": "test_70",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.9957523"
+  },
+  {
+    "uuid": "test_71",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "type"
+    ],
+    "confidence": "0.56867546"
+  },
+  {
+    "uuid": "test_71",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "name",
+      "name",
+      "type"
+    ],
+    "confidence": "0.6598928"
+  },
+  {
+    "uuid": "test_71",
+    "turn_id": 2,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.12954651"
+  },
+  {
+    "uuid": "test_71",
+    "turn_id": 3,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.2364517"
+  },
+  {
+    "uuid": "test_71",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.74944377"
+  },
+  {
+    "uuid": "test_71",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.99850035"
+  },
+  {
+    "uuid": "test_72",
+    "turn_id": 0,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.23452942"
+  },
+  {
+    "uuid": "test_72",
+    "turn_id": 1,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.23059367"
+  },
+  {
+    "uuid": "test_72",
+    "turn_id": 2,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.20370074"
+  },
+  {
+    "uuid": "test_72",
+    "turn_id": 3,
+    "prediction": [
+      "area",
+      "name",
+      "pricerange"
+    ],
+    "confidence": "0.75043285"
+  },
+  {
+    "uuid": "test_72",
+    "turn_id": 4,
+    "prediction": [
+      "address",
+      "name"
+    ],
+    "confidence": "0.38374662"
+  },
+  {
+    "uuid": "test_72",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.6644625"
+  },
+  {
+    "uuid": "test_73",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "food",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.9132827"
+  },
+  {
+    "uuid": "test_73",
+    "turn_id": 1,
+    "prediction": [],
+    "confidence": "0.5993681"
+  },
+  {
+    "uuid": "test_73",
+    "turn_id": 2,
+    "prediction": [
+      "area",
+      "choice",
+      "name",
+      "name",
+      "type"
+    ],
+    "confidence": "0.7299495"
+  },
+  {
+    "uuid": "test_73",
+    "turn_id": 3,
+    "prediction": [
+      "postcode"
+    ],
+    "confidence": "0.24849388"
+  },
+  {
+    "uuid": "test_73",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.58876884"
+  },
+  {
+    "uuid": "test_74",
+    "turn_id": 0,
+    "prediction": [
+      "choice"
+    ],
+    "confidence": "0.6838276"
+  },
+  {
+    "uuid": "test_74",
+    "turn_id": 1,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.6994046"
+  },
+  {
+    "uuid": "test_74",
+    "turn_id": 2,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.8898652"
+  },
+  {
+    "uuid": "test_74",
+    "turn_id": 3,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.9918203"
+  },
+  {
+    "uuid": "test_74",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.3738715"
+  },
+  {
+    "uuid": "test_74",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.3735971"
+  },
+  {
+    "uuid": "test_75",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "area",
+      "choice",
+      "entrance_fee",
+      "type",
+      "type"
+    ],
+    "confidence": "0.83604854"
+  },
+  {
+    "uuid": "test_75",
+    "turn_id": 1,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.078202575"
+  },
+  {
+    "uuid": "test_75",
+    "turn_id": 2,
+    "prediction": [
+      "address",
+      "name"
+    ],
+    "confidence": "0.63442904"
+  },
+  {
+    "uuid": "test_75",
+    "turn_id": 3,
+    "prediction": [
+      "address"
+    ],
+    "confidence": "0.2527862"
+  },
+  {
+    "uuid": "test_75",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.99908274"
+  },
+  {
+    "uuid": "test_76",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "type"
+    ],
+    "confidence": "0.56763905"
+  },
+  {
+    "uuid": "test_76",
+    "turn_id": 1,
+    "prediction": [
+      "entrance_fee",
+      "name",
+      "pricerange",
+      "stars",
+      "type",
+      "type"
+    ],
+    "confidence": "0.89774066"
+  },
+  {
+    "uuid": "test_76",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.3456294"
+  },
+  {
+    "uuid": "test_76",
+    "turn_id": 3,
+    "prediction": [
+      "area",
+      "area",
+      "choice",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.47693488"
+  },
+  {
+    "uuid": "test_76",
+    "turn_id": 4,
+    "prediction": [
+      "area",
+      "area",
+      "choice",
+      "name",
+      "name",
+      "type"
+    ],
+    "confidence": "0.5071471"
+  },
+  {
+    "uuid": "test_76",
+    "turn_id": 5,
+    "prediction": [
+      "phone"
+    ],
+    "confidence": "0.30089894"
+  },
+  {
+    "uuid": "test_76",
+    "turn_id": 6,
+    "prediction": [
+      "address",
+      "name"
+    ],
+    "confidence": "0.5466475"
+  },
+  {
+    "uuid": "test_76",
+    "turn_id": 7,
+    "prediction": [],
+    "confidence": "0.99671596"
+  },
+  {
+    "uuid": "test_77",
+    "turn_id": 0,
+    "prediction": [
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.698131"
+  },
+  {
+    "uuid": "test_77",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "food",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.8682833"
+  },
+  {
+    "uuid": "test_77",
+    "turn_id": 2,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.1977435"
+  },
+  {
+    "uuid": "test_77",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.66503024"
+  },
+  {
+    "uuid": "test_78",
+    "turn_id": 0,
+    "prediction": [
+      "choice"
+    ],
+    "confidence": "0.16650012"
+  },
+  {
+    "uuid": "test_78",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "entrance_fee",
+      "pricerange",
+      "type",
+      "type"
+    ],
+    "confidence": "0.896185"
+  },
+  {
+    "uuid": "test_78",
+    "turn_id": 2,
+    "prediction": [
+      "entrance_fee",
+      "stars",
+      "type",
+      "type"
+    ],
+    "confidence": "0.7079231"
+  },
+  {
+    "uuid": "test_78",
+    "turn_id": 3,
+    "prediction": [
+      "area",
+      "name",
+      "phone"
+    ],
+    "confidence": "0.38467643"
+  },
+  {
+    "uuid": "test_78",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.39866728"
+  },
+  {
+    "uuid": "test_79",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "entrance_fee",
+      "type",
+      "type"
+    ],
+    "confidence": "0.94711953"
+  },
+  {
+    "uuid": "test_79",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "entrance_fee",
+      "type",
+      "type"
+    ],
+    "confidence": "0.91891354"
+  },
+  {
+    "uuid": "test_79",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.49766684"
+  },
+  {
+    "uuid": "test_79",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.4942648"
+  },
+  {
+    "uuid": "test_79",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.92403525"
+  },
+  {
+    "uuid": "test_79",
+    "turn_id": 5,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.27529314"
+  },
+  {
+    "uuid": "test_79",
+    "turn_id": 6,
+    "prediction": [],
+    "confidence": "0.99798197"
+  },
+  {
+    "uuid": "test_80",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "type"
+    ],
+    "confidence": "0.47493622"
+  },
+  {
+    "uuid": "test_80",
+    "turn_id": 1,
+    "prediction": [
+      "type"
+    ],
+    "confidence": "0.05832993"
+  },
+  {
+    "uuid": "test_80",
+    "turn_id": 2,
+    "prediction": [
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "type"
+    ],
+    "confidence": "0.6417887"
+  },
+  {
+    "uuid": "test_80",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.26625118"
+  },
+  {
+    "uuid": "test_80",
+    "turn_id": 4,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.08754437"
+  },
+  {
+    "uuid": "test_81",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
       "food",
       "food",
       "food",
@@ -2914,830 +3504,7 @@
       "food",
       ""
     ],
-    "confidence": "0.86239123"
-  },
-  {
-    "uuid": "test_65",
-    "turn_id": 2,
-    "prediction": [
-      "area",
-      "food",
-      "name",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.07963033"
-  },
-  {
-    "uuid": "test_65",
-    "turn_id": 3,
-    "prediction": [
-      "postcode"
-    ],
-    "confidence": "0.02321522"
-  },
-  {
-    "uuid": "test_65",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.046789832"
-  },
-  {
-    "uuid": "test_66",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "entrance_fee",
-      "stars",
-      "type",
-      "type"
-    ],
-    "confidence": "0.9355302"
-  },
-  {
-    "uuid": "test_66",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "area",
-      "choice"
-    ],
-    "confidence": "0.2885838"
-  },
-  {
-    "uuid": "test_66",
-    "turn_id": 2,
-    "prediction": [
-      "choice",
-      "name",
-      "name",
-      "type"
-    ],
-    "confidence": "0.35401016"
-  },
-  {
-    "uuid": "test_66",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.39735526"
-  },
-  {
-    "uuid": "test_66",
-    "turn_id": 4,
-    "prediction": [
-      "choice",
-      "name",
-      "type"
-    ],
-    "confidence": "0.6728148"
-  },
-  {
-    "uuid": "test_66",
-    "turn_id": 5,
-    "prediction": [
-      "postcode"
-    ],
-    "confidence": "0.47312832"
-  },
-  {
-    "uuid": "test_66",
-    "turn_id": 6,
-    "prediction": [],
-    "confidence": "0.9987375"
-  },
-  {
-    "uuid": "test_67",
-    "turn_id": 0,
-    "prediction": [
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.58448714"
-  },
-  {
-    "uuid": "test_67",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "name",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.7986377"
-  },
-  {
-    "uuid": "test_67",
-    "turn_id": 2,
-    "prediction": [
-      "choice",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.602567"
-  },
-  {
-    "uuid": "test_67",
-    "turn_id": 3,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.13339266"
-  },
-  {
-    "uuid": "test_67",
-    "turn_id": 4,
-    "prediction": [
-      "phone"
-    ],
-    "confidence": "0.20364028"
-  },
-  {
-    "uuid": "test_67",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.5396762"
-  },
-  {
-    "uuid": "test_67",
-    "turn_id": 6,
-    "prediction": [],
-    "confidence": "0.54383767"
-  },
-  {
-    "uuid": "test_68",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "food",
-      "name",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.9316786"
-  },
-  {
-    "uuid": "test_68",
-    "turn_id": 1,
-    "prediction": [
-      "address",
-      "phone"
-    ],
-    "confidence": "0.32561037"
-  },
-  {
-    "uuid": "test_68",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.8482939"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 0,
-    "prediction": [
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.57914436"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 1,
-    "prediction": [
-      "type"
-    ],
-    "confidence": "0.16778772"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 2,
-    "prediction": [
-      "choice",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.7866963"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 3,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.28633937"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 4,
-    "prediction": [
-      "name",
-      "type"
-    ],
-    "confidence": "0.5784193"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.9358235"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 6,
-    "prediction": [],
-    "confidence": "0.98849064"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 7,
-    "prediction": [
-      "choice",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.56479245"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 8,
-    "prediction": [
-      "name",
-      "ref"
-    ],
-    "confidence": "0.35914895"
-  },
-  {
-    "uuid": "test_69",
-    "turn_id": 9,
-    "prediction": [],
-    "confidence": "0.54429895"
-  },
-  {
-    "uuid": "test_70",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "food",
-      "name",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.91083866"
-  },
-  {
-    "uuid": "test_70",
-    "turn_id": 1,
-    "prediction": [],
-    "confidence": "0.96178323"
-  },
-  {
-    "uuid": "test_70",
-    "turn_id": 2,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.32583466"
-  },
-  {
-    "uuid": "test_70",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.99563336"
-  },
-  {
-    "uuid": "test_71",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "type"
-    ],
-    "confidence": "0.5713203"
-  },
-  {
-    "uuid": "test_71",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "name",
-      "name",
-      "type"
-    ],
-    "confidence": "0.7184775"
-  },
-  {
-    "uuid": "test_71",
-    "turn_id": 2,
-    "prediction": [
-      "name",
-      "name",
-      "pricerange"
-    ],
-    "confidence": "0.6146133"
-  },
-  {
-    "uuid": "test_71",
-    "turn_id": 3,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.24218053"
-  },
-  {
-    "uuid": "test_71",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.7493427"
-  },
-  {
-    "uuid": "test_71",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.54459685"
-  },
-  {
-    "uuid": "test_72",
-    "turn_id": 0,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.12636584"
-  },
-  {
-    "uuid": "test_72",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "name",
-      "pricerange",
-      "stars",
-      "type"
-    ],
-    "confidence": "0.81064796"
-  },
-  {
-    "uuid": "test_72",
-    "turn_id": 2,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.106880404"
-  },
-  {
-    "uuid": "test_72",
-    "turn_id": 3,
-    "prediction": [
-      "area",
-      "name",
-      "pricerange"
-    ],
-    "confidence": "0.7038014"
-  },
-  {
-    "uuid": "test_72",
-    "turn_id": 4,
-    "prediction": [
-      "address"
-    ],
-    "confidence": "0.16557387"
-  },
-  {
-    "uuid": "test_72",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.66631603"
-  },
-  {
-    "uuid": "test_73",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "food",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.8898145"
-  },
-  {
-    "uuid": "test_73",
-    "turn_id": 1,
-    "prediction": [],
-    "confidence": "0.99848866"
-  },
-  {
-    "uuid": "test_73",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.896652"
-  },
-  {
-    "uuid": "test_73",
-    "turn_id": 3,
-    "prediction": [
-      "postcode"
-    ],
-    "confidence": "0.4843936"
-  },
-  {
-    "uuid": "test_73",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.98623043"
-  },
-  {
-    "uuid": "test_74",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "type"
-    ],
-    "confidence": "0.8573086"
-  },
-  {
-    "uuid": "test_74",
-    "turn_id": 1,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.27571678"
-  },
-  {
-    "uuid": "test_74",
-    "turn_id": 2,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.4839679"
-  },
-  {
-    "uuid": "test_74",
-    "turn_id": 3,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.4975893"
-  },
-  {
-    "uuid": "test_74",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.748815"
-  },
-  {
-    "uuid": "test_74",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.7469679"
-  },
-  {
-    "uuid": "test_75",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "area",
-      "choice",
-      "type"
-    ],
-    "confidence": "0.7845619"
-  },
-  {
-    "uuid": "test_75",
-    "turn_id": 1,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.17483261"
-  },
-  {
-    "uuid": "test_75",
-    "turn_id": 2,
-    "prediction": [
-      "address",
-      "name"
-    ],
-    "confidence": "0.6073537"
-  },
-  {
-    "uuid": "test_75",
-    "turn_id": 3,
-    "prediction": [
-      "address"
-    ],
-    "confidence": "0.2675079"
-  },
-  {
-    "uuid": "test_75",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.9992475"
-  },
-  {
-    "uuid": "test_76",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "type"
-    ],
-    "confidence": "0.54714847"
-  },
-  {
-    "uuid": "test_76",
-    "turn_id": 1,
-    "prediction": [
-      "entrance_fee",
-      "name",
-      "pricerange",
-      "stars",
-      "type",
-      "type"
-    ],
-    "confidence": "0.85734236"
-  },
-  {
-    "uuid": "test_76",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.34909278"
-  },
-  {
-    "uuid": "test_76",
-    "turn_id": 3,
-    "prediction": [
-      "choice",
-      "pricerange",
-      "stars",
-      "type"
-    ],
-    "confidence": "0.3811388"
-  },
-  {
-    "uuid": "test_76",
-    "turn_id": 4,
-    "prediction": [
-      "type"
-    ],
-    "confidence": "0.08569353"
-  },
-  {
-    "uuid": "test_76",
-    "turn_id": 5,
-    "prediction": [
-      "phone"
-    ],
-    "confidence": "0.32931724"
-  },
-  {
-    "uuid": "test_76",
-    "turn_id": 6,
-    "prediction": [
-      "address"
-    ],
-    "confidence": "0.3009616"
-  },
-  {
-    "uuid": "test_76",
-    "turn_id": 7,
-    "prediction": [],
-    "confidence": "0.998827"
-  },
-  {
-    "uuid": "test_77",
-    "turn_id": 0,
-    "prediction": [
-      "type"
-    ],
-    "confidence": "0.27828193"
-  },
-  {
-    "uuid": "test_77",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "food",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.9197978"
-  },
-  {
-    "uuid": "test_77",
-    "turn_id": 2,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.21309167"
-  },
-  {
-    "uuid": "test_77",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.6648256"
-  },
-  {
-    "uuid": "test_78",
-    "turn_id": 0,
-    "prediction": [
-      "choice"
-    ],
-    "confidence": "0.17025827"
-  },
-  {
-    "uuid": "test_78",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "entrance_fee",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.8563086"
-  },
-  {
-    "uuid": "test_78",
-    "turn_id": 2,
-    "prediction": [
-      "entrance_fee",
-      "stars",
-      "type",
-      "type"
-    ],
-    "confidence": "0.8578648"
-  },
-  {
-    "uuid": "test_78",
-    "turn_id": 3,
-    "prediction": [
-      "area",
-      "phone"
-    ],
-    "confidence": "0.27046573"
-  },
-  {
-    "uuid": "test_78",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.45912135"
-  },
-  {
-    "uuid": "test_79",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "entrance_fee",
-      "type",
-      "type"
-    ],
-    "confidence": "0.92428774"
-  },
-  {
-    "uuid": "test_79",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "type"
-    ],
-    "confidence": "0.24769227"
-  },
-  {
-    "uuid": "test_79",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.4996439"
-  },
-  {
-    "uuid": "test_79",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.49772453"
-  },
-  {
-    "uuid": "test_79",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.9207204"
-  },
-  {
-    "uuid": "test_79",
-    "turn_id": 5,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.30044928"
-  },
-  {
-    "uuid": "test_79",
-    "turn_id": 6,
-    "prediction": [],
-    "confidence": "0.997838"
-  },
-  {
-    "uuid": "test_80",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "type"
-    ],
-    "confidence": "0.5510849"
-  },
-  {
-    "uuid": "test_80",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "food",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.06444101"
-  },
-  {
-    "uuid": "test_80",
-    "turn_id": 2,
-    "prediction": [
-      "choice",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.72725105"
-  },
-  {
-    "uuid": "test_80",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.047987178"
-  },
-  {
-    "uuid": "test_80",
-    "turn_id": 4,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.015820824"
-  },
-  {
-    "uuid": "test_81",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "choice",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.88002867"
+    "confidence": "0.8552681"
   },
   {
     "uuid": "test_81",
@@ -3747,13 +3514,13 @@
       "phone",
       "postcode"
     ],
-    "confidence": "0.7084873"
+    "confidence": "0.051341295"
   },
   {
     "uuid": "test_81",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.6625847"
+    "confidence": "0.046722315"
   },
   {
     "uuid": "test_82",
@@ -3762,73 +3529,73 @@
       "area",
       "area",
       "choice",
-      "type"
-    ],
-    "confidence": "0.71174866"
-  },
-  {
-    "uuid": "test_82",
-    "turn_id": 1,
-    "prediction": [
-      "name",
-      "name"
-    ],
-    "confidence": "0.40434042"
-  },
-  {
-    "uuid": "test_82",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.9386342"
-  },
-  {
-    "uuid": "test_82",
-    "turn_id": 3,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.32243225"
-  },
-  {
-    "uuid": "test_82",
-    "turn_id": 4,
-    "prediction": [],
-    "confidence": "0.99831516"
-  },
-  {
-    "uuid": "test_83",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "type"
-    ],
-    "confidence": "0.17756626"
-  },
-  {
-    "uuid": "test_83",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "name",
-      "name",
       "pricerange",
       "pricerange",
       "stars",
       "type"
     ],
-    "confidence": "0.72250855"
+    "confidence": "0.104023114"
+  },
+  {
+    "uuid": "test_82",
+    "turn_id": 1,
+    "prediction": [
+      "entrance_fee",
+      "name",
+      "pricerange",
+      "stars",
+      "type"
+    ],
+    "confidence": "0.86747205"
+  },
+  {
+    "uuid": "test_82",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.37627217"
+  },
+  {
+    "uuid": "test_82",
+    "turn_id": 3,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.12695238"
+  },
+  {
+    "uuid": "test_82",
+    "turn_id": 4,
+    "prediction": [],
+    "confidence": "0.39947352"
+  },
+  {
+    "uuid": "test_83",
+    "turn_id": 0,
+    "prediction": [
+      "choice"
+    ],
+    "confidence": "0.22309698"
+  },
+  {
+    "uuid": "test_83",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "name"
+    ],
+    "confidence": "0.36023363"
   },
   {
     "uuid": "test_83",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.3514575"
+    "confidence": "0.9466603"
   },
   {
     "uuid": "test_83",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.36479837"
+    "confidence": "0.95275944"
   },
   {
     "uuid": "test_83",
@@ -3836,13 +3603,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.21807411"
+    "confidence": "0.23896942"
   },
   {
     "uuid": "test_83",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.748335"
+    "confidence": "0.74723256"
   },
   {
     "uuid": "test_84",
@@ -3850,7 +3617,7 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.15898612"
+    "confidence": "0.15018846"
   },
   {
     "uuid": "test_84",
@@ -3859,7 +3626,7 @@
       "entrance_fee",
       "name"
     ],
-    "confidence": "0.8610153"
+    "confidence": "0.86310315"
   },
   {
     "uuid": "test_84",
@@ -3867,13 +3634,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.1704757"
+    "confidence": "0.16267604"
   },
   {
     "uuid": "test_84",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.54404616"
+    "confidence": "0.54367566"
   },
   {
     "uuid": "test_85",
@@ -3885,15 +3652,13 @@
       "stars",
       "type"
     ],
-    "confidence": "0.84603447"
+    "confidence": "0.83121204"
   },
   {
     "uuid": "test_85",
     "turn_id": 1,
-    "prediction": [
-      "type"
-    ],
-    "confidence": "0.13870673"
+    "prediction": [],
+    "confidence": "0.5000091"
   },
   {
     "uuid": "test_85",
@@ -3901,22 +3666,21 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.19311698"
+    "confidence": "0.12677301"
   },
   {
     "uuid": "test_85",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5989028"
+    "confidence": "0.3992443"
   },
   {
     "uuid": "test_86",
     "turn_id": 0,
     "prediction": [
-      "choice",
-      "type"
+      "choice"
     ],
-    "confidence": "0.29767308"
+    "confidence": "0.096326195"
   },
   {
     "uuid": "test_86",
@@ -3924,57 +3688,48 @@
     "prediction": [
       "choice",
       "entrance_fee",
+      "pricerange",
+      "type",
       "type"
     ],
-    "confidence": "0.81872225"
+    "confidence": "0.8547012"
   },
   {
     "uuid": "test_86",
     "turn_id": 2,
     "prediction": [
-      "choice",
-      "entrance_fee",
-      "pricerange",
-      "type"
+      "name"
     ],
-    "confidence": "0.8103945"
+    "confidence": "0.15916337"
   },
   {
     "uuid": "test_86",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.44560507"
+    "confidence": "0.95685846"
   },
   {
     "uuid": "test_86",
     "turn_id": 4,
-    "prediction": [
-      "area",
-      "choice",
-      "name",
-      "pricerange",
-      "stars",
-      "type"
-    ],
-    "confidence": "0.74364704"
+    "prediction": [],
+    "confidence": "0.9151711"
   },
   {
     "uuid": "test_86",
     "turn_id": 5,
-    "prediction": [
-      "choice",
-      "type"
-    ],
-    "confidence": "0.1921038"
+    "prediction": [],
+    "confidence": "0.8821597"
   },
   {
     "uuid": "test_86",
     "turn_id": 6,
     "prediction": [
+      "area",
       "name",
-      "pricerange"
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.61726946"
+    "confidence": "0.7830402"
   },
   {
     "uuid": "test_86",
@@ -3983,19 +3738,19 @@
       "name",
       "ref"
     ],
-    "confidence": "0.6381141"
+    "confidence": "0.4292481"
   },
   {
     "uuid": "test_86",
     "turn_id": 8,
     "prediction": [],
-    "confidence": "0.9973282"
+    "confidence": "0.6652739"
   },
   {
     "uuid": "test_86",
     "turn_id": 9,
     "prediction": [],
-    "confidence": "0.99768376"
+    "confidence": "0.66511935"
   },
   {
     "uuid": "test_87",
@@ -4004,67 +3759,19 @@
       "choice",
       "name",
       "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
       "type"
     ],
-    "confidence": "0.68895245"
+    "confidence": "0.50171185"
   },
   {
     "uuid": "test_87",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.3193687"
+    "confidence": "0.5206801"
   },
   {
     "uuid": "test_87",
     "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.2936207"
-  },
-  {
-    "uuid": "test_87",
-    "turn_id": 3,
-    "prediction": [
-      "name"
-    ],
-    "confidence": "0.068427674"
-  },
-  {
-    "uuid": "test_87",
-    "turn_id": 4,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.33141485"
-  },
-  {
-    "uuid": "test_87",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.99776584"
-  },
-  {
-    "uuid": "test_87",
-    "turn_id": 6,
-    "prediction": [],
-    "confidence": "0.9975057"
-  },
-  {
-    "uuid": "test_88",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "type"
-    ],
-    "confidence": "0.52756613"
-  },
-  {
-    "uuid": "test_88",
-    "turn_id": 1,
     "prediction": [
       "area",
       "food",
@@ -4072,16 +3779,61 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.87400746"
+    "confidence": "0.87274784"
+  },
+  {
+    "uuid": "test_87",
+    "turn_id": 3,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.117626816"
+  },
+  {
+    "uuid": "test_87",
+    "turn_id": 4,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.3303257"
+  },
+  {
+    "uuid": "test_87",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.9975951"
+  },
+  {
+    "uuid": "test_87",
+    "turn_id": 6,
+    "prediction": [],
+    "confidence": "0.9976559"
+  },
+  {
+    "uuid": "test_88",
+    "turn_id": 0,
+    "prediction": [
+      "type"
+    ],
+    "confidence": "0.23289947"
+  },
+  {
+    "uuid": "test_88",
+    "turn_id": 1,
+    "prediction": [
+      "name"
+    ],
+    "confidence": "0.19180411"
   },
   {
     "uuid": "test_88",
     "turn_id": 2,
     "prediction": [
       "name",
+      "name",
       "name"
     ],
-    "confidence": "0.21638805"
+    "confidence": "0.62045795"
   },
   {
     "uuid": "test_88",
@@ -4089,13 +3841,13 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.08900463"
+    "confidence": "0.17730792"
   },
   {
     "uuid": "test_88",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.5434974"
+    "confidence": "0.99331"
   },
   {
     "uuid": "test_88",
@@ -4103,13 +3855,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.21599095"
+    "confidence": "0.12792477"
   },
   {
     "uuid": "test_88",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.6645535"
+    "confidence": "0.39871648"
   },
   {
     "uuid": "test_89",
@@ -4118,18 +3870,20 @@
       "choice",
       "type"
     ],
-    "confidence": "0.32811016"
+    "confidence": "0.19784592"
   },
   {
     "uuid": "test_89",
     "turn_id": 1,
     "prediction": [
       "area",
-      "name",
+      "choice",
       "pricerange",
-      "stars"
+      "pricerange",
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.6783484"
+    "confidence": "0.79553884"
   },
   {
     "uuid": "test_89",
@@ -4137,25 +3891,25 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.28748295"
+    "confidence": "0.24964426"
   },
   {
     "uuid": "test_89",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9938426"
+    "confidence": "0.9951756"
   },
   {
     "uuid": "test_89",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9945808"
+    "confidence": "0.9933699"
   },
   {
     "uuid": "test_89",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.97841245"
+    "confidence": "0.97997427"
   },
   {
     "uuid": "test_90",
@@ -4164,7 +3918,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.5658692"
+    "confidence": "0.5218692"
   },
   {
     "uuid": "test_90",
@@ -4173,45 +3927,51 @@
       "name",
       "ref"
     ],
-    "confidence": "0.6352189"
+    "confidence": "0.6450274"
   },
   {
     "uuid": "test_90",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.9983268"
+    "confidence": "0.99783057"
   },
   {
     "uuid": "test_90",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.997813"
+    "confidence": "0.9978909"
   },
   {
     "uuid": "test_91",
     "turn_id": 0,
     "prediction": [],
-    "confidence": "0.7061063"
+    "confidence": "0.2988061"
   },
   {
     "uuid": "test_91",
     "turn_id": 1,
     "prediction": [
+      "area",
+      "area",
       "choice",
+      "entrance_fee",
+      "pricerange",
+      "type",
       "type"
     ],
-    "confidence": "0.30275506"
+    "confidence": "0.874919"
   },
   {
     "uuid": "test_91",
     "turn_id": 2,
     "prediction": [
+      "area",
       "name",
-      "name",
+      "pricerange",
       "stars",
-      "stars"
+      "type"
     ],
-    "confidence": "0.57660997"
+    "confidence": "0.46486354"
   },
   {
     "uuid": "test_91",
@@ -4222,13 +3982,13 @@
       "name",
       "type"
     ],
-    "confidence": "0.7470708"
+    "confidence": "0.33132258"
   },
   {
     "uuid": "test_91",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.6656099"
+    "confidence": "0.35198683"
   },
   {
     "uuid": "test_91",
@@ -4236,40 +3996,44 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.2095119"
+    "confidence": "0.10573023"
   },
   {
     "uuid": "test_91",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.6660069"
+    "confidence": "0.35252246"
   },
   {
     "uuid": "test_92",
     "turn_id": 0,
     "prediction": [
       "area",
+      "entrance_fee",
       "pricerange",
       "stars",
+      "type",
       "type"
     ],
-    "confidence": "0.88690245"
+    "confidence": "0.8987403"
   },
   {
     "uuid": "test_92",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.5967539"
+    "confidence": "0.5418856"
   },
   {
     "uuid": "test_93",
     "turn_id": 0,
     "prediction": [
+      "area",
       "choice",
+      "pricerange",
       "type",
       "type"
     ],
-    "confidence": "0.4566857"
+    "confidence": "0.90286255"
   },
   {
     "uuid": "test_93",
@@ -4281,7 +4045,7 @@
       "stars",
       "stars"
     ],
-    "confidence": "0.7137827"
+    "confidence": "0.6312813"
   },
   {
     "uuid": "test_93",
@@ -4289,7 +4053,7 @@
     "prediction": [
       "type"
     ],
-    "confidence": "0.15385608"
+    "confidence": "0.13218793"
   },
   {
     "uuid": "test_93",
@@ -4297,13 +4061,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.15830056"
+    "confidence": "0.14376493"
   },
   {
     "uuid": "test_93",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.49931982"
+    "confidence": "0.4981079"
   },
   {
     "uuid": "test_94",
@@ -4314,7 +4078,7 @@
       "type",
       "type"
     ],
-    "confidence": "0.96544766"
+    "confidence": "0.96092224"
   },
   {
     "uuid": "test_94",
@@ -4323,7 +4087,7 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.34328628"
+    "confidence": "0.33798054"
   },
   {
     "uuid": "test_94",
@@ -4335,7 +4099,7 @@
       "type",
       "type"
     ],
-    "confidence": "0.9253843"
+    "confidence": "0.8978304"
   },
   {
     "uuid": "test_94",
@@ -4344,9 +4108,10 @@
       "choice",
       "entrance_fee",
       "pricerange",
+      "type",
       "type"
     ],
-    "confidence": "0.7733247"
+    "confidence": "0.88093674"
   },
   {
     "uuid": "test_94",
@@ -4354,13 +4119,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.12919211"
+    "confidence": "0.12750544"
   },
   {
     "uuid": "test_94",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.39947882"
+    "confidence": "0.39901763"
   },
   {
     "uuid": "test_95",
@@ -4372,17 +4137,18 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.85547847"
+    "confidence": "0.8553909"
   },
   {
     "uuid": "test_95",
     "turn_id": 1,
     "prediction": [
       "area",
+      "name",
       "phone",
       "postcode"
     ],
-    "confidence": "0.57926726"
+    "confidence": "0.77152306"
   },
   {
     "uuid": "test_95",
@@ -4390,42 +4156,43 @@
     "prediction": [
       "phone"
     ],
-    "confidence": "0.17330584"
+    "confidence": "0.14456509"
   },
   {
     "uuid": "test_95",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.54107815"
+    "confidence": "0.54311025"
   },
   {
     "uuid": "test_96",
     "turn_id": 0,
     "prediction": [
       "choice",
+      "pricerange",
       "type"
     ],
-    "confidence": "0.25662404"
+    "confidence": "0.5596984"
   },
   {
     "uuid": "test_96",
     "turn_id": 1,
     "prediction": [
-      "choice",
       "entrance_fee",
-      "type",
+      "name",
       "type"
     ],
-    "confidence": "0.8640843"
+    "confidence": "0.8377234"
   },
   {
     "uuid": "test_96",
     "turn_id": 2,
     "prediction": [
       "choice",
+      "pricerange",
       "type"
     ],
-    "confidence": "0.23095132"
+    "confidence": "0.58227074"
   },
   {
     "uuid": "test_96",
@@ -4433,38 +4200,43 @@
     "prediction": [
       "stars"
     ],
-    "confidence": "0.115359314"
+    "confidence": "0.13851495"
   },
   {
     "uuid": "test_96",
     "turn_id": 4,
     "prediction": [
+      "name",
       "pricerange"
     ],
-    "confidence": "0.4165763"
+    "confidence": "0.36902645"
   },
   {
     "uuid": "test_96",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.99605495"
+    "confidence": "0.49824476"
   },
   {
     "uuid": "test_97",
     "turn_id": 0,
     "prediction": [
-      "choice"
+      "choice",
+      "entrance_fee",
+      "type"
     ],
-    "confidence": "0.25060716"
+    "confidence": "0.7503714"
   },
   {
     "uuid": "test_97",
     "turn_id": 1,
     "prediction": [
       "choice",
-      "name"
+      "entrance_fee",
+      "type",
+      "type"
     ],
-    "confidence": "0.3907887"
+    "confidence": "0.8378325"
   },
   {
     "uuid": "test_97",
@@ -4472,19 +4244,19 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.31892136"
+    "confidence": "0.31871808"
   },
   {
     "uuid": "test_97",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9987441"
+    "confidence": "0.9982217"
   },
   {
     "uuid": "test_97",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.99835545"
+    "confidence": "0.9983306"
   },
   {
     "uuid": "test_98",
@@ -4494,7 +4266,7 @@
       "food",
       "type"
     ],
-    "confidence": "0.87676877"
+    "confidence": "0.7925324"
   },
   {
     "uuid": "test_98",
@@ -4502,20 +4274,22 @@
     "prediction": [
       "area",
       "food",
+      "name",
+      "pricerange",
       "type"
     ],
-    "confidence": "0.6709149"
+    "confidence": "0.80669856"
   },
   {
     "uuid": "test_98",
     "turn_id": 2,
     "prediction": [
       "area",
-      "choice",
       "food",
-      "type"
+      "name",
+      "pricerange"
     ],
-    "confidence": "0.88860744"
+    "confidence": "0.6816004"
   },
   {
     "uuid": "test_98",
@@ -4523,34 +4297,36 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.24496305"
+    "confidence": "0.17792568"
   },
   {
     "uuid": "test_98",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.74910456"
+    "confidence": "0.5448617"
   },
   {
     "uuid": "test_98",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.59908915"
+    "confidence": "0.7492496"
   },
   {
     "uuid": "test_99",
     "turn_id": 0,
     "prediction": [
       "address",
-      "name"
+      "area",
+      "name",
+      "phone"
     ],
-    "confidence": "0.2997203"
+    "confidence": "0.7460884"
   },
   {
     "uuid": "test_99",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.5990037"
+    "confidence": "0.749002"
   },
   {
     "uuid": "test_100",
@@ -4558,11 +4334,10 @@
     "prediction": [
       "area",
       "choice",
-      "name",
-      "name",
+      "type",
       "type"
     ],
-    "confidence": "0.85467273"
+    "confidence": "0.8202032"
   },
   {
     "uuid": "test_100",
@@ -4574,7 +4349,7 @@
       "name",
       "type"
     ],
-    "confidence": "0.8864404"
+    "confidence": "0.8835594"
   },
   {
     "uuid": "test_100",
@@ -4584,13 +4359,13 @@
       "name",
       "phone"
     ],
-    "confidence": "0.5686124"
+    "confidence": "0.5723609"
   },
   {
     "uuid": "test_100",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.59868085"
+    "confidence": "0.5985855"
   },
   {
     "uuid": "test_101",
@@ -4598,22 +4373,26 @@
     "prediction": [
       "type"
     ],
-    "confidence": "0.1869146"
+    "confidence": "0.16213307"
   },
   {
     "uuid": "test_101",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.48154798"
+    "confidence": "0.33284524"
   },
   {
     "uuid": "test_101",
     "turn_id": 2,
     "prediction": [
       "entrance_fee",
-      "name"
+      "name",
+      "pricerange",
+      "stars",
+      "type",
+      "type"
     ],
-    "confidence": "0.57673943"
+    "confidence": "0.83531725"
   },
   {
     "uuid": "test_101",
@@ -4622,7 +4401,7 @@
       "address",
       "phone"
     ],
-    "confidence": "0.31285936"
+    "confidence": "0.2080071"
   },
   {
     "uuid": "test_102",
@@ -4633,7 +4412,7 @@
       "type",
       "type"
     ],
-    "confidence": "0.9383826"
+    "confidence": "0.66496927"
   },
   {
     "uuid": "test_102",
@@ -4642,7 +4421,7 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.28785896"
+    "confidence": "0.26893228"
   },
   {
     "uuid": "test_102",
@@ -4654,7 +4433,7 @@
       "type",
       "type"
     ],
-    "confidence": "0.8990357"
+    "confidence": "0.88625354"
   },
   {
     "uuid": "test_102",
@@ -4663,30 +4442,33 @@
       "area",
       "name",
       "phone",
-      "stars"
+      "stars",
+      "type"
     ],
-    "confidence": "0.47911274"
+    "confidence": "0.5533797"
   },
   {
     "uuid": "test_102",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.3992076"
+    "confidence": "0.39887497"
   },
   {
     "uuid": "test_103",
     "turn_id": 0,
     "prediction": [
       "food",
+      "food",
+      "name",
       "name"
     ],
-    "confidence": "0.47202137"
+    "confidence": "0.703001"
   },
   {
     "uuid": "test_103",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.9629052"
+    "confidence": "0.7225021"
   },
   {
     "uuid": "test_103",
@@ -4694,19 +4476,19 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32339942"
+    "confidence": "0.24438605"
   },
   {
     "uuid": "test_103",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.98994946"
+    "confidence": "0.746017"
   },
   {
     "uuid": "test_103",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.99140406"
+    "confidence": "0.9931743"
   },
   {
     "uuid": "test_104",
@@ -4715,7 +4497,7 @@
       "area",
       "name"
     ],
-    "confidence": "0.44027698"
+    "confidence": "0.4293325"
   },
   {
     "uuid": "test_104",
@@ -4723,37 +4505,97 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32731012"
+    "confidence": "0.32222387"
   },
   {
     "uuid": "test_104",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.99918586"
+    "confidence": "0.99935204"
   },
   {
     "uuid": "test_105",
     "turn_id": 0,
     "prediction": [
       "choice",
+      "name",
+      "name",
+      "name",
+      "name",
       "type"
     ],
-    "confidence": "0.47756138"
+    "confidence": "0.06813091"
   },
   {
     "uuid": "test_105",
     "turn_id": 1,
     "prediction": [
       "choice",
-      "name"
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "name",
+      "type"
     ],
-    "confidence": "0.437699"
+    "confidence": "0.5905874"
   },
   {
     "uuid": "test_105",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.94267637"
+    "confidence": "0.050375354"
   },
   {
     "uuid": "test_105",
@@ -4761,21 +4603,23 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.32229492"
+    "confidence": "0.01675949"
   },
   {
     "uuid": "test_105",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.3150204"
+    "confidence": "0.59773844"
   },
   {
     "uuid": "test_106",
     "turn_id": 0,
     "prediction": [
-      "choice"
+      "choice",
+      "stars",
+      "type"
     ],
-    "confidence": "0.08024189"
+    "confidence": "0.46395725"
   },
   {
     "uuid": "test_106",
@@ -4783,277 +4627,285 @@
     "prediction": [
       "area",
       "area",
-      "area",
-      "choice"
+      "choice",
+      "name",
+      "name"
     ],
-    "confidence": "0.3289809"
+    "confidence": "0.7178148"
   },
   {
     "uuid": "test_106",
     "turn_id": 2,
     "prediction": [
-      "area",
       "entrance_fee",
       "name",
-      "pricerange",
-      "stars",
-      "type",
       "type"
     ],
-    "confidence": "0.9120466"
+    "confidence": "0.84935063"
   },
   {
     "uuid": "test_106",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.50589913"
+    "confidence": "0.5416496"
   },
   {
     "uuid": "test_107",
     "turn_id": 0,
-    "prediction": [
-      "area",
-      "name",
-      "pricerange",
-      "stars",
-      "type"
-    ],
-    "confidence": "0.81140614"
-  },
-  {
-    "uuid": "test_107",
-    "turn_id": 1,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.17101805"
-  },
-  {
-    "uuid": "test_107",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.5425425"
-  },
-  {
-    "uuid": "test_108",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "food",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.91002655"
-  },
-  {
-    "uuid": "test_108",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "name"
-    ],
-    "confidence": "0.25915554"
-  },
-  {
-    "uuid": "test_108",
-    "turn_id": 2,
     "prediction": [
       "address",
-      "phone"
-    ],
-    "confidence": "0.3912526"
-  },
-  {
-    "uuid": "test_108",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.6603818"
-  },
-  {
-    "uuid": "test_109",
-    "turn_id": 0,
-    "prediction": [
-      "choice",
-      "food",
-      "type"
-    ],
-    "confidence": "0.44072282"
-  },
-  {
-    "uuid": "test_109",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "food",
-      "name",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.8684158"
-  },
-  {
-    "uuid": "test_109",
-    "turn_id": 2,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.16874932"
-  },
-  {
-    "uuid": "test_109",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.5447953"
-  },
-  {
-    "uuid": "test_110",
-    "turn_id": 0,
-    "prediction": [
       "area",
       "name",
-      "pricerange",
-      "stars",
-      "type"
-    ],
-    "confidence": "0.7972757"
-  },
-  {
-    "uuid": "test_110",
-    "turn_id": 1,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.1731893"
-  },
-  {
-    "uuid": "test_110",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.54470843"
-  },
-  {
-    "uuid": "test_111",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "area",
-      "choice",
-      "food",
-      "type"
-    ],
-    "confidence": "0.7522843"
-  },
-  {
-    "uuid": "test_111",
-    "turn_id": 1,
-    "prediction": [
-      "choice",
-      "name",
-      "name"
-    ],
-    "confidence": "0.79697436"
-  },
-  {
-    "uuid": "test_111",
-    "turn_id": 2,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.3250386"
-  },
-  {
-    "uuid": "test_111",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.9894684"
-  },
-  {
-    "uuid": "test_112",
-    "turn_id": 0,
-    "prediction": [],
-    "confidence": "0.94991183"
-  },
-  {
-    "uuid": "test_112",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "name",
-      "pricerange",
-      "stars",
-      "type"
-    ],
-    "confidence": "0.8309984"
-  },
-  {
-    "uuid": "test_112",
-    "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.5451807"
-  },
-  {
-    "uuid": "test_112",
-    "turn_id": 3,
-    "prediction": [],
-    "confidence": "0.5196175"
-  },
-  {
-    "uuid": "test_112",
-    "turn_id": 4,
-    "prediction": [
-      "ref"
-    ],
-    "confidence": "0.17563786"
-  },
-  {
-    "uuid": "test_112",
-    "turn_id": 5,
-    "prediction": [],
-    "confidence": "0.5449243"
-  },
-  {
-    "uuid": "test_113",
-    "turn_id": 0,
-    "prediction": [
-      "area",
-      "food",
-      "name"
-    ],
-    "confidence": "0.41340634"
-  },
-  {
-    "uuid": "test_113",
-    "turn_id": 1,
-    "prediction": [
-      "area",
-      "food",
-      "name",
-      "pricerange",
-      "type"
-    ],
-    "confidence": "0.8778069"
-  },
-  {
-    "uuid": "test_113",
-    "turn_id": 2,
-    "prediction": [
-      "address",
       "phone",
       "postcode"
     ],
-    "confidence": "0.5885704"
+    "confidence": "0.7606758"
+  },
+  {
+    "uuid": "test_107",
+    "turn_id": 1,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.16241549"
+  },
+  {
+    "uuid": "test_107",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.5431478"
+  },
+  {
+    "uuid": "test_108",
+    "turn_id": 0,
+    "prediction": [
+      "choice"
+    ],
+    "confidence": "0.11087788"
+  },
+  {
+    "uuid": "test_108",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "food",
+      "name",
+      "name",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.7786305"
+  },
+  {
+    "uuid": "test_108",
+    "turn_id": 2,
+    "prediction": [
+      "address",
+      "name",
+      "phone"
+    ],
+    "confidence": "0.43515903"
+  },
+  {
+    "uuid": "test_108",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.45869827"
+  },
+  {
+    "uuid": "test_109",
+    "turn_id": 0,
+    "prediction": [
+      "choice",
+      "food",
+      "type"
+    ],
+    "confidence": "0.4041074"
+  },
+  {
+    "uuid": "test_109",
+    "turn_id": 1,
+    "prediction": [
+      "area",
+      "food",
+      "name",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.87381613"
+  },
+  {
+    "uuid": "test_109",
+    "turn_id": 2,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.16799809"
+  },
+  {
+    "uuid": "test_109",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.54483324"
+  },
+  {
+    "uuid": "test_110",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "name",
+      "pricerange",
+      "stars",
+      "type"
+    ],
+    "confidence": "0.70238143"
+  },
+  {
+    "uuid": "test_110",
+    "turn_id": 1,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.14271888"
+  },
+  {
+    "uuid": "test_110",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.46044475"
+  },
+  {
+    "uuid": "test_111",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "area",
+      "choice",
+      "food",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.8310757"
+  },
+  {
+    "uuid": "test_111",
+    "turn_id": 1,
+    "prediction": [
+      "choice",
+      "name",
+      "name",
+      "type"
+    ],
+    "confidence": "0.6177466"
+  },
+  {
+    "uuid": "test_111",
+    "turn_id": 2,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.17628898"
+  },
+  {
+    "uuid": "test_111",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.54185915"
+  },
+  {
+    "uuid": "test_112",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "name",
+      "pricerange",
+      "stars",
+      "type"
+    ],
+    "confidence": "0.8051784"
+  },
+  {
+    "uuid": "test_112",
+    "turn_id": 1,
+    "prediction": [
+      "area",
+      "name",
+      "stars"
+    ],
+    "confidence": "0.72894615"
+  },
+  {
+    "uuid": "test_112",
+    "turn_id": 2,
+    "prediction": [],
+    "confidence": "0.9963607"
+  },
+  {
+    "uuid": "test_112",
+    "turn_id": 3,
+    "prediction": [],
+    "confidence": "0.9583617"
+  },
+  {
+    "uuid": "test_112",
+    "turn_id": 4,
+    "prediction": [
+      "ref"
+    ],
+    "confidence": "0.31473184"
+  },
+  {
+    "uuid": "test_112",
+    "turn_id": 5,
+    "prediction": [],
+    "confidence": "0.5449682"
+  },
+  {
+    "uuid": "test_113",
+    "turn_id": 0,
+    "prediction": [
+      "area",
+      "food",
+      "name",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.8085505"
+  },
+  {
+    "uuid": "test_113",
+    "turn_id": 1,
+    "prediction": [
+      "area",
+      "food",
+      "name",
+      "pricerange",
+      "type"
+    ],
+    "confidence": "0.86822855"
+  },
+  {
+    "uuid": "test_113",
+    "turn_id": 2,
+    "prediction": [
+      "address",
+      "name",
+      "phone",
+      "postcode"
+    ],
+    "confidence": "0.77027357"
   },
   {
     "uuid": "test_113",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5391225"
+    "confidence": "0.5432023"
   },
   {
     "uuid": "test_113",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.542302"
+    "confidence": "0.5438482"
   },
   {
     "uuid": "test_114",
@@ -5065,13 +4917,13 @@
       "stars",
       "type"
     ],
-    "confidence": "0.87283725"
+    "confidence": "0.86670566"
   },
   {
     "uuid": "test_114",
     "turn_id": 1,
     "prediction": [],
-    "confidence": "0.49925736"
+    "confidence": "0.49913418"
   },
   {
     "uuid": "test_114",
@@ -5079,13 +4931,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.17290953"
+    "confidence": "0.121495105"
   },
   {
     "uuid": "test_114",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5991161"
+    "confidence": "0.39938685"
   },
   {
     "uuid": "test_115",
@@ -5094,7 +4946,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.25345576"
+    "confidence": "0.17015076"
   },
   {
     "uuid": "test_115",
@@ -5102,15 +4954,19 @@
     "prediction": [
       "entrance_fee",
       "name",
+      "pricerange",
+      "type",
       "type"
     ],
-    "confidence": "0.85696155"
+    "confidence": "0.89398724"
   },
   {
     "uuid": "test_115",
     "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.9432154"
+    "prediction": [
+      "type"
+    ],
+    "confidence": "0.241027"
   },
   {
     "uuid": "test_115",
@@ -5118,35 +4974,40 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.31895053"
+    "confidence": "0.31312507"
   },
   {
     "uuid": "test_115",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9990017"
+    "confidence": "0.998341"
   },
   {
     "uuid": "test_115",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.9966797"
+    "confidence": "0.9958522"
   },
   {
     "uuid": "test_116",
     "turn_id": 0,
     "prediction": [
-      "choice"
+      "choice",
+      "type"
     ],
-    "confidence": "0.37540728"
+    "confidence": "0.2850394"
   },
   {
     "uuid": "test_116",
     "turn_id": 1,
     "prediction": [
-      "name"
+      "area",
+      "name",
+      "pricerange",
+      "stars",
+      "type"
     ],
-    "confidence": "0.25151545"
+    "confidence": "0.79340136"
   },
   {
     "uuid": "test_116",
@@ -5155,7 +5016,7 @@
       "name",
       "ref"
     ],
-    "confidence": "0.97451204"
+    "confidence": "0.3531582"
   },
   {
     "uuid": "test_116",
@@ -5163,19 +5024,19 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.49779743"
+    "confidence": "0.18037857"
   },
   {
     "uuid": "test_116",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.6653859"
+    "confidence": "0.6641043"
   },
   {
     "uuid": "test_116",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.6660483"
+    "confidence": "0.66506445"
   },
   {
     "uuid": "test_117",
@@ -5186,16 +5047,18 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.86954945"
+    "confidence": "0.8627131"
   },
   {
     "uuid": "test_117",
     "turn_id": 1,
     "prediction": [
       "choice",
-      "name"
+      "name",
+      "name",
+      "type"
     ],
-    "confidence": "0.2646935"
+    "confidence": "0.6299369"
   },
   {
     "uuid": "test_117",
@@ -5203,13 +5066,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.17854063"
+    "confidence": "0.17654762"
   },
   {
     "uuid": "test_117",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5449267"
+    "confidence": "0.5449246"
   },
   {
     "uuid": "test_118",
@@ -5221,7 +5084,7 @@
       "stars",
       "type"
     ],
-    "confidence": "0.7942482"
+    "confidence": "0.847207"
   },
   {
     "uuid": "test_118",
@@ -5230,25 +5093,25 @@
       "area",
       "name"
     ],
-    "confidence": "0.24975003"
+    "confidence": "0.29152033"
   },
   {
     "uuid": "test_118",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.9196486"
+    "confidence": "0.91751283"
   },
   {
     "uuid": "test_118",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9914225"
+    "confidence": "0.9695835"
   },
   {
     "uuid": "test_118",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.97088486"
+    "confidence": "0.91607594"
   },
   {
     "uuid": "test_118",
@@ -5256,68 +5119,67 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.31901494"
+    "confidence": "0.30500147"
   },
   {
     "uuid": "test_118",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.46074015"
+    "confidence": "0.7476436"
   },
   {
     "uuid": "test_118",
     "turn_id": 7,
     "prediction": [],
-    "confidence": "0.46008474"
+    "confidence": "0.74351275"
   },
   {
     "uuid": "test_119",
     "turn_id": 0,
     "prediction": [
-      "area",
-      "area",
       "choice",
-      "food",
-      "pricerange",
+      "name",
+      "name",
       "type"
     ],
-    "confidence": "0.85954833"
+    "confidence": "0.7946571"
   },
   {
     "uuid": "test_119",
     "turn_id": 1,
     "prediction": [
-      "area",
       "name",
       "phone"
     ],
-    "confidence": "0.36174884"
+    "confidence": "0.33966625"
   },
   {
     "uuid": "test_119",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.9936262"
+    "confidence": "0.59861004"
   },
   {
     "uuid": "test_120",
     "turn_id": 0,
     "prediction": [
       "choice",
-      "type",
+      "pricerange",
+      "pricerange",
       "type"
     ],
-    "confidence": "0.84098727"
+    "confidence": "0.82977265"
   },
   {
     "uuid": "test_120",
     "turn_id": 1,
     "prediction": [
       "choice",
-      "type",
+      "pricerange",
+      "pricerange",
       "type"
     ],
-    "confidence": "0.7336385"
+    "confidence": "0.8029091"
   },
   {
     "uuid": "test_120",
@@ -5326,22 +5188,19 @@
       "name",
       "ref"
     ],
-    "confidence": "0.6255122"
+    "confidence": "0.3883035"
   },
   {
     "uuid": "test_120",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.6657793"
+    "confidence": "0.6647813"
   },
   {
     "uuid": "test_121",
     "turn_id": 0,
-    "prediction": [
-      "area",
-      "type"
-    ],
-    "confidence": "0.3823637"
+    "prediction": [],
+    "confidence": "0.60040164"
   },
   {
     "uuid": "test_121",
@@ -5352,16 +5211,15 @@
       "name",
       "pricerange"
     ],
-    "confidence": "0.90146804"
+    "confidence": "0.88945866"
   },
   {
     "uuid": "test_121",
     "turn_id": 2,
     "prediction": [
-      "food",
-      "name"
+      "food"
     ],
-    "confidence": "0.29451546"
+    "confidence": "0.12764883"
   },
   {
     "uuid": "test_121",
@@ -5369,61 +5227,74 @@
     "prediction": [
       "address"
     ],
-    "confidence": "0.14680374"
+    "confidence": "0.0996233"
   },
   {
     "uuid": "test_121",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.499096"
+    "confidence": "0.37429103"
   },
   {
     "uuid": "test_122",
     "turn_id": 0,
-    "prediction": [],
-    "confidence": "0.43945384"
-  },
-  {
-    "uuid": "test_122",
-    "turn_id": 1,
     "prediction": [
+      "area",
+      "area",
       "choice",
       "pricerange",
       "pricerange",
       "stars",
       "type"
     ],
-    "confidence": "0.85826117"
+    "confidence": "0.76473224"
+  },
+  {
+    "uuid": "test_122",
+    "turn_id": 1,
+    "prediction": [
+      "area",
+      "area",
+      "choice",
+      "pricerange",
+      "pricerange",
+      "stars",
+      "type"
+    ],
+    "confidence": "0.824364"
   },
   {
     "uuid": "test_122",
     "turn_id": 2,
-    "prediction": [],
-    "confidence": "0.9467397"
+    "prediction": [
+      "name",
+      "stars"
+    ],
+    "confidence": "0.35854164"
   },
   {
     "uuid": "test_122",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.9955416"
+    "confidence": "0.99290854"
   },
   {
     "uuid": "test_122",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.96341044"
+    "confidence": "0.9142577"
   },
   {
     "uuid": "test_122",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.9943221"
+    "confidence": "0.98396116"
   },
   {
     "uuid": "test_122",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.98676425"
+    "confidence": "0.9607586"
   },
   {
     "uuid": "test_122",
@@ -5431,13 +5302,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.2808787"
+    "confidence": "0.24528861"
   },
   {
     "uuid": "test_122",
     "turn_id": 8,
     "prediction": [],
-    "confidence": "0.99840647"
+    "confidence": "0.99748355"
   },
   {
     "uuid": "test_123",
@@ -5446,17 +5317,15 @@
       "area",
       "type"
     ],
-    "confidence": "0.6134337"
+    "confidence": "0.5904222"
   },
   {
     "uuid": "test_123",
     "turn_id": 1,
     "prediction": [
-      "area",
-      "pricerange",
       "type"
     ],
-    "confidence": "0.408213"
+    "confidence": "0.10429982"
   },
   {
     "uuid": "test_123",
@@ -5470,13 +5339,13 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.9301002"
+    "confidence": "0.94049805"
   },
   {
     "uuid": "test_123",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.39236945"
+    "confidence": "0.392488"
   },
   {
     "uuid": "test_123",
@@ -5484,7 +5353,7 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.12364356"
+    "confidence": "0.10435483"
   },
   {
     "uuid": "test_123",
@@ -5492,13 +5361,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.21957804"
+    "confidence": "0.21868011"
   },
   {
     "uuid": "test_123",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.6636436"
+    "confidence": "0.665584"
   },
   {
     "uuid": "test_124",
@@ -5509,7 +5378,7 @@
       "name",
       "pricerange"
     ],
-    "confidence": "0.8505445"
+    "confidence": "0.82344204"
   },
   {
     "uuid": "test_124",
@@ -5517,13 +5386,13 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.12440051"
+    "confidence": "0.13273281"
   },
   {
     "uuid": "test_124",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.044760343"
+    "confidence": "0.32408205"
   },
   {
     "uuid": "test_124",
@@ -5531,101 +5400,46 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.015292169"
+    "confidence": "0.1071072"
   },
   {
     "uuid": "test_124",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.046675265"
+    "confidence": "0.33186772"
   },
   {
     "uuid": "test_125",
     "turn_id": 0,
     "prediction": [
+      "area",
+      "choice",
+      "food",
       "name",
       "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      "name",
-      ""
+      "pricerange",
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.8203349"
+    "confidence": "0.87909186"
   },
   {
     "uuid": "test_125",
     "turn_id": 1,
     "prediction": [
-      "name",
-      "name",
-      "name"
+      "area",
+      "choice",
+      "food",
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.56412685"
+    "confidence": "0.80530304"
   },
   {
     "uuid": "test_125",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.96147937"
+    "confidence": "0.52109015"
   },
   {
     "uuid": "test_125",
@@ -5633,13 +5447,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.3244458"
+    "confidence": "0.16626701"
   },
   {
     "uuid": "test_125",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.9991036"
+    "confidence": "0.5447984"
   },
   {
     "uuid": "test_126",
@@ -5651,27 +5465,28 @@
       "stars",
       "type"
     ],
-    "confidence": "0.89989704"
+    "confidence": "0.9037987"
   },
   {
     "uuid": "test_126",
     "turn_id": 1,
     "prediction": [
+      "name",
       "pricerange"
     ],
-    "confidence": "0.2360756"
+    "confidence": "0.39994344"
   },
   {
     "uuid": "test_126",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.54471046"
+    "confidence": "0.5446402"
   },
   {
     "uuid": "test_126",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5446507"
+    "confidence": "0.5442374"
   },
   {
     "uuid": "test_127",
@@ -5681,18 +5496,19 @@
       "stars",
       "type"
     ],
-    "confidence": "0.6049156"
+    "confidence": "0.4332943"
   },
   {
     "uuid": "test_127",
     "turn_id": 1,
     "prediction": [
-      "area",
+      "choice",
       "name",
       "pricerange",
-      "stars"
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.74957347"
+    "confidence": "0.71023226"
   },
   {
     "uuid": "test_127",
@@ -5700,13 +5516,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.21336916"
+    "confidence": "0.16034591"
   },
   {
     "uuid": "test_127",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.6660613"
+    "confidence": "0.49947605"
   },
   {
     "uuid": "test_128",
@@ -5717,7 +5533,7 @@
       "type",
       "type"
     ],
-    "confidence": "0.88506186"
+    "confidence": "0.8418713"
   },
   {
     "uuid": "test_128",
@@ -5725,30 +5541,33 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.1998857"
+    "confidence": "0.18631107"
   },
   {
     "uuid": "test_128",
     "turn_id": 2,
     "prediction": [
+      "name",
       "pricerange"
     ],
-    "confidence": "0.31785277"
+    "confidence": "0.57765895"
   },
   {
     "uuid": "test_128",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.7492555"
+    "confidence": "0.7491347"
   },
   {
     "uuid": "test_129",
     "turn_id": 0,
     "prediction": [
+      "area",
       "choice",
-      "name"
+      "food",
+      "type"
     ],
-    "confidence": "0.3677067"
+    "confidence": "0.8667486"
   },
   {
     "uuid": "test_129",
@@ -5758,21 +5577,24 @@
       "name",
       "postcode"
     ],
-    "confidence": "0.9338945"
+    "confidence": "0.8506949"
   },
   {
     "uuid": "test_129",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.8558313"
+    "confidence": "0.74873257"
   },
   {
     "uuid": "test_130",
     "turn_id": 0,
     "prediction": [
+      "area",
+      "choice",
+      "food",
       "type"
     ],
-    "confidence": "0.20466444"
+    "confidence": "0.8847575"
   },
   {
     "uuid": "test_130",
@@ -5784,18 +5606,16 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.91205"
+    "confidence": "0.89950144"
   },
   {
     "uuid": "test_130",
     "turn_id": 2,
     "prediction": [
-      "name",
-      "name",
-      "pricerange",
-      "type"
+      "address",
+      "name"
     ],
-    "confidence": "0.57083094"
+    "confidence": "0.20109634"
   },
   {
     "uuid": "test_130",
@@ -5803,13 +5623,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.17197686"
+    "confidence": "0.16202879"
   },
   {
     "uuid": "test_130",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.54406655"
+    "confidence": "0.54387075"
   },
   {
     "uuid": "test_131",
@@ -5820,7 +5640,7 @@
       "food",
       "type"
     ],
-    "confidence": "0.90763736"
+    "confidence": "0.8763375"
   },
   {
     "uuid": "test_131",
@@ -5828,13 +5648,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.23863243"
+    "confidence": "0.22086298"
   },
   {
     "uuid": "test_131",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.74891484"
+    "confidence": "0.74873203"
   },
   {
     "uuid": "test_132",
@@ -5843,7 +5663,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.43097106"
+    "confidence": "0.3938347"
   },
   {
     "uuid": "test_132",
@@ -5854,7 +5674,7 @@
       "name",
       "type"
     ],
-    "confidence": "0.6480911"
+    "confidence": "0.66273683"
   },
   {
     "uuid": "test_132",
@@ -5865,29 +5685,28 @@
       "phone",
       "postcode"
     ],
-    "confidence": "0.9676432"
+    "confidence": "0.9676681"
   },
   {
     "uuid": "test_132",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.6663302"
+    "confidence": "0.66578317"
   },
   {
     "uuid": "test_132",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.6658787"
+    "confidence": "0.66515917"
   },
   {
     "uuid": "test_133",
     "turn_id": 0,
     "prediction": [
       "choice",
-      "food",
       "type"
     ],
-    "confidence": "0.5246032"
+    "confidence": "0.25860423"
   },
   {
     "uuid": "test_133",
@@ -5898,13 +5717,13 @@
       "phone",
       "postcode"
     ],
-    "confidence": "0.9322587"
+    "confidence": "0.85495967"
   },
   {
     "uuid": "test_133",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.66565686"
+    "confidence": "0.5989742"
   },
   {
     "uuid": "test_134",
@@ -5912,43 +5731,53 @@
     "prediction": [
       "choice",
       "pricerange",
-      "pricerange"
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.7369702"
+    "confidence": "0.86136615"
   },
   {
     "uuid": "test_134",
     "turn_id": 1,
     "prediction": [
+      "area",
+      "choice",
       "name",
       "name",
+      "pricerange",
       "stars",
-      "stars"
+      "type"
     ],
-    "confidence": "0.7023226"
+    "confidence": "0.7655218"
   },
   {
     "uuid": "test_134",
     "turn_id": 2,
     "prediction": [
-      "name",
-      "name"
+      "area",
+      "choice",
+      "pricerange",
+      "pricerange",
+      "stars",
+      "type"
     ],
-    "confidence": "0.3448892"
+    "confidence": "0.7857294"
   },
   {
     "uuid": "test_134",
     "turn_id": 3,
     "prediction": [
+      "name",
+      "name",
       "name"
     ],
-    "confidence": "0.17344481"
+    "confidence": "0.22348398"
   },
   {
     "uuid": "test_134",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.69928384"
+    "confidence": "0.3692573"
   },
   {
     "uuid": "test_134",
@@ -5956,13 +5785,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.3286679"
+    "confidence": "0.32883573"
   },
   {
     "uuid": "test_134",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.9988931"
+    "confidence": "0.9982217"
   },
   {
     "uuid": "test_135",
@@ -5972,22 +5801,21 @@
       "area",
       "name"
     ],
-    "confidence": "0.8410871"
+    "confidence": "0.8565137"
   },
   {
     "uuid": "test_135",
     "turn_id": 1,
     "prediction": [
-      "area",
       "type"
     ],
-    "confidence": "0.41921398"
+    "confidence": "0.20107765"
   },
   {
     "uuid": "test_135",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.66445214"
+    "confidence": "0.9960982"
   },
   {
     "uuid": "test_136",
@@ -5996,7 +5824,7 @@
       "choice",
       "type"
     ],
-    "confidence": "0.3282072"
+    "confidence": "0.49597156"
   },
   {
     "uuid": "test_136",
@@ -6004,10 +5832,9 @@
     "prediction": [
       "choice",
       "food",
-      "pricerange",
       "type"
     ],
-    "confidence": "0.8278013"
+    "confidence": "0.6734565"
   },
   {
     "uuid": "test_136",
@@ -6015,13 +5842,13 @@
     "prediction": [
       "ref"
     ],
-    "confidence": "0.21795899"
+    "confidence": "0.32163104"
   },
   {
     "uuid": "test_136",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5988637"
+    "confidence": "0.74762523"
   },
   {
     "uuid": "test_137",
@@ -6030,10 +5857,9 @@
       "choice",
       "name",
       "name",
-      "stars",
       "type"
     ],
-    "confidence": "0.79441446"
+    "confidence": "0.7734319"
   },
   {
     "uuid": "test_137",
@@ -6041,16 +5867,16 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.10050964"
+    "confidence": "0.11436936"
   },
   {
     "uuid": "test_137",
     "turn_id": 2,
     "prediction": [
-      "postcode",
-      "type"
+      "name",
+      "postcode"
     ],
-    "confidence": "0.43596897"
+    "confidence": "0.5268771"
   },
   {
     "uuid": "test_137",
@@ -6058,32 +5884,32 @@
     "prediction": [
       "type"
     ],
-    "confidence": "0.10642052"
+    "confidence": "0.08765893"
   },
   {
     "uuid": "test_137",
     "turn_id": 4,
     "prediction": [
+      "area",
       "choice",
-      "name",
-      "name",
       "pricerange",
       "stars",
+      "type",
       "type"
     ],
-    "confidence": "0.7510357"
+    "confidence": "0.81872755"
   },
   {
     "uuid": "test_137",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.4598933"
+    "confidence": "0.46054858"
   },
   {
     "uuid": "test_137",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.46022528"
+    "confidence": "0.4603141"
   },
   {
     "uuid": "test_138",
@@ -6091,7 +5917,7 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.06650284"
+    "confidence": "0.08195186"
   },
   {
     "uuid": "test_138",
@@ -6099,11 +5925,10 @@
     "prediction": [
       "entrance_fee",
       "name",
-      "pricerange",
       "stars",
       "type"
     ],
-    "confidence": "0.84129494"
+    "confidence": "0.86256367"
   },
   {
     "uuid": "test_138",
@@ -6111,7 +5936,7 @@
     "prediction": [
       "name"
     ],
-    "confidence": "0.08966127"
+    "confidence": "0.09976933"
   },
   {
     "uuid": "test_138",
@@ -6119,7 +5944,7 @@
     "prediction": [
       "address"
     ],
-    "confidence": "0.10539816"
+    "confidence": "0.13618378"
   },
   {
     "uuid": "test_138",
@@ -6127,7 +5952,7 @@
     "prediction": [
       "postcode"
     ],
-    "confidence": "0.4930849"
+    "confidence": "0.4645232"
   },
   {
     "uuid": "test_138",
@@ -6135,30 +5960,32 @@
     "prediction": [
       "area"
     ],
-    "confidence": "0.26328638"
+    "confidence": "0.29771683"
   },
   {
     "uuid": "test_138",
     "turn_id": 6,
     "prediction": [],
-    "confidence": "0.99750924"
+    "confidence": "0.9972887"
   },
   {
     "uuid": "test_139",
     "turn_id": 0,
     "prediction": [
-      "choice"
+      "choice",
+      "type"
     ],
-    "confidence": "0.18578589"
+    "confidence": "0.46829405"
   },
   {
     "uuid": "test_139",
     "turn_id": 1,
     "prediction": [
       "area",
+      "food",
       "type"
     ],
-    "confidence": "0.3181709"
+    "confidence": "0.44647634"
   },
   {
     "uuid": "test_139",
@@ -6170,7 +5997,7 @@
       "pricerange",
       "type"
     ],
-    "confidence": "0.7998781"
+    "confidence": "0.7630218"
   },
   {
     "uuid": "test_139",
@@ -6179,68 +6006,67 @@
       "area",
       "food",
       "name",
-      "pricerange"
+      "pricerange",
+      "type"
     ],
-    "confidence": "0.6985605"
+    "confidence": "0.8824293"
   },
   {
     "uuid": "test_139",
     "turn_id": 4,
     "prediction": [],
-    "confidence": "0.5444456"
+    "confidence": "0.5429362"
   },
   {
     "uuid": "test_139",
     "turn_id": 5,
     "prediction": [],
-    "confidence": "0.8432053"
+    "confidence": "0.657115"
   },
   {
     "uuid": "test_139",
     "turn_id": 6,
     "prediction": [
       "address",
+      "name",
       "phone",
       "postcode"
     ],
-    "confidence": "0.9221922"
+    "confidence": "0.9520486"
   },
   {
     "uuid": "test_139",
     "turn_id": 7,
     "prediction": [],
-    "confidence": "0.8547475"
+    "confidence": "0.66129345"
   },
   {
     "uuid": "test_140",
     "turn_id": 0,
     "prediction": [
-      "choice",
-      "type"
+      "choice"
     ],
-    "confidence": "0.4217841"
+    "confidence": "0.15051804"
   },
   {
     "uuid": "test_140",
     "turn_id": 1,
     "prediction": [
-      "food",
       "name",
-      "postcode",
-      "pricerange"
+      "postcode"
     ],
-    "confidence": "0.8766726"
+    "confidence": "0.6997265"
   },
   {
     "uuid": "test_140",
     "turn_id": 2,
     "prediction": [],
-    "confidence": "0.5851806"
+    "confidence": "0.9779969"
   },
   {
     "uuid": "test_140",
     "turn_id": 3,
     "prediction": [],
-    "confidence": "0.5959202"
+    "confidence": "0.9948644"
   }
 ]

@@ -1,6 +1,8 @@
 import json
 from torch.utils.data import Dataset
+from datasets import Dataset as HF_Dataset
 from common import utils
+from common import prompts
 
 
 class CustomMwozDataset(Dataset):
@@ -12,7 +14,12 @@ class CustomMwozDataset(Dataset):
             self.raw_dataset = json.load(f)
 
         print(f"Processing: {data_filename} ...")
-        self.data = self.process_data(self.raw_dataset, model_type)
+        if model_type == 't5':
+            self.data = self.process_data_for_t5(self.raw_dataset)
+        elif model_type == 'llama_it':
+            self.data = HF_Dataset.from_list(self.process_data_for_llama_it(self.raw_dataset))
+        else:
+            raise NotImplementedError
         print("Done.")
 
     def __len__(self):
@@ -22,8 +29,7 @@ class CustomMwozDataset(Dataset):
         return self.data[idx]
 
 
-    def process_data(self, raw_dataset, model_type):
-        max_len = 0
+    def process_data_for_t5(self, raw_dataset):
         processed_dataset = []
         for row in raw_dataset:
             # Extract context component
@@ -41,12 +47,12 @@ class CustomMwozDataset(Dataset):
                 formatted_kb = utils.flatten_kb(kb, data_attributes)
 
                 # Build input
-                input = ' [dialog] ' + context + ' [kb] ' + formatted_kb
+                input = prompt + ' [dialog] ' + context + ' [kb] ' + formatted_kb
             else:
                 prompt = "Based on the [dialog], generate entity types to be included in the response:"
                 
                 # Build input
-                input = ' [dialog] ' + context
+                input = prompt + ' [dialog] ' + context
 
             # Build output
             et = row['hints']['entity_types']
@@ -55,27 +61,43 @@ class CustomMwozDataset(Dataset):
             else:
                 output = '[no entity]'
 
-            # Build data sample based on model input format
-            if model_type == 't5': 
-                # Build dataset data entry dict
-                input = prompt + input
-                tokenized_input = self.tokenizer(input, return_tensors="np")
-                data_sample = {
-                    'input_seq': input,
-                    'input_ids': tokenized_input.input_ids[0],
-                    'attention_mask': tokenized_input.attention_mask[0],
-                    'output_seq': output
-                }
+            # Build dataset data entry dict
+            tokenized_input = self.tokenizer(input, return_tensors="np")
+            data_sample = {
+                'input_seq': input,
+                'input_ids': tokenized_input.input_ids[0],
+                'attention_mask': tokenized_input.attention_mask[0],
+                'output_seq': output
+            }
 
-                # Include ground truth labels in train mode 
-                if self.mode == 'train':
-                    data_sample['labels'] = self.tokenizer(output, return_tensors="np").input_ids[0]
-            elif model_type == 'llama':
-                    # Format for llama
-                    formatted_seq = utils.format_for_llama_ft(prompt, input, output, self.mode)
-                    data_sample = {'text': formatted_seq, 'output_seq': output, 'uuid': row['uuid'], 'turn_id': row['turn_id']}             
+            # Include ground truth labels in train mode 
+            if self.mode == 'train':
+                data_sample['labels'] = self.tokenizer(output, return_tensors="np").input_ids[0]
+
+            processed_dataset.append(data_sample)
+
+        return processed_dataset
+    
+
+    def process_data_for_llama_it(self, raw_dataset):
+        processed_dataset = []
+        for row in raw_dataset:
+            # Define sys prompt
+            prompt = prompts.LLAMA_IT_SYS_PROMPT
+            # Define input
+            input = row['context_used']
+
+            # Build output
+            et = row['hints']['entity_types']
+            if len(et) > 0:
+                output = ' | '.join(sorted(et)) 
             else:
-                raise NotImplementedError
+                output = '[no entity]'
+
+            # Format for llama
+            formatted_seq = utils.format_chat_template(prompt, input, output, self.mode, self.tokenizer)
+            data_sample = {'text': formatted_seq, 'output_seq': output, 'uuid': row['uuid'], 'turn_id': row['turn_id']}             
+            
             processed_dataset.append(data_sample)
 
         return processed_dataset

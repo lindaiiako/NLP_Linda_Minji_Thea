@@ -84,3 +84,15 @@ def format_for_llama_ft(prompt, input, output, mode):
     else:
         return f"<|im_start|>system\n{prompt}<|im_end|>\n<|im_start|>user\n{input}<|im_end|>\n<|im_start|>assistant\n{output}<|im_end|>\n"
     
+
+def format_chat_template(prompt, input, output, mode, tokenizer):
+    messages = [
+        {"role": "system", "content": prompt},
+        {"role": "user", "content": input},
+        ]
+    if mode != 'infer':
+        messages.append({"role": "assistant", "content": output})
+
+    prompt = tokenizer.apply_chat_template(messages, add_special_tokens=False, add_generation_prompt=False, tokenize=False)
+    
+    return prompt

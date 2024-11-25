@@ -6,7 +6,8 @@ llama-etpred-ft/
 *.out
 sample.py
 test.ipynb
-
+test2.ipynb
+prompt.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

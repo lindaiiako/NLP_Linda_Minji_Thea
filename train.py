@@ -18,7 +18,7 @@ def main(args):
         from finetune.t5 import T5Trainer
         trainer = T5Trainer()
     else:
-        from finetune.llama import LlamaTrainer
+        from finetune.llama_it import LlamaTrainer
         trainer = LlamaTrainer()
 
     # Start training and eval
