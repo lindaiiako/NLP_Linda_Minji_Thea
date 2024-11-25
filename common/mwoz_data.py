@@ -96,7 +96,7 @@ class CustomMwozDataset(Dataset):
 
             # Format for llama
             formatted_seq = utils.format_chat_template(prompt, input, output, self.mode, self.tokenizer)
-            data_sample = {'text': formatted_seq, 'output_seq': output, 'uuid': row['uuid'], 'turn_id': row['turn_id']}             
+            data_sample = {'text': formatted_seq, 'output_seq': output, 'uuid': row['uuid'], 'turn_id': row['turn_id'], 'prompt': prompt, 'input': input}             
             
             processed_dataset.append(data_sample)
 

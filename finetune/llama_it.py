@@ -8,8 +8,8 @@ from common import constants
 from common.mwoz_data import CustomMwozDataset
 from common.utils import compute_prediction_scores
 from peft import LoraConfig
-from trl import SFTTrainer, setup_chat_format, SFTConfig
-
+from trl import SFTTrainer, setup_chat_format, SFTConfig, DataCollatorForCompletionOnlyLM
+from transformers import pipeline
 
 # Set for reproducibility
 np.random.seed(constants.SEED)
@@ -29,24 +29,21 @@ class LlamaTrainer():
             bnb_4bit_use_double_quant=True
             )
                 
-        model = AutoModelForCausalLM.from_pretrained(constants.LLAMA_IT_MODEL_ID, 
+        self.model = AutoModelForCausalLM.from_pretrained(constants.LLAMA_IT_MODEL_ID, 
                                                           quantization_config=bnb_config,
                                                           low_cpu_mem_usage=True,)
-        tokenizer = AutoTokenizer.from_pretrained(constants.LLAMA_IT_MODEL_ID)
+        self.tokenizer = AutoTokenizer.from_pretrained(constants.LLAMA_IT_MODEL_ID)
 
-        if tokenizer.pad_token_id is None:
-            tokenizer.pad_token_id = tokenizer.eos_token_id
-        if model.config.pad_token_id is None:
-            model.config.pad_token_id = model.config.eos_token_id
+        if self.tokenizer.pad_token_id is None:
+            self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
+        if self.model.config.pad_token_id is None:
+            self.model.config.pad_token_id = self.model.config.eos_token_id
         
         # No caching in training because every batch is processed independently
-        model.config.use_cache=False
+        self.model.config.use_cache=False
         
         # No tensor paralellism (single GPU setup)
-        model.config.pretraining_tp = 1
-
-        # Setup model and tokenizer for chat-style format
-        self.model, self.tokenizer = setup_chat_format(model, tokenizer)
+        self.model.config.pretraining_tp = 1
 
 
     # Evaluates entity type prediction using F1 scores for the test dataset
@@ -65,29 +62,21 @@ class LlamaTrainer():
             tokenized_inputs = self.tokenizer(formatted_prompt, return_tensors="pt").to(self.model.device)
             input_ids = tokenized_inputs["input_ids"]
             with torch.no_grad():
-                outputs = self.model.generate(input_ids=input_ids,
-                                            attention_mask=tokenized_inputs["attention_mask"], 
+                outputs = self.model.generate(**tokenized_inputs,
                                             max_new_tokens=constants.MAX_NEW_TOKENS,
-                                            do_sample=False,
-                                            num_beams=1,
+                                            do_sample=True,
+                                            num_return_sequences=1,
+                                            #num_beams=1,
                                             #stop_strings="END```",
                                             #tokenizer=self.tokenizer,
                                             )
-            
+
             # Get only the generated text (skip the input prompt)
             llm_response = outputs[0][input_ids.shape[-1]:]
             decoded_response = self.tokenizer.decode(llm_response, skip_special_tokens=True)
             print("OUT")
             print(decoded_response)
             responses.append(decoded_response)
-
-            pattern = r"```\n(.*?)\n```"
-            match = re.search(pattern, decoded_response)
-        
-            if match is not None:
-                et_list = match.group(1)
-                print("SUBSTR")
-                print(et_list)
 
             output.append(dict())
             output[-1]['uuid'] = sample['uuid']
@@ -148,15 +137,15 @@ class LlamaTrainer():
             save_steps=200,
             eval_steps=200,
             save_total_limit=2,
-            load_best_model_at_end=True, 
-            max_seq_length=5000,
+            #load_best_model_at_end=True, 
+            max_seq_length=1024,
             packing=False,
             dataset_text_field="text",
         )
 
         # Compute loss only on the completion made by the assistant
-        #response_template = "<|im_start|>assistant"
-        #collator = DataCollatorForCompletionOnlyLM(response_template=response_template, tokenizer=self.tokenizer, mlm=False)
+        response_template = "<|im_start|>assistant"
+        collator = DataCollatorForCompletionOnlyLM(response_template=response_template, tokenizer=self.tokenizer, mlm=False)
 
         trainer = SFTTrainer(
             model=self.model,
@@ -165,6 +154,7 @@ class LlamaTrainer():
             args=training_args,
             train_dataset=train_set, 
             eval_dataset=validation_set,
+            #data_collator=collator,
         )
 
         trainer.train()
