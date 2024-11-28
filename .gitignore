@@ -1,6 +1,7 @@
 # App-specific folders
 train_output/
 checkpoints/
+train_logs/
 llama-etpred-ft/
 gemma-etpred-ft/
 *.err

@@ -166,14 +166,16 @@ class GemmaTrainer():
             bnb_4bit_use_double_quant=True,
         )
 
-        self.model = AutoModelForCausalLM.from_pretrained(constants.GEMMA_MODEL_ID[self.model_type], 
+        model_id = constants.GEMMA_MODEL_ID[self.model_type]
+        self.model = AutoModelForCausalLM.from_pretrained(model_id, 
                                                           quantization_config=bnb_config,
                                                           low_cpu_mem_usage=True,
                                                           attn_implementation="eager",
                                                           )
-        self.tokenizer = AutoTokenizer.from_pretrained(constants.GEMMA_MODEL_ID[self.model_type])
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.tokenizer.padding_side = 'right'
+        print(f"Loaded {model_id}")
 
 
     # Main training procedure
@@ -192,7 +194,7 @@ class GemmaTrainer():
             gradient_accumulation_steps=3,
             per_device_train_batch_size=3,
             per_device_eval_batch_size=3,
-            num_train_epochs=1,
+            num_train_epochs=8,
             tf32=False,
             fp16=False,
             warmup_ratio=0.03,
@@ -203,13 +205,13 @@ class GemmaTrainer():
             output_dir=constants.GEMMA_TRAIN_OUTPUT_DIR[self.model_type],
             overwrite_output_dir=True,
             log_level='warning',
-            logging_steps=10,
+            logging_steps=50,
             save_strategy='steps', 
-            save_steps=400,
+            save_steps=500,
             seed=constants.SEED,
             eval_strategy='steps',
-            eval_steps=400,
-            save_total_limit=2,
+            eval_steps=500,
+            save_total_limit=4,
             load_best_model_at_end=True, 
             metric_for_best_model='f1',
             greater_is_better=True,         
@@ -228,7 +230,7 @@ class GemmaTrainer():
             args=training_args,
             train_dataset=train_set, 
             eval_dataset=validation_set,
-            #data_collator=collator,
+            data_collator=collator,
         )
         
         # Start training
