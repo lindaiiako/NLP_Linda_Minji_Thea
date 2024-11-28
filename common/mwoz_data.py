@@ -18,6 +18,8 @@ class CustomMwozDataset(Dataset):
             self.data = self.process_data_for_t5(self.raw_dataset)
         elif model_type == 'llama_it':
             self.data = HF_Dataset.from_list(self.process_data_for_llama_it(self.raw_dataset))
+        elif model_type == 'gemma':
+            self.data = HF_Dataset.from_list(self.process_data_for_gemma(self.raw_dataset))
         else:
             raise NotImplementedError
         print("Done.")
@@ -83,14 +85,16 @@ class CustomMwozDataset(Dataset):
         processed_dataset = []
         for row in raw_dataset:
             # Define sys prompt
-            prompt = prompts.LLAMA_IT_SYS_PROMPT
+            prompt = prompts.IT_SYS_PROMPT
             # Define input
             input = row['context_used']
 
             # Build output
             et = row['hints']['entity_types']
             if len(et) > 0:
-                output = ' | '.join(sorted(et)) 
+                #output = ' | '.join(sorted(et))
+                # Repetitions disturb training so this is changed!
+                output = ' | '.join(list(set(et))) 
             else:
                 output = '[no entity]'
 
@@ -99,5 +103,37 @@ class CustomMwozDataset(Dataset):
             data_sample = {'text': formatted_seq, 'output_seq': output, 'uuid': row['uuid'], 'turn_id': row['turn_id'], 'prompt': prompt, 'input': input}             
             
             processed_dataset.append(data_sample)
+
+        return processed_dataset
+    
+    def process_data_for_gemma(self, raw_dataset):
+        processed_dataset = []
+        for row in raw_dataset:
+            # Define sys prompt
+            prompt = prompts.IT_SYS_PROMPT
+            
+            if row['turn_id'] == 0:
+                # Reset
+                input = "\nDialog:\n"
+                
+            human = "\nHUMAN: " + row['context'][-1]
+            input += human
+
+            et = row['hints']['entity_types']
+            if len(et) > 0:
+                et_list = ' | '.join(sorted(list(set(et)))) 
+            else:
+                et_list = '[no entity]'
+
+            agent = "\nASSISTANT: " + et_list
+            
+            # Format for gemma
+            formatted_seq = utils.format_for_gemma(prompt, input, agent, self.mode)
+            data_sample = {'text': formatted_seq, 'output_seq': et_list, 'uuid': row['uuid'], 'turn_id': row['turn_id']}             
+            
+            processed_dataset.append(data_sample)
+
+            # Append to hist
+            input += agent
 
         return processed_dataset

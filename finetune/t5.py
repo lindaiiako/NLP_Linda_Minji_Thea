@@ -62,10 +62,7 @@ class Seq2SeqTrainer(Trainer):
         # Back to train mode
         model.train()
 
-        # Ensure correct size
-        final_responses = responses[:len(dataset)]
-
-        return final_responses, probs
+        return responses, probs
 
 
     # Evaluates entity type prediction using F1 scores (used in validation and test set)
@@ -223,5 +220,4 @@ class T5Trainer():
 
         # Get test performance
         test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='t5', mode='test')
-        test_results = trainer.evaluate(test_set, save_results=True, result_path=constants.T5_TEST_RESULT_FILE, metric_key_prefix='test')
-        print(test_results)
+        trainer.evaluate(test_set, save_results=True, result_path=constants.T5_TEST_RESULT_FILE, metric_key_prefix='test')

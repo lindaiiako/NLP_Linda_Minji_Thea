@@ -1,10 +1,12 @@
 import argparse
 import os
+from common import constants
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_type', type=str, default="t5")
+    parser.add_argument('--model', type=str, default="gemma")
+    parser.add_argument('--model_type', type=str, default="base")
     parser.add_argument('--device', type=str, default="1")
     return parser.parse_args()
 
@@ -14,13 +16,15 @@ def main(args):
     os.environ["CUDA_VISIBLE_DEVICES"] = args.device
 
     # Initializer trainer
-    if args.model_type == 't5':
+    if args.model == 't5':
         from finetune.t5 import T5Trainer
         trainer = T5Trainer()
-    else:
-        from finetune.llama_it import LlamaTrainer
-        trainer = LlamaTrainer()
-
+    #elif args.model == 'llama':
+    #   from finetune.llama_it import LlamaTrainer
+    #    trainer = LlamaTrainer()
+    elif args.model == 'gemma':
+        from finetune.gemma import GemmaTrainer
+        trainer = GemmaTrainer(args.model_type)
     # Start training and eval
     trainer.train()
 

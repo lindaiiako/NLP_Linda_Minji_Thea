@@ -20,3 +20,25 @@ LLAMA_IT_MODEL_ID = "meta-llama/Llama-3.2-3B-Instruct"
 LLAMA_FT_MODEL_NAME = "llama-etpred-ft"
 LLAMA_TRAIN_OUTPUT_DIR = 'train_output/llama/'
 LLAMA_TEST_RESULT_FILE = 'predictions/llama.json'
+
+
+GEMMA_MODEL_ID = {
+    "base": "google/gemma-2-9b",
+    "it": "google/gemma-2-9b-it"
+}
+GEMMA_FT_MODEL = {
+    "base": "checkpoints/gemma-base-ft",
+    "it": "checkpoints/gemma-it-ft"
+}
+GEMMA_MERGED_MODEL = {
+    "base": "checkpoints/gemma-base-merged",
+    "it": "checkpoints/gemma-it-merged"
+}
+GEMMA_TRAIN_OUTPUT_DIR = {
+    "base": "train_output/gemma-base/",
+    "it": "train_output/gemma-it/"
+}
+GEMMA_TEST_RESULT_FILE = {
+    "base": "predictions/gemma-base-ft.json",
+    "it": "predictions/gemma-it-ft.json"
+}

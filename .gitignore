@@ -1,7 +1,8 @@
 # App-specific folders
-train_output/t5/
-train_output/llama/
+train_output/
+checkpoints/
 llama-etpred-ft/
+gemma-etpred-ft/
 *.err
 *.out
 sample.py

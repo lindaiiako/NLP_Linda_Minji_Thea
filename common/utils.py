@@ -1,7 +1,5 @@
 import numpy as np
-import torch.nn.functional as F
 import json
-from sklearn.metrics import f1_score, accuracy_score
 from common import constants
 from collections import Counter
 
@@ -86,15 +84,23 @@ def format_for_llama_ft(prompt, input, output, mode):
     
 
 def format_chat_template(prompt, input, output, mode, tokenizer):
-    gen_prompt = True
+    add_gen_prompt = True
     messages = [
         {"role": "system", "content": prompt},
         {"role": "user", "content": input},
         ]
     if mode != 'infer':
         messages.append({"role": "assistant", "content": output})
-        gen_prompt = False
+        add_gen_prompt = False
 
-    prompt = tokenizer.apply_chat_template(messages, add_special_tokens=False, add_generation_prompt=gen_prompt, tokenize=False)
-    
+    prompt = tokenizer.apply_chat_template(messages, add_generation_prompt=add_gen_prompt, tokenize=False)
+
     return prompt
+
+
+def format_for_gemma(prompt, input, output, mode):
+    text = f"<start_of_turn>user {prompt}{input}<end_of_turn>\n<start_of_turn>model"
+    if mode != 'infer':
+        text += f"{output} <end_of_turn>"
+    return text
+
