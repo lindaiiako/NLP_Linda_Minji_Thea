@@ -5,9 +5,9 @@ from common import constants
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', type=str, default="gemma")
-    parser.add_argument('--model_type', type=str, default="base")
-    parser.add_argument('--device', type=str, default="1")
+    parser.add_argument('--model', type=str, default="gemma", required=True)
+    parser.add_argument('--model_type', type=str, default="it", required=False)
+    parser.add_argument('--device', type=str, default="1", required=True)
     return parser.parse_args()
 
 

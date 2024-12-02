@@ -109,17 +109,13 @@ class Seq2SeqTrainer(Trainer):
             with open(result_path, 'w') as f:
                 json.dump(output, f, indent=2)
 
-        return metrics
-
 
 class T5Trainer():
     # Loads T5 tokenizer and model
     def __init__(self):
-        self.tokenizer = T5Tokenizer.from_pretrained(constants.T5_MODEL_ID, model_max_length=None)
-        self.model = T5ForConditionalGeneration.from_pretrained(constants.T5_MODEL_ID)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model.to(device)
-
+        self.tokenizer = T5Tokenizer.from_pretrained(constants.T5_MODEL_ID, model_max_length=None)
+        self.model = T5ForConditionalGeneration.from_pretrained(constants.T5_MODEL_ID).to(device)
 
     # Standardizes input and output length per batch
     def seq2seq_collate_fn(self, batch):
@@ -181,7 +177,7 @@ class T5Trainer():
             gradient_accumulation_steps=4,
             per_device_train_batch_size=8,
             per_device_eval_batch_size=4,
-            num_train_epochs=8,
+            num_train_epochs=10,
             tf32=False,
             fp16=False,
             gradient_checkpointing=True,

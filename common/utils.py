@@ -99,7 +99,7 @@ def format_chat_template(prompt, input, output, mode, tokenizer):
 
 
 def format_for_gemma(prompt, input, output, mode):
-    text = f"<start_of_turn>user {prompt}{input}<end_of_turn>\n<start_of_turn>model"
+    text = f"<start_of_turn>user {prompt}{input}<end_of_turn>\n<start_of_turn>model\n"
     if mode != 'infer':
         text += f"{output} <end_of_turn>"
     return text

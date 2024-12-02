@@ -19,7 +19,7 @@ set_seed(constants.SEED)
 class MySFTTrainer(SFTTrainer):
     
     # Decodes output with the tokenizer 
-    def decode_responses(self, outputs):
+    def decode_responses(self, outputs, to_print=False):
         # Placeholder for decoded outputs
         preds = []
 
@@ -40,6 +40,12 @@ class MySFTTrainer(SFTTrainer):
                 et_preds = et_preds.replace('[', '').replace(']', '').strip()
 
             preds.append(et_preds)
+
+            if to_print:
+                print("RAW RESP")
+                print(decoded_response)
+                print("CLEAN OUT")
+                print(et_preds)
 
         return preds
 
@@ -68,12 +74,19 @@ class MySFTTrainer(SFTTrainer):
         responses = []
         ground_truth_responses = []
 
+        to_print = False
+
         for inputs in dataloader:
             if metric_key_prefix == 'test':
                 formatted_prompts = inputs['text']
                 tokenized_inputs = self.tokenizer(formatted_prompts, padding="longest", return_tensors="pt").to(self.model.device)
                 # No need to recover inputs and outputs
                 ground_truth_responses = dataset
+                print("TEST IN")
+                print(formatted_prompts)
+                print("CORRECT OUT")
+                print(inputs['output_seq'])
+                to_print=True
             else:
                 # In eval mode input is already tokenized
                 # Recover input and output component
@@ -101,7 +114,7 @@ class MySFTTrainer(SFTTrainer):
 
             # Get only the generated text (skip the input prompt)
             generated_ids_batch = outputs[:, input_ids.shape[1]:]
-            responses.extend(self.decode_responses(generated_ids_batch))
+            responses.extend(self.decode_responses(generated_ids_batch, to_print))
 
         # Back to train mode
         model.train()
@@ -165,7 +178,7 @@ class GemmaTrainer():
             bnb_4bit_compute_dtype=torch.bfloat16,
             bnb_4bit_use_double_quant=True,
         )
-
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model_id = constants.GEMMA_MODEL_ID[self.model_type]
         self.model = AutoModelForCausalLM.from_pretrained(model_id, 
                                                           quantization_config=bnb_config,
@@ -184,7 +197,9 @@ class GemmaTrainer():
         validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='gemma', mode='eval').data.shuffle(seed=constants.SEED)
 
         #QLoRA config (with 50% scaling factor)
-        peft_config = LoraConfig(r=64, lora_alpha=32, lora_dropout=0.05, bias="none", task_type="CAUSAL_LM")
+        #peft_config = LoraConfig(r=64, lora_alpha=32, lora_dropout=0.05, bias="none", task_type="CAUSAL_LM")
+        # Try double scaling factor
+        peft_config = LoraConfig(r=64, lora_alpha=128, lora_dropout=0.05, bias="none", task_type="CAUSAL_LM")
 
         # Wrap the base model with peft_config
         self.model = get_peft_model(self.model, peft_config)
@@ -192,26 +207,26 @@ class GemmaTrainer():
         
         training_args = SFTConfig(
             gradient_accumulation_steps=3,
-            per_device_train_batch_size=3,
-            per_device_eval_batch_size=3,
-            num_train_epochs=8,
+            per_device_train_batch_size=1,
+            per_device_eval_batch_size=1,
+            num_train_epochs=6,
             tf32=False,
             fp16=False,
             warmup_ratio=0.03,
             learning_rate=2e-4,
             optim="paged_adamw_8bit",
             dataset_text_field="text",
-            max_seq_length=3000,
+            max_seq_length=5000,
             output_dir=constants.GEMMA_TRAIN_OUTPUT_DIR[self.model_type],
             overwrite_output_dir=True,
             log_level='warning',
             logging_steps=50,
             save_strategy='steps', 
-            save_steps=500,
+            save_steps=1000,
             seed=constants.SEED,
             eval_strategy='steps',
-            eval_steps=500,
-            save_total_limit=4,
+            eval_steps=1000,
+            save_total_limit=2,
             load_best_model_at_end=True, 
             metric_for_best_model='f1',
             greater_is_better=True,         
@@ -222,6 +237,7 @@ class GemmaTrainer():
         # Setup training on completion only
         response_template = "<start_of_turn>model"
         collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=self.tokenizer)
+        lm_collator = DataCollatorForLanguageModeling(tokenizer=self.tokenizer, mlm=False)
 
         trainer = MySFTTrainer(
             model=self.model,
@@ -231,7 +247,9 @@ class GemmaTrainer():
             train_dataset=train_set, 
             eval_dataset=validation_set,
             data_collator=collator,
+            #data_collator=lm_collator
         )
+        
         
         # Start training
         trainer.train()
@@ -252,7 +270,7 @@ class GemmaTrainer():
         # Save the merged model for later use
         merged_model.save_pretrained(constants.GEMMA_MERGED_MODEL[self.model_type], safe_serialization=True)
         self.tokenizer.save_pretrained(constants.GEMMA_MERGED_MODEL[self.model_type])
-
+        
         # Get test performance
         test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='gemma', mode='infer').data
         trainer.evaluate(test_set, save_results=True, result_path=constants.GEMMA_TEST_RESULT_FILE[self.model_type], metric_key_prefix='test')

@@ -31,7 +31,7 @@ class CustomMwozDataset(Dataset):
         return self.data[idx]
 
 
-    def process_data_for_t5(self, raw_dataset):
+    def process_data_for_t5(self, raw_dataset, with_kb=False):
         processed_dataset = []
         for row in raw_dataset:
             # Extract context component
@@ -42,7 +42,7 @@ class CustomMwozDataset(Dataset):
             if row['kb'] is not None:
                 kb = row['kb']
 
-            if len(kb) > 0:
+            if with_kb and len(kb) > 0:
                 prompt = "Based on the [dialog] and [kb], generate entity types to be included in the response:"
                 
                 data_attributes = list(kb[0].keys())
@@ -106,34 +106,74 @@ class CustomMwozDataset(Dataset):
 
         return processed_dataset
     
-    def process_data_for_gemma(self, raw_dataset):
+    def process_data_for_gemma(self, raw_dataset, old_version=True, t5_style=True):
         processed_dataset = []
         for row in raw_dataset:
-            # Define sys prompt
-            prompt = prompts.IT_SYS_PROMPT
-            
-            if row['turn_id'] == 0:
-                # Reset
-                input = "\nDialog:\n"
-                
-            human = "\nHUMAN: " + row['context'][-1]
-            input += human
+            if t5_style:
+                # Extract context component
+                context = row['context_used']
 
-            et = row['hints']['entity_types']
-            if len(et) > 0:
-                et_list = ' | '.join(sorted(list(set(et)))) 
+                # Extract kb component
+                kb = []
+                if row['kb'] is not None:
+                    kb = row['kb']
+
+                if len(kb) > 0:
+                    prompt = "Based on the [dialog] and [kb], generate entity types to be included in the response:"
+                    
+                    data_attributes = list(kb[0].keys())
+                    formatted_kb = utils.flatten_kb(kb, data_attributes)
+
+                    # Build input
+                    input = ' [dialog] ' + context + ' [kb] ' + formatted_kb
+                else:
+                    prompt = "Based on the [dialog], generate entity types to be included in the response:"
+                    
+                    # Build input
+                    input = ' [dialog] ' + context
+
+                # Build output
+                et = row['hints']['entity_types']
+                if len(et) > 0:
+                    output = ' | '.join(sorted(et)) 
+                else:
+                    output = '[no entity]'
+
+                et_list = output
             else:
-                et_list = '[no entity]'
+                # Define sys prompt
+                if old_version:
+                    prompt = prompts.IT_SYS_PROMPT_OLD
+                else:
+                    prompt = prompts.IT_SYS_PROMPT
+                
+                if row['turn_id'] == 0:
+                    # Reset
+                    input = "\nDialog:\n"
+                    
+                human = "\nHUMAN: " + row['context'][-1]
+                input += human
 
-            agent = "\nASSISTANT: " + et_list
+                et = row['hints']['entity_types']
+                if len(et) > 0:
+                    et_list = ' | '.join(sorted(list(set(et)))) 
+                else:
+                    et_list = '[no entity]'
+
+                if old_version:
+                    agent = "\nASSISTANT: " + row['output']
+                    output = et_list
+                else:
+                    agent = "\nASSISTANT: " + et_list
+                    output = agent
             
             # Format for gemma
-            formatted_seq = utils.format_for_gemma(prompt, input, agent, self.mode)
+            formatted_seq = utils.format_for_gemma(prompt, input, output, self.mode)
             data_sample = {'text': formatted_seq, 'output_seq': et_list, 'uuid': row['uuid'], 'turn_id': row['turn_id']}             
-            
             processed_dataset.append(data_sample)
 
-            # Append to hist
-            input += agent
+            if not t5_style:
+                # Append to hist
+                input += agent
 
         return processed_dataset

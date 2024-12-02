@@ -24,12 +24,12 @@ ASSISTANT:
 
 
 
-LLAMA_IT_SYS_PROMPT_OLD = '''
-You are given an incomplete dialog between two parties named <user> and <sys>. 
-The <sys> party acts as an assistant that helps the <user> party in booking and/or finding information about a restaurant, hotel, or attraction in Cambridge.
+IT_SYS_PROMPT_OLD = '''
+You are given an incomplete dialog between a HUMAN and an ASSISTANT.
+The ASSISTANT party helps the HUMAN in booking and/or finding information about a restaurant, hotel, or attraction in Cambridge.
 
-Given the input dialog, identify the last <user> utterance and predict the list of entity type names in the NEXT <sys> response.
-List of valid entity type names and their correponding descriptions:
+Given the input dialog, identify the last HUMAN utterance and predict the list of entity names in the NEXT ASSISTANT response.
+List of valid entity names and their correponding descriptions:
 "address": address of the restaurant, hotel, or attraction
 "area": general location of the restaurant, hotel, or attraction
 "entrance_fee": entrance fee information for the attraction
