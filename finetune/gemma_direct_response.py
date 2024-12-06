@@ -108,7 +108,7 @@ class MySFTTrainer(SFTTrainer):
             # Run prediction       
             with torch.no_grad():
                 outputs = model.generate(**tokenized_inputs,
-                                         max_new_tokens=constants.MAX_NEW_TOKENS,
+                                         max_new_tokens=384,
                                          do_sample=False,
                                          num_beams=1,
                                          )

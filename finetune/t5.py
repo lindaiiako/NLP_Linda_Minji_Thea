@@ -212,8 +212,8 @@ class T5Trainer():
     # Main training procedure
     def train(self):
         # Init dataset
-        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='t5', mode='train')
-        validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='t5', mode='eval')
+        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='t5', mode='train', response_pred=self.is_response_prediction)
+        validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='t5', mode='eval', response_pred=self.is_response_prediction)
 
         # Init hyperparameters similar to SyncTOD to replicate results
         training_args = Seq2SeqTrainingArguments(
@@ -259,5 +259,5 @@ class T5Trainer():
         trainer.train()
 
         # Get test performance
-        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='t5', mode='test')
+        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='t5', mode='test', response_pred=self.is_response_prediction)
         trainer.evaluate(test_set, save_results=True, result_path=constants.TEST_RESULT_FILE[self.dir_key], metric_key_prefix='test')
