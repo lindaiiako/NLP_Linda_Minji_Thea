@@ -81,6 +81,7 @@ class MySFTTrainer(SFTTrainer):
             if metric_key_prefix == 'test':
                 formatted_prompts = inputs['text']
                 tokenized_inputs = self.tokenizer(formatted_prompts, padding="longest", return_tensors="pt").to(self.model.device)
+
                 # No need to recover inputs and outputs
                 ground_truth_responses = dataset
                 
@@ -88,21 +89,21 @@ class MySFTTrainer(SFTTrainer):
                 print(formatted_prompts)
                 print("CORRECT OUTPUT")
                 print(inputs['output_seq'])
-
+                
                 # Print decoded outputs for debugging
                 to_print=True
             else:
-                # In eval mode, input is already tokenized
+                # In eval mode input is already tokenized
                 # Recover input and output component
                 input_components = []
                 input_ids = inputs['input_ids']
                 untokenized_inputs = self.tokenizer.batch_decode(input_ids, skip_special_tokens=False)
                 for untokenized_text in untokenized_inputs:
-                    marker = "<start_of_turn>model"
+                    marker = "[/INST]"
                     split_text = untokenized_text.split(marker)
                     input_component = split_text[0] + marker
                     input_components.append(input_component)
-                    output_component = split_text[1].replace("ASSISTANT:", '').replace('<end_of_turn>','').replace('<eos>', '').strip()
+                    output_component = split_text[1].replace("ASSISTANT:", '').replace('</s>','').strip()
                     ground_truth_responses.append({'output_seq': output_component})
                
                 tokenized_inputs = self.tokenizer(input_components, add_special_tokens=False, padding="longest", return_tensors="pt").to(self.model.device)
@@ -172,7 +173,7 @@ class MySFTTrainer(SFTTrainer):
         return metrics
 
 
-class GemmaTrainer():
+class MistralTrainer():
     # Loads tokenizer and model
     def __init__(self, model_name):
         self.model_name = model_name
@@ -184,21 +185,23 @@ class GemmaTrainer():
         )
 
         model_id = constants.MODEL_ID[self.model_name]
+        print(model_id)
         self.model = AutoModelForCausalLM.from_pretrained(model_id, 
                                                           quantization_config=bnb_config,
                                                           low_cpu_mem_usage=True,
-                                                          attn_implementation="eager",
+                                                          attn_implementation="flash_attention_2",
                                                           )
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.tokenizer.pad_token = self.tokenizer.eos_token
-        self.tokenizer.padding_side = 'right'
+        self.model.config.use_cache = False
+        self.model.config.pretraining_tp = 1
         print(f"Loaded {model_id}")
 
 
     # Main training procedure
     def train(self):
-        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='gemma', mode='train').data.shuffle(seed=constants.SEED)
-        validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='gemma', mode='eval').data.shuffle(seed=constants.SEED)
+        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='mistral', mode='train').data.shuffle(seed=constants.SEED)
+        validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='mistral', mode='eval').data.shuffle(seed=constants.SEED)
 
         # LoRA with double scaling factor
         peft_config = LoraConfig(r=64, lora_alpha=128, lora_dropout=0.05, bias="none", task_type="CAUSAL_LM")
@@ -208,10 +211,11 @@ class GemmaTrainer():
         self.model.print_trainable_parameters()
         
         training_args = SFTConfig(
-            gradient_accumulation_steps=6,
-            per_device_train_batch_size=1,
-            per_device_eval_batch_size=1,
+            gradient_accumulation_steps=4,
+            per_device_train_batch_size=3,
+            per_device_eval_batch_size=3,
             num_train_epochs=6,
+            group_by_length=True,
             tf32=False,
             fp16=False,
             warmup_ratio=0.03,
@@ -224,20 +228,20 @@ class GemmaTrainer():
             log_level='warning',
             logging_steps=50,
             save_strategy='steps', 
-            save_steps=400,
+            save_steps=500,
             seed=constants.SEED,
             eval_strategy='steps',
-            eval_steps=400,
-            save_total_limit=2,
+            eval_steps=500,
+            save_total_limit=4,
             load_best_model_at_end=True, 
             metric_for_best_model='f1',
             greater_is_better=True,         
             report_to='tensorboard',
-            run_name='gemma_exp',   
+            run_name='mistral_exp',   
         )
 
         # Setup training on completion only
-        response_template = "<start_of_turn>model"
+        response_template = "[/INST]"
         collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=self.tokenizer)
 
         trainer = MySFTTrainer(
@@ -271,5 +275,5 @@ class GemmaTrainer():
         self.tokenizer.save_pretrained(constants.MERGED_MODEL[self.model_name])
         
         # Get test performance
-        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='gemma', mode='infer').data
+        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='mistral', mode='infer').data
         trainer.evaluate(test_set, save_results=True, result_path=constants.TEST_RESULT_FILE[self.model_name], metric_key_prefix='test')

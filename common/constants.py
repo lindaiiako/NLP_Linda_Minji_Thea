@@ -10,35 +10,35 @@ DATA_DIR = 'data/'
 
 MAX_NEW_TOKENS = 128
 
+# T5 config
 T5_MODEL_ID = "google/flan-t5-large"
 T5_TRAIN_OUTPUT_DIR = 'train_output/t5/'
 T5_TEST_RESULT_FILE = 'predictions/t5.json'
 
 
-LLAMA_MODEL_ID = "meta-llama/Llama-3.2-3B" # "meta-llama/Llama-3.2-1B" #"meta-llama/Meta-Llama-3.1-8B"  
-LLAMA_IT_MODEL_ID = "meta-llama/Llama-3.2-3B-Instruct"
-LLAMA_FT_MODEL_NAME = "llama-etpred-ft"
-LLAMA_TRAIN_OUTPUT_DIR = 'train_output/llama/'
-LLAMA_TEST_RESULT_FILE = 'predictions/llama.json'
-
-
-GEMMA_MODEL_ID = {
-    "base": "google/gemma-2-9b",
-    "it": "google/gemma-2-9b-it"
+# Configs for LLM finetuning
+MODEL_ID = {
+    "gemma": "google/gemma-2-9b-it", 
+    "llama": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "mistral": "mistralai/Mistral-7B-Instruct-v0.3"
 }
-GEMMA_FT_MODEL = {
-    "base": "checkpoints/gemma-base-ft",
-    "it": "checkpoints/gemma-it-ft"
+FT_MODEL = {
+    "gemma": "checkpoints/gemma-ft",
+    "llama": "checkpoints/llama-ft",
+    "mistral": "checkpoints/mistral-ft"
 }
-GEMMA_MERGED_MODEL = {
-    "base": "checkpoints/gemma-base-merged",
-    "it": "checkpoints/gemma-it-merged"
+MERGED_MODEL = {
+    "gemma": "checkpoints/gemma-merged",
+    "llama": "checkpoints/llama-merged",
+    "mistral": "checkpoints/mistral-merged"
 }
-GEMMA_TRAIN_OUTPUT_DIR = {
-    "base": "train_output/gemma-base/",
-    "it": "train_output/gemma-it/"
+TRAIN_OUTPUT_DIR = {
+    "gemma": "train_output/gemma/",
+    "llama": "train_output/llama/",
+    "mistral": "train_output/mistral/"
 }
-GEMMA_TEST_RESULT_FILE = {
-    "base": "predictions/gemma-base-ft.json",
-    "it": "predictions/gemma-it-ft.json"
+TEST_RESULT_FILE = {
+    "gemma": "predictions/gemma.json",
+    "llama": "predictions/llama.json",
+    "mistral": "predictions/mistral.json"
 }

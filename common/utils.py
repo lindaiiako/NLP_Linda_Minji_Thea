@@ -76,14 +76,15 @@ def compute_prediction_scores(preds, eval_dataset, delimiter='|'):
     return prec, rec, f1, accuracy
 
 
-def format_for_llama_ft(prompt, input, output, mode):
-    if mode == 'infer':
-        return f"<|im_start|>system\n{prompt}<|im_end|>\n<|im_start|>user\n{input}<|im_end|>\n<|im_start|>assistant\n"
-    else:
-        return f"<|im_start|>system\n{prompt}<|im_end|>\n<|im_start|>user\n{input}<|im_end|>\n<|im_start|>assistant\n{output}<|im_end|>\n"
-    
+# TODO: Add CoT if testing for self-consistency in decoding
+def format_for_llama(prompt, input, output, mode, is_self_consistency):
+    text = f"<|im_start|>system\n{prompt}<|im_end|>\n<|im_start|>user\n{input}<|im_end|>\n<|im_start|>assistant\n"
+    if mode != 'infer':
+        text += f"{output}<|im_end|>\n"
+    return text
 
-def format_chat_template(prompt, input, output, mode, tokenizer):
+# TODO: Add CoT if testing for self-consistency in decoding
+def format_llama_using_chat_template(prompt, input, output, mode, tokenizer, is_self_consistency):
     add_gen_prompt = True
     messages = [
         {"role": "system", "content": prompt},
@@ -98,9 +99,21 @@ def format_chat_template(prompt, input, output, mode, tokenizer):
     return prompt
 
 
-def format_for_gemma(prompt, input, output, mode):
-    text = f"<start_of_turn>user {prompt}{input}<end_of_turn>\n<start_of_turn>model\n"
-    if mode != 'infer':
-        text += f"{output} <end_of_turn>"
+def format_for_gemma(prompt, input, output, mode, is_self_consistency):
+    if mode == 'infer' and is_self_consistency:
+        text = f"<start_of_turn>user {prompt}{input}\nLet's think step-by-step.<end_of_turn>\n<start_of_turn>model\n"
+    else:
+        text = f"<start_of_turn>user {prompt}{input}<end_of_turn>\n<start_of_turn>model\n"
+        if mode != 'infer':
+            text += f"{output} <end_of_turn>"
     return text
 
+
+def format_for_mistral(prompt, input, output, mode, is_self_consistency):
+    if mode == 'infer' and is_self_consistency:
+        text = f"<s>[INST]{prompt}{input}\nLet's think step-by-step.[/INST]\n"
+    else:
+        text = f"<s>[INST]{prompt}{input}[/INST]\n"
+        if mode != 'infer':
+            text += f"{output}</s>"
+    return text

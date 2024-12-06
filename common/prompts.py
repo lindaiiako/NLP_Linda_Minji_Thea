@@ -23,7 +23,6 @@ ASSISTANT:
 '''
 
 
-
 IT_SYS_PROMPT_OLD = '''
 You are given an incomplete dialog between a HUMAN and an ASSISTANT.
 The ASSISTANT party helps the HUMAN in booking and/or finding information about a restaurant, hotel, or attraction in Cambridge.
