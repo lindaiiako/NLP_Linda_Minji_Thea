@@ -7,6 +7,8 @@ from transformers import set_seed, Trainer, T5Tokenizer, T5ForConditionalGenerat
 from common.mwoz_data import CustomMwozDataset
 from common import constants
 from common.utils import compute_prediction_scores
+from synctod.text_process import preprocess_text
+from synctod.metrics import compute_metrics
 
 
 # Set for reproducibility
@@ -16,15 +18,28 @@ set_seed(constants.SEED)
 
 
 class Seq2SeqTrainer(Trainer):
-    
+    def __init__(self, is_response_prediction, **kwargs):
+        super().__init__(**kwargs)
+        self.is_response_prediction = is_response_prediction
+        if self.is_response_prediction:
+            self.max_new_tokens = 384
+        else:
+            self.max_new_tokens = constants.MAX_NEW_TOKENS
+
+
     # Decodes output with the tokenizer 
     def decode_responses(self, outputs):
         preds = []
         responses = self.tokenizer.batch_decode(outputs.sequences.to('cpu'), clean_up_tokenization_spaces=False)
         for response in responses:
-            preds.append(response.split("<pad>", 1)[-1].strip().split("</s>")[0].strip())
+            cleaned = response.split("<pad>", 1)[-1].strip().split("</s>")[0].strip()
+            if self.is_response_prediction:
+                preds.append(preprocess_text(cleaned.split("<sys>")[1].strip()))
+            else:
+                preds.append(cleaned)
 
         return preds
+
 
     # Obtains predictions with greedy decoding
     def get_preds(self, dataset):
@@ -42,10 +57,10 @@ class Seq2SeqTrainer(Trainer):
         probs = [] 
         for inputs in dataloader:
             batch = dict([(k, v.to(self.model.device)) for k, v in inputs.items()])
-            # Run predict with logits           
+            # Run predict with logits        
             with torch.no_grad():
                 outputs = model.generate(**batch,
-                                         max_new_tokens=constants.MAX_NEW_TOKENS,
+                                         max_new_tokens=self.max_new_tokens,
                                          do_sample=False,
                                          num_beams=1,
                                          return_dict_in_generate=True,
@@ -66,6 +81,7 @@ class Seq2SeqTrainer(Trainer):
 
 
     # Evaluates entity type prediction using F1 scores (used in validation and test set)
+    # Or BLEU and Entity F1 for response prediction
     def evaluate(self, 
                  eval_dataset=None, 
                  ignore_keys=None,
@@ -79,14 +95,28 @@ class Seq2SeqTrainer(Trainer):
         # Get predictions
         responses, probs = self.get_preds(eval_dataset)
 
-        # Compute scores
-        prec, rec, f1, accuracy = compute_prediction_scores(responses, eval_dataset)
+        if self.is_response_prediction:
+            ground_truth_responses = []
+            for entry in eval_dataset.raw_dataset:
+                ground_truth_responses.append(entry['output'])
+            
+            # Compute scores
+            results = compute_metrics(responses, ground_truth_responses, 'MultiWOZ', f'{constants.DATA_DIR}entities.json')
+
+            metrics = dict()
+            metrics[f"{metric_key_prefix}_bleu"] = results["bleu"]
+            metrics[f"{metric_key_prefix}_f1"] = results["entity_f1"]
+            metrics[f"{metric_key_prefix}_precision"] = results["entity_precision"]
+            metrics[f"{metric_key_prefix}_recall"] = results["entity_recall"]
+        else:
+            # Compute scores
+            prec, rec, f1, accuracy = compute_prediction_scores(responses, eval_dataset)
         
-        metrics = dict()
-        metrics[f"{metric_key_prefix}_f1"] = f1
-        metrics[f"{metric_key_prefix}_prec"] = prec
-        metrics[f"{metric_key_prefix}_rec"] = rec
-        metrics[f"{metric_key_prefix}_acc"] = accuracy
+            metrics = dict()
+            metrics[f"{metric_key_prefix}_f1"] = f1
+            metrics[f"{metric_key_prefix}_prec"] = prec
+            metrics[f"{metric_key_prefix}_rec"] = rec
+            metrics[f"{metric_key_prefix}_acc"] = accuracy
 
         self.log(metrics)
         self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, metrics)
@@ -100,11 +130,15 @@ class Seq2SeqTrainer(Trainer):
                 output.append(dict())
                 output[-1]['uuid'] = eval_dataset.raw_dataset[idx]['uuid']
                 output[-1]['turn_id'] = eval_dataset.raw_dataset[idx]['turn_id']
-                tetypes = resp.split('|')
-                tetypes = [x.strip() for x in tetypes if '[no entity]' != x]
-                output[-1]['prediction'] = tetypes
-                # Get average score as proxy for confidence score
-                output[-1]['confidence'] = str(np.mean(probs[idx]))     
+                if self.is_response_prediction:
+                    output[-1]['ground_resp'] = ground_truth_responses[idx]
+                    output[-1]['prediction'] = resp
+                else:
+                    tetypes = resp.split('|')
+                    tetypes = [x.strip() for x in tetypes if '[no entity]' != x]
+                    output[-1]['prediction'] = tetypes
+                    # Get average score as proxy for confidence score
+                    output[-1]['confidence'] = str(np.mean(probs[idx]))     
 
             with open(result_path, 'w') as f:
                 json.dump(output, f, indent=2)
@@ -114,9 +148,14 @@ class Seq2SeqTrainer(Trainer):
 
 class T5Trainer():
     # Loads T5 tokenizer and model
-    def __init__(self):
-        self.tokenizer = T5Tokenizer.from_pretrained(constants.T5_MODEL_ID, model_max_length=None)
-        self.model = T5ForConditionalGeneration.from_pretrained(constants.T5_MODEL_ID)
+    def __init__(self, response_prediction):
+        self.is_response_prediction = response_prediction
+        if self.is_response_prediction:
+            self.dir_key = "t5-response-pred"
+        print(f"Predicting response prediction? {self.is_response_prediction}")
+
+        self.tokenizer = T5Tokenizer.from_pretrained(constants.MODEL_ID['t5'], model_max_length=None)
+        self.model = T5ForConditionalGeneration.from_pretrained(constants.MODEL_ID['t5'])
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(device)
 
@@ -187,7 +226,7 @@ class T5Trainer():
             gradient_checkpointing=True,
             learning_rate=1e-4,
             warmup_ratio=0.1,
-            output_dir=constants.T5_TRAIN_OUTPUT_DIR,
+            output_dir=constants.TRAIN_OUTPUT_DIR[self.dir_key],
             overwrite_output_dir=True,  
             remove_unused_columns=False,
             log_level='warning',
@@ -213,6 +252,7 @@ class T5Trainer():
             train_dataset=train_set, 
             eval_dataset=validation_set,
             data_collator=self.seq2seq_collate_fn,
+            is_response_prediction=self.is_response_prediction,
         )
 
         # Trigger training and evaluation on validation set
@@ -220,4 +260,4 @@ class T5Trainer():
 
         # Get test performance
         test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='t5', mode='test')
-        trainer.evaluate(test_set, save_results=True, result_path=constants.T5_TEST_RESULT_FILE, metric_key_prefix='test')
+        trainer.evaluate(test_set, save_results=True, result_path=constants.TEST_RESULT_FILE[self.dir_key], metric_key_prefix='test')

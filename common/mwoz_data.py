@@ -15,15 +15,19 @@ class CustomMwozDataset(Dataset):
             self.raw_dataset = json.load(f)
 
         print(f"Processing: {data_filename} ...")
-        if model_type == 't5':
-            self.data = self.process_data_for_t5(self.raw_dataset)
-        elif response_pred:
-            self.data = HF_Dataset.from_list(self.process_data_for_response_prediction(self.raw_dataset, model_type, 
+        if response_pred:
+            if model_type == 't5':
+                self.data = self.process_data_for_response_prediction_t5(self.raw_dataset)    
+            else:
+                self.data = HF_Dataset.from_list(self.process_data_for_response_prediction_llm(self.raw_dataset, model_type, 
                                                                                        with_kb=True, 
                                                                                        is_self_consistency=is_self_consistency))
         else:
-            self.data = HF_Dataset.from_list(self.process_data_for_llm(self.raw_dataset, model_type, 
-                                                                       is_self_consistency=is_self_consistency))
+            if model_type == 't5':
+                self.data = self.process_data_for_t5(self.raw_dataset)    
+            else:
+                self.data = HF_Dataset.from_list(self.process_data_for_llm(self.raw_dataset, model_type, 
+                                                                        is_self_consistency=is_self_consistency))
         print("Done.")
 
     def __len__(self):
@@ -65,6 +69,52 @@ class CustomMwozDataset(Dataset):
             else:
                 output = '[no entity]'
 
+            # Build dataset data entry dict
+            tokenized_input = self.tokenizer(input, return_tensors="np")
+            data_sample = {
+                'input_seq': input,
+                'input_ids': tokenized_input.input_ids[0],
+                'attention_mask': tokenized_input.attention_mask[0],
+                'output_seq': output
+            }
+
+            # Include ground truth labels in train mode 
+            if self.mode == 'train':
+                data_sample['labels'] = self.tokenizer(output, return_tensors="np").input_ids[0]
+
+            processed_dataset.append(data_sample)
+
+        return processed_dataset
+    
+    def process_data_for_response_prediction_t5(self, raw_dataset):
+        processed_dataset = []
+        for row in raw_dataset:
+            # Extract context component
+            context = row['context_used']
+
+            # Extract kb component
+            kb = []
+            if row['kb'] is not None:
+                kb = row['kb']
+
+            if len(kb) > 0:
+                prompt = "Based on the [dialog] and [kb], generate the next <sys> response:"
+                
+                data_attributes = list(kb[0].keys())
+                formatted_kb = utils.flatten_kb(kb, data_attributes)
+
+                # Build input
+                input = prompt + ' [dialog] ' + context + ' [kb] ' + formatted_kb
+            else:
+                prompt = "Based on the [dialog], generate the next <sys> response:"
+                
+                # Build input
+                input = prompt + ' [dialog] ' + context
+
+            # Build output
+            cleaned_output = preprocess_text(row['output'])
+            output = "<sys> " + cleaned_output
+            
             # Build dataset data entry dict
             tokenized_input = self.tokenizer(input, return_tensors="np")
             data_sample = {
@@ -163,7 +213,7 @@ class CustomMwozDataset(Dataset):
         return processed_dataset
 
 
-    def process_data_for_response_prediction(self, raw_dataset, model_type, with_kb=True, is_self_consistency=False):
+    def process_data_for_response_prediction_llm(self, raw_dataset, model_type, with_kb=True, is_self_consistency=False):
         processed_dataset = []
         for row in raw_dataset:
             # Extract context component

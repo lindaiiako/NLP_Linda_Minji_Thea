@@ -8,16 +8,11 @@ SEED = 43
 
 DATA_DIR = 'data/'
 
+
+# Configs for finetuning
 MAX_NEW_TOKENS = 128
-
-# T5 config
-T5_MODEL_ID = "google/flan-t5-large"
-T5_TRAIN_OUTPUT_DIR = 'train_output/t5/'
-T5_TEST_RESULT_FILE = 'predictions/t5.json'
-
-
-# Configs for LLM finetuning
 MODEL_ID = {
+    "t5": "google/flan-t5-large",
     "gemma": "google/gemma-2-9b-it", 
     "llama": "meta-llama/Meta-Llama-3.1-8B-Instruct",
     "mistral": "mistralai/Mistral-7B-Instruct-v0.3"
@@ -35,12 +30,16 @@ MERGED_MODEL = {
     "gemma-response-pred": "checkpoints/gemma-response-pred-merged"
 }
 TRAIN_OUTPUT_DIR = {
+    "t5": "train_output/t5/",
+    "t5-response-pred": "train_output/t5-response-pred/",
     "gemma": "train_output/gemma/",
     "llama": "train_output/llama/",
     "mistral": "train_output/mistral/",
     "gemma-response-pred": "train_output/gemma-response-pred/"
 }
 TEST_RESULT_FILE = {
+    "t5": "predictions/t5.json",
+    "t5-response-pred": "predictions/t5-response-pred.json",
     "gemma": "predictions/gemma.json",
     "llama": "predictions/llama.json",
     "mistral": "predictions/mistral.json",

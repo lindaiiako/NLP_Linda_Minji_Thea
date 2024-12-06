@@ -17,7 +17,7 @@ def main(args):
     # Initializer trainer
     if args.model == 't5':
         from finetune.t5 import T5Trainer
-        trainer = T5Trainer()
+        trainer = T5Trainer(args.response_prediction)
     elif args.model == 'llama':
        from finetune.llama import LlamaTrainer
        trainer = LlamaTrainer(args.model)
