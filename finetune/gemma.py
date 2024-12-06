@@ -249,7 +249,7 @@ class GemmaTrainer():
             eval_dataset=validation_set,
             data_collator=collator,
         )
-        
+
         # Start training
         trainer.train()
         
@@ -269,7 +269,7 @@ class GemmaTrainer():
         # Save the merged model for later use
         merged_model.save_pretrained(constants.MERGED_MODEL[self.model_name], safe_serialization=True)
         self.tokenizer.save_pretrained(constants.MERGED_MODEL[self.model_name])
-        
+
         # Get test performance
         test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='gemma', mode='infer').data
         trainer.evaluate(test_set, save_results=True, result_path=constants.TEST_RESULT_FILE[self.model_name], metric_key_prefix='test')

@@ -3,10 +3,11 @@ from torch.utils.data import Dataset
 from datasets import Dataset as HF_Dataset
 from common import utils
 from common import prompts
+from synctod.text_process import preprocess_text
 
 
 class CustomMwozDataset(Dataset):
-    def __init__(self, tokenizer, data_filename, model_type, mode, is_self_consistency=False):       
+    def __init__(self, tokenizer, data_filename, model_type, mode, response_pred=False, is_self_consistency=False):       
         self.tokenizer = tokenizer
         self.mode = mode
 
@@ -16,8 +17,13 @@ class CustomMwozDataset(Dataset):
         print(f"Processing: {data_filename} ...")
         if model_type == 't5':
             self.data = self.process_data_for_t5(self.raw_dataset)
+        elif response_pred:
+            self.data = HF_Dataset.from_list(self.process_data_for_response_prediction(self.raw_dataset, model_type, 
+                                                                                       with_kb=True, 
+                                                                                       is_self_consistency=is_self_consistency))
         else:
-            self.data = HF_Dataset.from_list(self.process_data_for_llm(self.raw_dataset, model_type, is_self_consistency))
+            self.data = HF_Dataset.from_list(self.process_data_for_llm(self.raw_dataset, model_type, 
+                                                                       is_self_consistency=is_self_consistency))
         print("Done.")
 
     def __len__(self):
@@ -153,5 +159,48 @@ class CustomMwozDataset(Dataset):
             if not t5_style_prompt:
                 # Append to hist
                 input += agent
+
+        return processed_dataset
+
+
+    def process_data_for_response_prediction(self, raw_dataset, model_type, with_kb=True, is_self_consistency=False):
+        processed_dataset = []
+        for row in raw_dataset:
+            # Extract context component
+            context = row['context_used']
+
+            # Extract kb component
+            kb = []
+            if row['kb'] is not None:
+                kb = row['kb']
+
+            if with_kb and len(kb) > 0:
+                prompt = "Based on the [dialog] and [kb], generate the next <sys> response:"
+                
+                data_attributes = list(kb[0].keys())
+                formatted_kb = utils.flatten_kb(kb, data_attributes)
+
+                # Build input
+                input = ' [dialog] ' + context + ' [kb] ' + formatted_kb
+            else:
+                prompt = "Based on the [dialog], generate the next <sys> response:"
+                
+                # Build input
+                input = ' [dialog] ' + context
+
+            cleaned_output = preprocess_text(row['output'])
+            output = "<sys> " + cleaned_output
+
+            # Format
+            if model_type == 'gemma':
+                formatted_seq = utils.format_for_gemma(prompt, input, output, self.mode, is_self_consistency)
+            elif model_type == 'llama':
+                formatted_seq = utils.format_for_llama(prompt, input, output, self.mode, is_self_consistency)
+            elif model_type == 'mistral':
+                formatted_seq = utils.format_for_mistral(prompt, input, output, self.mode, is_self_consistency)
+            else:
+                raise NotImplementedError
+            data_sample = {'text': formatted_seq, 'output_seq': cleaned_output, 'uuid': row['uuid'], 'turn_id': row['turn_id']}             
+            processed_dataset.append(data_sample)
 
         return processed_dataset

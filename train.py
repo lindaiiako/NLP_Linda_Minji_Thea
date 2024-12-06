@@ -6,6 +6,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', type=str, default="gemma")
     parser.add_argument('--device', type=str, default="1")
+    parser.add_argument('--response_prediction', type=bool, default=False)
     return parser.parse_args()
 
 
@@ -21,8 +22,12 @@ def main(args):
        from finetune.llama import LlamaTrainer
        trainer = LlamaTrainer(args.model)
     elif args.model == 'gemma':
-        from finetune.gemma import GemmaTrainer
-        trainer = GemmaTrainer(args.model)
+        if args.response_prediction:
+            from finetune.gemma_direct_response import GemmaTrainer
+            trainer = GemmaTrainer(args.model)
+        else:
+            from finetune.gemma import GemmaTrainer
+            trainer = GemmaTrainer(args.model)
     elif args.model == 'mistral':
         from finetune.mistral import MistralTrainer
         trainer = MistralTrainer(args.model)

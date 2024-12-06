@@ -1,6 +1,8 @@
 # App-specific folders
 train_output/
 checkpoints/
+*.err
+*.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

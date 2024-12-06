@@ -25,20 +25,24 @@ MODEL_ID = {
 FT_MODEL = {
     "gemma": "checkpoints/gemma-ft",
     "llama": "checkpoints/llama-ft",
-    "mistral": "checkpoints/mistral-ft"
+    "mistral": "checkpoints/mistral-ft",
+    "gemma-response-pred": "checkpoints/gemma-response-pred-ft"
 }
 MERGED_MODEL = {
     "gemma": "checkpoints/gemma-merged",
     "llama": "checkpoints/llama-merged",
-    "mistral": "checkpoints/mistral-merged"
+    "mistral": "checkpoints/mistral-merged",
+    "gemma-response-pred": "checkpoints/gemma-response-pred-merged"
 }
 TRAIN_OUTPUT_DIR = {
     "gemma": "train_output/gemma/",
     "llama": "train_output/llama/",
-    "mistral": "train_output/mistral/"
+    "mistral": "train_output/mistral/",
+    "gemma-response-pred": "train_output/gemma-response-pred/"
 }
 TEST_RESULT_FILE = {
     "gemma": "predictions/gemma.json",
     "llama": "predictions/llama.json",
-    "mistral": "predictions/mistral.json"
+    "mistral": "predictions/mistral.json",
+    "gemma-response-pred": "predictions/gemma-response-pred.json"
 }
