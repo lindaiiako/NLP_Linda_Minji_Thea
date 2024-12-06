@@ -1,15 +1,6 @@
 # App-specific folders
 train_output/
 checkpoints/
-train_logs/
-llama-etpred-ft/
-gemma-etpred-ft/
-*.err
-*.out
-sample.py
-test.ipynb
-test2.ipynb
-prompt.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
