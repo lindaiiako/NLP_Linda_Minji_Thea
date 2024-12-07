@@ -24,12 +24,14 @@ def main(args):
     elif args.model == 'gemma':
         if args.response_prediction:
             from finetune.gemma_direct_response import GemmaTrainer
-            trainer = GemmaTrainer(args.model)
         else:
             from finetune.gemma import GemmaTrainer
-            trainer = GemmaTrainer(args.model)
+        trainer = GemmaTrainer(args.model)
     elif args.model == 'mistral':
-        from finetune.mistral import MistralTrainer
+        if args.response_prediction:
+            from finetune.mistral_direct_response import MistralTrainer
+        else:
+            from finetune.mistral import MistralTrainer
         trainer = MistralTrainer(args.model)
     else:
         raise NotImplementedError

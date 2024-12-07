@@ -111,9 +111,9 @@ def format_for_gemma(prompt, input, output, mode, is_self_consistency):
 
 def format_for_mistral(prompt, input, output, mode, is_self_consistency):
     if mode == 'infer' and is_self_consistency:
-        text = f"<s>[INST]{prompt}{input}\nLet's think step-by-step.[/INST]\n"
+        text = f"<s>[INST]{prompt}{input}\nLet's think step-by-step.[/INST] "
     else:
-        text = f"<s>[INST]{prompt}{input}[/INST]\n"
+        text = f"<s>[INST]{prompt}{input}[/INST] "
         if mode != 'infer':
             text += f"{output}</s>"
     return text
