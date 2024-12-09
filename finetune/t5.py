@@ -35,9 +35,9 @@ class Seq2SeqTrainer(Trainer):
             cleaned = response.split("<pad>", 1)[-1].strip().split("</s>")[0].strip()
             if self.is_response_prediction:
                 if "<sys>" in cleaned:
-                    preds.append(preprocess_text(cleaned.split("<sys>")[1].strip()))
+                    preds.append(preprocess_text(cleaned.split("<sys>")[1].replace("< unk > sys >", "").strip()))
                 else:
-                    preds.append(preprocess_text(cleaned))
+                    preds.append(preprocess_text(cleaned).replace("< unk > sys >", "").strip())
             else:
                 preds.append(cleaned)
 

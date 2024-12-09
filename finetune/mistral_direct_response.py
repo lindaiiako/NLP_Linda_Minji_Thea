@@ -205,7 +205,7 @@ class MistralTrainer():
         self.model.print_trainable_parameters()
         
         training_args = SFTConfig(
-            gradient_accumulation_steps=3,
+            gradient_accumulation_steps=5,
             per_device_train_batch_size=1,
             per_device_eval_batch_size=1,
             num_train_epochs=6,
@@ -221,10 +221,10 @@ class MistralTrainer():
             log_level='warning',
             logging_steps=50,
             save_strategy='steps', 
-            save_steps=400,
+            save_steps=1000,
             seed=constants.SEED,
             eval_strategy='steps',
-            eval_steps=400,
+            eval_steps=1000,
             save_total_limit=2,
             load_best_model_at_end=True, 
             metric_for_best_model='f1',
