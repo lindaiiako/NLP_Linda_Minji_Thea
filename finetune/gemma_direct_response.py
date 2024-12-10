@@ -194,7 +194,14 @@ class GemmaTrainer():
 
     # Main training procedure
     def train(self):
-        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='gemma', mode='train', response_pred=True).data.shuffle(seed=constants.SEED)
+        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='gemma', mode='train', response_pred=True).data.shuffle(seed=constants.SEED).take(1000)
+        # Full training data size: 8529
+        print(f"Training data size: {len(train_set)}")
+        print("SAMPLES")
+        print(train_set[0])
+        print(train_set[1])
+        print(train_set[55])
+
         validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='gemma', mode='eval', response_pred=True).data.shuffle(seed=constants.SEED)
 
         # LoRA with double scaling factor
