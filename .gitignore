@@ -3,6 +3,7 @@ train_output/
 checkpoints/
 *.err
 *.out
+test.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -245,9 +245,9 @@ class CustomMwozDataset(Dataset):
             if model_type == 'gemma':
                 formatted_seq = utils.format_for_gemma(prompt, input, output, self.mode, is_self_consistency)
             elif model_type == 'llama':
-                formatted_seq = utils.format_for_llama(prompt, input, output, self.mode, is_self_consistency)
+                formatted_seq = utils.format_llama_using_chat_template(prompt, input, output, self.mode, is_self_consistency)
             elif model_type == 'mistral':
-                formatted_seq = utils.format_for_mistral(prompt, input, output, self.mode, is_self_consistency)
+                formatted_seq = utils.format_mistral_using_chat_template(prompt, input, output, self.mode, is_self_consistency)
             else:
                 raise NotImplementedError
             data_sample = {'text': formatted_seq, 'output_seq': cleaned_output, 'uuid': row['uuid'], 'turn_id': row['turn_id']}             

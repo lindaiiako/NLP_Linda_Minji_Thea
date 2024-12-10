@@ -42,7 +42,7 @@ class MySFTTrainer(SFTTrainer):
 
             preds.append(et_preds)
 
-            if to_print:
+            if True:
                 print("RAW RESPONSE:")
                 print(decoded_response)
                 print("CLEANED RESPONSE:")
@@ -99,11 +99,11 @@ class MySFTTrainer(SFTTrainer):
                 input_ids = inputs['input_ids']
                 untokenized_inputs = self.tokenizer.batch_decode(input_ids, skip_special_tokens=False)
                 for untokenized_text in untokenized_inputs:
-                    marker = "<|im_start|>assistant"
+                    marker = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>"
                     split_text = untokenized_text.split(marker)
                     input_component = split_text[0] + marker
                     input_components.append(input_component)
-                    output_component = split_text[1].replace("ASSISTANT:", '').replace('<|im_end|>','').replace('<eos>', '').strip()
+                    output_component = split_text[1].replace("ASSISTANT:", '').replace('<|eot_id|><|start_header_id|>assistant<|end_header_id|>','').strip()
                     ground_truth_responses.append({'output_seq': output_component})
                
                 tokenized_inputs = self.tokenizer(input_components, add_special_tokens=False, padding="longest", return_tensors="pt").to(self.model.device)
@@ -238,7 +238,7 @@ class LlamaTrainer():
         )
 
         # Setup training on completion only
-        response_template = "<|im_start|>assistant"
+        response_template = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>"
         collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=self.tokenizer)
 
         trainer = MySFTTrainer(

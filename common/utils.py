@@ -76,27 +76,35 @@ def compute_prediction_scores(preds, eval_dataset, delimiter='|'):
     return prec, rec, f1, accuracy
 
 
-# TODO: Add CoT if testing for self-consistency in decoding
-def format_for_llama(prompt, input, output, mode, is_self_consistency):
-    text = f"<|im_start|>system\n{prompt}<|im_end|>\n<|im_start|>user\n{input}<|im_end|>\n<|im_start|>assistant\n"
-    if mode != 'infer':
-        text += f"{output}<|im_end|>\n"
-    return text
-
-# TODO: Add CoT if testing for self-consistency in decoding
 def format_llama_using_chat_template(prompt, input, output, mode, tokenizer, is_self_consistency):
-    add_gen_prompt = True
+    if mode == 'infer' and is_self_consistency:
+        input += "\nLet's think step-by-step."
+
     messages = [
         {"role": "system", "content": prompt},
         {"role": "user", "content": input},
         ]
     if mode != 'infer':
         messages.append({"role": "assistant", "content": output})
-        add_gen_prompt = False
 
-    prompt = tokenizer.apply_chat_template(messages, add_generation_prompt=add_gen_prompt, tokenize=False)
+    formatted_prompt = tokenizer.apply_chat_template(messages, tokenize=False)
 
-    return prompt
+    return formatted_prompt
+
+
+def format_mistral_using_chat_template(prompt, input, output, mode, tokenizer, is_self_consistency):
+    input = prompt + "\n" + input
+
+    if mode == 'infer' and is_self_consistency:
+        input += "\nLet's think step-by-step."
+
+    messages = [{"role": "user", "content": input}]
+    if mode != 'infer':
+        messages.append({"role": "assistant", "content": output})
+
+    formatted_prompt = tokenizer.apply_chat_template(messages, tokenize=False)
+
+    return formatted_prompt
 
 
 def format_for_gemma(prompt, input, output, mode, is_self_consistency):
