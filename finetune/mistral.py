@@ -42,7 +42,7 @@ class MySFTTrainer(SFTTrainer):
 
             preds.append(et_preds)
 
-            if to_print:
+            if True:
                 print("RAW RESPONSE:")
                 print(decoded_response)
                 print("CLEANED RESPONSE:")
@@ -106,7 +106,7 @@ class MySFTTrainer(SFTTrainer):
                     output_component = split_text[1].replace("ASSISTANT:", '').replace('</s>','').strip()
                     ground_truth_responses.append({'output_seq': output_component})
                
-                tokenized_inputs = self.tokenizer(input_components, add_special_tokens=False, padding="longest", return_tensors="pt").to(self.model.device)
+                tokenized_inputs = self.tokenizer(input_components, add_special_tokens=True, padding="longest", return_tensors="pt").to(self.model.device)
             input_ids = tokenized_inputs["input_ids"]
              
             # Run prediction       
