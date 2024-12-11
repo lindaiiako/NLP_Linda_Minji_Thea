@@ -19,7 +19,10 @@ def main(args):
         from finetune.t5 import T5Trainer
         trainer = T5Trainer(args.response_prediction)
     elif args.model == 'llama':
-       from finetune.llama import LlamaTrainer
+       if args.response_prediction:
+           from finetune.llama_direct_response import LlamaTrainer
+       else:
+           from finetune.llama import LlamaTrainer
        trainer = LlamaTrainer(args.model)
     elif args.model == 'gemma':
         if args.response_prediction:
