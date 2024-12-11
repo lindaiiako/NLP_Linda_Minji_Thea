@@ -194,13 +194,13 @@ class GemmaTrainer():
 
     # Main training procedure
     def train(self):
-        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='gemma', mode='train', response_pred=True).data.shuffle(seed=constants.SEED).take(1000)
+        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='gemma', mode='train', response_pred=True).data.shuffle(seed=constants.SEED).take(100)
         # Full training data size: 8529
         print(f"Training data size: {len(train_set)}")
         print("SAMPLES")
         print(train_set[0])
         print(train_set[1])
-        print(train_set[55])
+        #print(train_set[55])
 
         validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='gemma', mode='eval', response_pred=True).data.shuffle(seed=constants.SEED)
 
@@ -215,7 +215,7 @@ class GemmaTrainer():
             gradient_accumulation_steps=3,
             per_device_train_batch_size=1,
             per_device_eval_batch_size=1,
-            num_train_epochs=6,
+            num_train_epochs=2,
             tf32=False,
             fp16=False,
             warmup_ratio=0.03,

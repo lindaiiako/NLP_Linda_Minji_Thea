@@ -38,7 +38,7 @@ class MySFTTrainer(SFTTrainer):
 
             preds.append(preprocess_text(agent_resp))
 
-            if to_print:
+            if True:
                 print("RAW RESPONSE:")
                 print(decoded_response)
                 print("CLEANED RESPONSE:")
@@ -99,10 +99,10 @@ class MySFTTrainer(SFTTrainer):
                     split_text = untokenized_text.split(marker)
                     input_component = split_text[0] + marker
                     input_components.append(input_component)
-                    output_component = split_text[1].split('<sys>')[1].replace('<|eot_id|><|start_header_id|>assistant<|end_header_id|>','').strip()
+                    output_component = split_text[1].split('<sys>')[1].replace('<|eot_id|><|start_header_id|>assistant<|end_header_id|>','').replace("<|eot_id|>", "").strip()
                     ground_truth_responses.append(output_component)
                
-                tokenized_inputs = self.tokenizer(input_components, add_special_tokens=False, padding="longest", return_tensors="pt").to(self.model.device)
+                tokenized_inputs = self.tokenizer(input_components, add_special_tokens=True, padding="longest", return_tensors="pt").to(self.model.device)
             input_ids = tokenized_inputs["input_ids"]
              
             # Run prediction       
@@ -187,9 +187,10 @@ class LlamaTrainer():
                                                           attn_implementation="eager",
                                                           )
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.tokenizer.pad_token = self.tokenizer.eos_token
-        self.tokenizer.padding_side = 'right'
-        self.model.config.pad_token_id = self.tokenizer.eos_token
+        self.tokenizer.add_special_tokens({"pad_token": "<pad>"})
+        self.model.config.pad_token_id = self.tokenizer.pad_token_id
+        self.model.resize_token_embeddings(len(self.tokenizer), pad_to_multiple_of=8)
+        self.model.config.use_cache = False
         print(f"Loaded {model_id}")
 
 
@@ -206,9 +207,9 @@ class LlamaTrainer():
         self.model.print_trainable_parameters()
         
         training_args = SFTConfig(
-            gradient_accumulation_steps=6,
-            per_device_train_batch_size=3,
-            per_device_eval_batch_size=3,
+            gradient_accumulation_steps=8,
+            per_device_train_batch_size=1,
+            per_device_eval_batch_size=1,
             num_train_epochs=6,
             tf32=False,
             fp16=False,
@@ -235,7 +236,7 @@ class LlamaTrainer():
         )
 
         # Setup training on completion only
-        response_template = "[/INST]"
+        response_template = "<|start_header_id|>assistant<|end_header_id|>"
         collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=self.tokenizer)
 
         trainer = MySFTTrainer(

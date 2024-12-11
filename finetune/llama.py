@@ -103,10 +103,10 @@ class MySFTTrainer(SFTTrainer):
                     split_text = untokenized_text.split(marker)
                     input_component = split_text[0] + marker
                     input_components.append(input_component)
-                    output_component = split_text[1].replace("ASSISTANT:", '').replace('<|eot_id|><|start_header_id|>assistant<|end_header_id|>','').strip()
+                    output_component = split_text[1].replace("ASSISTANT:", '').replace('<|eot_id|><|start_header_id|>assistant<|end_header_id|>','').replace("<|eot_id|>", "").strip()
                     ground_truth_responses.append({'output_seq': output_component})
                
-                tokenized_inputs = self.tokenizer(input_components, add_special_tokens=False, padding="longest", return_tensors="pt").to(self.model.device)
+                tokenized_inputs = self.tokenizer(input_components, add_special_tokens=True, padding="longest", return_tensors="pt").to(self.model.device)
             input_ids = tokenized_inputs["input_ids"]
              
             # Run prediction       
@@ -191,8 +191,10 @@ class LlamaTrainer():
                                                           attn_implementation="flash_attention_2",
                                                           )
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.tokenizer.pad_token = self.tokenizer.eos_token
-        self.model.config.pad_token_id = self.tokenizer.eos_token
+        self.tokenizer.add_special_tokens({"pad_token": "<pad>"})
+        self.model.config.pad_token_id = self.tokenizer.pad_token_id
+        self.model.resize_token_embeddings(len(self.tokenizer), pad_to_multiple_of=8)
+        self.model.config.use_cache = False
         print(f"Loaded {model_id}")
 
 
@@ -238,7 +240,7 @@ class LlamaTrainer():
         )
 
         # Setup training on completion only
-        response_template = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>"
+        response_template = "<|start_header_id|>assistant<|end_header_id|>"
         collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=self.tokenizer)
 
         trainer = MySFTTrainer(

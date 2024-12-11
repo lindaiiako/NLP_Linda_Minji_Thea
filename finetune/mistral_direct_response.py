@@ -187,8 +187,11 @@ class MistralTrainer():
                                                           attn_implementation="eager",
                                                           )
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.tokenizer.pad_token = self.tokenizer.eos_token
-        self.tokenizer.padding_side = 'right'
+        self.tokenizer.add_special_tokens({"pad_token": "<pad>"})
+        self.model.config.pad_token_id = self.tokenizer.pad_token_id
+        self.model.resize_token_embeddings(len(self.tokenizer), pad_to_multiple_of=8)
+        self.model.config.use_cache = False
+
         print(f"Loaded {model_id}")
 
 
@@ -205,7 +208,7 @@ class MistralTrainer():
         self.model.print_trainable_parameters()
         
         training_args = SFTConfig(
-            gradient_accumulation_steps=5,
+            gradient_accumulation_steps=8,
             per_device_train_batch_size=1,
             per_device_eval_batch_size=1,
             num_train_epochs=6,
@@ -221,10 +224,10 @@ class MistralTrainer():
             log_level='warning',
             logging_steps=50,
             save_strategy='steps', 
-            save_steps=1000,
+            save_steps=500,
             seed=constants.SEED,
             eval_strategy='steps',
-            eval_steps=1000,
+            eval_steps=500,
             save_total_limit=2,
             load_best_model_at_end=True, 
             metric_for_best_model='f1',
