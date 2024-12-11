@@ -22,14 +22,16 @@ FT_MODEL = {
     "llama": "checkpoints/llama-ft",
     "mistral": "checkpoints/mistral-ft",
     "gemma-response-pred": "checkpoints/gemma-response-pred-ft",
-    "mistral-response-pred": "checkpoints/mistral-response-pred-ft"
+    "mistral-response-pred": "checkpoints/mistral-response-pred-ft",
+    "llama-response-pred": "checkpoints/llama-response-pred-ft"
 }
 MERGED_MODEL = {
     "gemma": "checkpoints/gemma-merged",
     "llama": "checkpoints/llama-merged",
     "mistral": "checkpoints/mistral-merged",
     "gemma-response-pred": "checkpoints/gemma-response-pred-merged",
-    "mistral-response-pred": "checkpoints/mistral-response-pred-merged"
+    "mistral-response-pred": "checkpoints/mistral-response-pred-merged",
+    "llama-response-pred": "checkpoints/llama-response-pred-merged"
 }
 TRAIN_OUTPUT_DIR = {
     "t5": "train_output/t5/",
@@ -38,7 +40,8 @@ TRAIN_OUTPUT_DIR = {
     "llama": "train_output/llama/",
     "mistral": "train_output/mistral/",
     "gemma-response-pred": "train_output/gemma-response-pred/",
-    "mistral-response-pred": "train_output/mistral-response-pred/"
+    "mistral-response-pred": "train_output/mistral-response-pred/",
+    "llama-response-pred": "train_output/llama-response-pred/"
 }
 TEST_RESULT_FILE = {
     "t5": "predictions/t5.json",
@@ -47,5 +50,6 @@ TEST_RESULT_FILE = {
     "llama": "predictions/llama.json",
     "mistral": "predictions/mistral.json",
     "gemma-response-pred": "predictions/gemma-response-pred.json",
-    "mistral-response-pred": "predictions/mistral-response-pred.json"
+    "mistral-response-pred": "predictions/mistral-response-pred.json",
+    "llama-response-pred": "predictions/llama-response-pred.json"
 }

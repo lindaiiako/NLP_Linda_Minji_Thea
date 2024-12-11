@@ -9,6 +9,8 @@ from common.utils import compute_prediction_scores
 from peft import LoraConfig
 from trl import SFTTrainer, SFTConfig, DataCollatorForCompletionOnlyLM
 from peft import LoraConfig, get_peft_model, PeftModel
+from synctod.text_process import preprocess_text
+from synctod.metrics import compute_metrics
 
 
 # Set for reproducibility
@@ -28,25 +30,19 @@ class MySFTTrainer(SFTTrainer):
 
         # Parse output
         for decoded_response in responses:
-            et_preds = ""
-            if "ASSISTANT:" in decoded_response:
-                et_preds = decoded_response.split("ASSISTANT:")[1].strip()
+            agent_resp = ""
+            if "<sys>" in decoded_response:
+                agent_resp = decoded_response.split("<sys>")[1].strip()
             else:
-                et_preds = decoded_response
+                agent_resp = decoded_response
 
-            # Handle proper formats
-            if 'no entity' in et_preds:
-                et_preds = '[no entity]'
-            else:
-                et_preds = et_preds.replace('[', '').replace(']', '').strip()
+            preds.append(preprocess_text(agent_resp))
 
-            preds.append(et_preds)
-
-            if True:
+            if to_print:
                 print("RAW RESPONSE:")
                 print(decoded_response)
                 print("CLEANED RESPONSE:")
-                print(et_preds)
+                print(agent_resp)
 
         return preds
 
@@ -83,7 +79,7 @@ class MySFTTrainer(SFTTrainer):
                 tokenized_inputs = self.tokenizer(formatted_prompts, padding="longest", return_tensors="pt").to(self.model.device)
 
                 # No need to recover inputs and outputs
-                ground_truth_responses = dataset
+                ground_truth_responses.extend(inputs['output_seq'])
                 
                 print("TEST INPUT")
                 print(formatted_prompts)
@@ -103,8 +99,8 @@ class MySFTTrainer(SFTTrainer):
                     split_text = untokenized_text.split(marker)
                     input_component = split_text[0] + marker
                     input_components.append(input_component)
-                    output_component = split_text[1].replace("ASSISTANT:", '').replace('<|eot_id|><|start_header_id|>assistant<|end_header_id|>','').strip()
-                    ground_truth_responses.append({'output_seq': output_component})
+                    output_component = split_text[1].split('<sys>')[1].replace('<|eot_id|><|start_header_id|>assistant<|end_header_id|>','').strip()
+                    ground_truth_responses.append(output_component)
                
                 tokenized_inputs = self.tokenizer(input_components, add_special_tokens=False, padding="longest", return_tensors="pt").to(self.model.device)
             input_ids = tokenized_inputs["input_ids"]
@@ -112,7 +108,7 @@ class MySFTTrainer(SFTTrainer):
             # Run prediction       
             with torch.no_grad():
                 outputs = model.generate(**tokenized_inputs,
-                                         max_new_tokens=constants.MAX_NEW_TOKENS,
+                                         max_new_tokens=384,
                                          do_sample=False,
                                          num_beams=1,
                                          )
@@ -127,7 +123,7 @@ class MySFTTrainer(SFTTrainer):
         return responses, ground_truth_responses
 
 
-    # Evaluates entity type prediction using F1 scores (used in validation and test set)
+    # Evaluates response prediction with BLEU and Entity F1
     def evaluate(self, 
                  eval_dataset=None, 
                  ignore_keys=None,
@@ -143,13 +139,13 @@ class MySFTTrainer(SFTTrainer):
         responses, ground_truth_responses = self.get_preds(eval_dataset, metric_key_prefix)
 
         # Compute scores
-        prec, rec, f1, accuracy = compute_prediction_scores(responses, ground_truth_responses)
+        results = compute_metrics(responses, ground_truth_responses, 'MultiWOZ', f'{constants.DATA_DIR}entities.json')
         
         metrics = dict()
-        metrics[f"{metric_key_prefix}_f1"] = f1
-        metrics[f"{metric_key_prefix}_prec"] = prec
-        metrics[f"{metric_key_prefix}_rec"] = rec
-        metrics[f"{metric_key_prefix}_acc"] = accuracy
+        metrics[f"{metric_key_prefix}_bleu"] = results["bleu"]
+        metrics[f"{metric_key_prefix}_f1"] = results["entity_f1"]
+        metrics[f"{metric_key_prefix}_precision"] = results["entity_precision"]
+        metrics[f"{metric_key_prefix}_recall"] = results["entity_recall"]
 
         self.log(metrics)
         self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, metrics)
@@ -163,9 +159,8 @@ class MySFTTrainer(SFTTrainer):
                 output.append(dict())
                 output[-1]['uuid'] = eval_dataset[idx]['uuid']
                 output[-1]['turn_id'] = eval_dataset[idx]['turn_id']
-                tetypes = resp.split('|')
-                tetypes = [x.strip() for x in tetypes if '[no entity]' != x]
-                output[-1]['prediction'] = tetypes
+                output[-1]['ground_resp'] = eval_dataset[idx]['output_seq']
+                output[-1]['prediction'] = resp
                 
             with open(result_path, 'w') as f:
                 json.dump(output, f, indent=2)
@@ -175,8 +170,9 @@ class MySFTTrainer(SFTTrainer):
 
 class LlamaTrainer():
     # Loads tokenizer and model
-    def __init__(self, model_name):
-        self.model_name = model_name
+    def __init__(self, model_type):
+        self.model_type = model_type
+        self.key_name = "llama-response-pred"
         bnb_config = BitsAndBytesConfig(
             load_in_4bit=True, 
             bnb_4bit_quant_type="nf4",
@@ -184,27 +180,28 @@ class LlamaTrainer():
             bnb_4bit_use_double_quant=True,
         )
 
-        model_id = constants.MODEL_ID[self.model_name]
+        model_id = constants.MODEL_ID[self.model_type]
         self.model = AutoModelForCausalLM.from_pretrained(model_id, 
                                                           quantization_config=bnb_config,
                                                           low_cpu_mem_usage=True,
-                                                          attn_implementation="flash_attention_2",
+                                                          attn_implementation="eager",
                                                           )
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.tokenizer.pad_token = self.tokenizer.eos_token
+        self.tokenizer.padding_side = 'right'
         self.model.config.pad_token_id = self.tokenizer.eos_token
         print(f"Loaded {model_id}")
 
 
     # Main training procedure
     def train(self):
-        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='llama', mode='train').data.shuffle(seed=constants.SEED)
-        validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='llama', mode='eval').data.shuffle(seed=constants.SEED)
+        train_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}train.json', model_type='llama', mode='train', response_pred=True).data.shuffle(seed=constants.SEED)
+        validation_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}valid.json', model_type='llama', mode='eval', response_pred=True).data.shuffle(seed=constants.SEED)
 
         # LoRA with double scaling factor
         peft_config = LoraConfig(r=64, lora_alpha=128, lora_dropout=0.05, bias="none", task_type="CAUSAL_LM")
 
-        # Wrap model with peft_config
+        # Wrap the base model with peft_config
         self.model = get_peft_model(self.model, peft_config)
         self.model.print_trainable_parameters()
         
@@ -220,15 +217,15 @@ class LlamaTrainer():
             optim="paged_adamw_8bit",
             dataset_text_field="text",
             max_seq_length=5000,
-            output_dir=constants.TRAIN_OUTPUT_DIR[self.model_name],
+            output_dir=constants.TRAIN_OUTPUT_DIR[self.key_name],
             overwrite_output_dir=True,
             log_level='warning',
             logging_steps=50,
             save_strategy='steps', 
-            save_steps=400,
+            save_steps=500,
             seed=constants.SEED,
             eval_strategy='steps',
-            eval_steps=400,
+            eval_steps=500,
             save_total_limit=2,
             load_best_model_at_end=True, 
             metric_for_best_model='f1',
@@ -238,7 +235,7 @@ class LlamaTrainer():
         )
 
         # Setup training on completion only
-        response_template = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>"
+        response_template = "[/INST]"
         collator = DataCollatorForCompletionOnlyLM(response_template, tokenizer=self.tokenizer)
 
         trainer = MySFTTrainer(
@@ -255,22 +252,23 @@ class LlamaTrainer():
         trainer.train()
         
         # Save the fine-tuned model
-        trainer.model.save_pretrained(constants.FT_MODEL[self.model_name])
+        trainer.model.save_pretrained(constants.FT_MODEL[self.key_name])
 
         # Merge the model with LoRA weights
         base_model = AutoModelForCausalLM.from_pretrained(
-            constants.MODEL_ID[self.model_name],
+            constants.MODEL_ID[self.model_type],
             low_cpu_mem_usage=True,
             return_dict=True,
             torch_dtype=torch.float16,
         )
-        merged_model= PeftModel.from_pretrained(base_model, constants.FT_MODEL[self.model_name])
+        merged_model= PeftModel.from_pretrained(base_model, constants.FT_MODEL[self.key_name])
         merged_model= merged_model.merge_and_unload()
 
         # Save the merged model for later use
-        merged_model.save_pretrained(constants.MERGED_MODEL[self.model_name], safe_serialization=True)
-        self.tokenizer.save_pretrained(constants.MERGED_MODEL[self.model_name])
+        merged_model.save_pretrained(constants.MERGED_MODEL[self.key_name], safe_serialization=True)
+        self.tokenizer.save_pretrained(constants.MERGED_MODEL[self.key_name])
+        
         
         # Get test performance
-        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='llama', mode='infer').data
-        trainer.evaluate(test_set, save_results=True, result_path=constants.TEST_RESULT_FILE[self.model_name], metric_key_prefix='test')
+        test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='llama', mode='infer', response_pred=True).data
+        trainer.evaluate(test_set, save_results=True, result_path=constants.TEST_RESULT_FILE[self.key_name], metric_key_prefix='test')

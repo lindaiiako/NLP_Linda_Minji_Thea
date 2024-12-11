@@ -195,6 +195,7 @@ class MistralTrainer():
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.model.config.use_cache = False
         self.model.config.pretraining_tp = 1
+        self.model.config.pad_token_id = self.tokenizer.eos_token
         print(f"Loaded {model_id}")
 
 

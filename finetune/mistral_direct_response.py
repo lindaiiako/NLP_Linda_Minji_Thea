@@ -230,7 +230,7 @@ class MistralTrainer():
             metric_for_best_model='f1',
             greater_is_better=True,         
             report_to='tensorboard',
-            run_name='gemma_exp',   
+            run_name='mistral_exp',   
         )
 
         # Setup training on completion only
