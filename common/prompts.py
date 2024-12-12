@@ -48,3 +48,13 @@ Always select only from the valid entity type names. Do not change spelling or a
 Output only one list and nothing else.
 '''
 
+ANTROPHIC_PROMPT = '''You are an AI assistant tasked with predicting entity types from incomplete task-oriented dialogs. You will be given a dialog, a list of entity types, and additional information to help guide your decision.
+
+Following is the incomplete task-oriented dialog:
+{DIALOG}
+
+This is a list of entity types that should be included in the ASSISTANT's next response: address, area, entrance_fee, food, name, phone, postcode, pricerange, type, stars, ref, choice
+This is an additional information, including another model's prediction and confidence score: {ADDITIONAL_INFO}
+You have to predict which entity types from the given list should be included in the ASSISTANT's next response. Use the additional information to guide your decision.
+
+Consider the dialog context, the given entity types, and the additional information, provide your final answer within [Answer] tags. Remember to use the `|` delimiter without repetitions. If there is no entity needed, just write "[no entity]". '''.strip()
