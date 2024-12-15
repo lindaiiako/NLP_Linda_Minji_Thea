@@ -256,3 +256,62 @@ class CustomMwozDataset(Dataset):
             processed_dataset.append(data_sample)
 
         return processed_dataset
+
+class CustomICLMwozDataset(Dataset):
+    def __init__(self, tokenizer, data_filename, mode):
+        self.mode = mode
+
+        with open(data_filename, 'r') as f:
+            dataset = json.load(f)
+        
+        data = []
+        for data_dict in dataset:
+            new_data = {}
+            new_data['context'] = "\n".join(data_dict['context'])
+            new_data['output_seq'] = data_dict['output_seq']
+            new_data['output'] = data_dict['output']
+            new_data['database'] = data_dict['database']
+            data.append(new_data)
+
+        self.data = data
+            
+    def __len__(self):
+        return len(self.data)
+    
+    def __getitem__(self, idx):
+        return self.data[idx]
+    
+
+
+class CustomSuperICLMwozDataset(Dataset):
+    def __init__(self, tokenizer, data_filename, mode):
+        self.mode = mode
+
+        with open(data_filename, 'r') as f:
+            dataset = json.load(f)
+
+        with open("predictions/t5.json", 'r') as f:
+            predictions = json.load(f)
+        
+        data = []
+        for idx, data_dict in enumerate(dataset):
+            new_data = {}
+            new_data['context'] = "\n".join(data_dict['context'])
+            new_data['uuid'] = predictions[idx]['uuid']
+            if len(predictions[idx]['prediction']) == 0:
+                new_data['prediction'] = '[no entity]'
+            else:
+                new_data['prediction'] = ' | '.join(predictions[idx]['prediction'])
+            new_data['confidence'] = predictions[idx]['confidence']
+            new_data['output_seq'] = data_dict['output_seq']
+            new_data['database'] = data_dict['database']
+            data.append(new_data)
+
+        self.data = data
+            
+    def __len__(self):
+        return len(self.data)
+    
+    def __getitem__(self, idx):
+        return self.data[idx]
+    
