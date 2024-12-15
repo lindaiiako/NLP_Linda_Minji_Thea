@@ -253,6 +253,7 @@ class MistralTrainer():
         # Start training
         trainer.train()
         
+        '''
         # Save the fine-tuned model
         trainer.model.save_pretrained(constants.FT_MODEL[self.key_name])
 
@@ -269,7 +270,7 @@ class MistralTrainer():
         # Save the merged model for later use
         merged_model.save_pretrained(constants.MERGED_MODEL[self.key_name], safe_serialization=True)
         self.tokenizer.save_pretrained(constants.MERGED_MODEL[self.key_name])
-        
+        '''
         
         # Get test performance
         test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='mistral', mode='infer', response_pred=True).data

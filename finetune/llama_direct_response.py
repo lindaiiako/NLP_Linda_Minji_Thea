@@ -255,6 +255,7 @@ class LlamaTrainer():
         # Save the fine-tuned model
         trainer.model.save_pretrained(constants.FT_MODEL[self.key_name])
 
+        '''
         # Merge the model with LoRA weights
         base_model = AutoModelForCausalLM.from_pretrained(
             constants.MODEL_ID[self.model_type],
@@ -268,7 +269,7 @@ class LlamaTrainer():
         # Save the merged model for later use
         merged_model.save_pretrained(constants.MERGED_MODEL[self.key_name], safe_serialization=True)
         self.tokenizer.save_pretrained(constants.MERGED_MODEL[self.key_name])
-        
+        '''
         
         # Get test performance
         test_set = CustomMwozDataset(self.tokenizer, data_filename=f'{constants.DATA_DIR}test.json', model_type='llama', mode='infer', response_pred=True).data
